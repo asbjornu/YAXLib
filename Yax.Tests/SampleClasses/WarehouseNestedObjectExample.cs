@@ -36,8 +36,8 @@ namespace Yax.Tests.SampleClasses
         public PossibleItems[] Items { get; set; }
 
         [YAXDictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
-                       SerializeKeyAs = YAXNodeTypes.Attribute,
-                       SerializeValueAs = YAXNodeTypes.Attribute)]
+                       SerializeKeyAs = NodeTypes.Attribute,
+                       SerializeValueAs = NodeTypes.Attribute)]
         [YAXSerializeAs("ItemQuantities")]
         public Dictionary<PossibleItems, int> ItemQuantitiesDic { get; set; }
 

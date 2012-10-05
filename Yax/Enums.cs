@@ -92,7 +92,7 @@ namespace Yax
     /// <summary>
     /// Enumerates possible XML node types upon which a property can be serialized.
     /// </summary>
-    public enum YAXNodeTypes
+    public enum NodeTypes
     {
         /// <summary>
         /// Serialize data as an attribute for the base element

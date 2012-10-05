@@ -437,8 +437,8 @@ namespace Yax
             this.KeyName = null;
             this.ValueName = null;
             this.EachPairName = null;
-            this.SerializeKeyAs = YAXNodeTypes.Element;
-            this.SerializeValueAs = YAXNodeTypes.Element;
+            this.SerializeKeyAs = NodeTypes.Element;
+            this.SerializeValueAs = NodeTypes.Element;
             this.KeyFormatString = null;
             this.ValueFormatString = null;
         }
@@ -469,13 +469,13 @@ namespace Yax
         /// Gets or sets the node type according to which the key part of the dictionary is serialized.
         /// </summary>
         /// <value></value>
-        public YAXNodeTypes SerializeKeyAs { get; set; }
+        public NodeTypes SerializeKeyAs { get; set; }
 
         /// <summary>
         /// Gets or sets the node type according to which the value part of the dictionary is serialized.
         /// </summary>
         /// <value></value>
-        public YAXNodeTypes SerializeValueAs { get; set; }
+        public NodeTypes SerializeValueAs { get; set; }
 
         /// <summary>
         /// Gets or sets the key format string.

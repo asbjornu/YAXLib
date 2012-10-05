@@ -10,10 +10,10 @@ namespace Yax.Tests.SampleClasses
     {
         public Stack<int> TheStack { get; set; }
 
-        [YAXDictionary(EachPairName = "Item", SerializeKeyAs = YAXNodeTypes.Attribute, SerializeValueAs = YAXNodeTypes.Attribute)]
+        [YAXDictionary(EachPairName = "Item", SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
         public SortedList<double, string> TheSortedList { get; set; }
 
-        [YAXDictionary(EachPairName = "Item", SerializeKeyAs = YAXNodeTypes.Attribute, SerializeValueAs = YAXNodeTypes.Attribute)]
+        [YAXDictionary(EachPairName = "Item", SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
         public SortedDictionary<int, double> TheSortedDictionary { get; set; }
 
         public Queue<string> TheQueue { get; set; }

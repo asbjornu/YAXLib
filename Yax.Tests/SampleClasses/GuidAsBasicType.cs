@@ -20,12 +20,12 @@ namespace Yax.Tests.SampleClasses
 
         public Dictionary<Guid, int> DicKeyGuid { get; set; }
 
-        [YAXDictionary(EachPairName = "Pair", KeyName = "TheGuid", SerializeKeyAs = YAXNodeTypes.Attribute)]
+        [YAXDictionary(EachPairName = "Pair", KeyName = "TheGuid", SerializeKeyAs = NodeTypes.Attribute)]
         public Dictionary<Guid, int> DicKeyAttrGuid { get; set; }
 
         public Dictionary<int, Guid> DicValueGuid { get; set; }
 
-        [YAXDictionary(EachPairName = "Pair", ValueName = "TheGuid", SerializeValueAs = YAXNodeTypes.Attribute)]
+        [YAXDictionary(EachPairName = "Pair", ValueName = "TheGuid", SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<int, Guid> DicValueAttrGuid { get; set; }
 
         public override string ToString()

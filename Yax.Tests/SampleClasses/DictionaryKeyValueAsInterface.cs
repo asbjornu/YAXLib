@@ -12,12 +12,12 @@ namespace Yax.Tests.SampleClasses
     {
         [YAXComment("Values are serialized through a reference to their interface.")]
         [YAXErrorIfMissed(ExceptionTypes.Ignore)]
-        [YAXDictionary(EachPairName = "attribute", KeyName = "key", SerializeKeyAs = YAXNodeTypes.Attribute)]
+        [YAXDictionary(EachPairName = "attribute", KeyName = "key", SerializeKeyAs = NodeTypes.Attribute)]
         public Dictionary<string, IParameter> Attributes1 { get; set; }
 
         [YAXComment("Keys are serialized through a reference to their interface.")]
         [YAXErrorIfMissed(ExceptionTypes.Ignore)]
-        [YAXDictionary(EachPairName = "Entry", ValueName = "value", SerializeValueAs = YAXNodeTypes.Attribute)]
+        [YAXDictionary(EachPairName = "Entry", ValueName = "value", SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<IParameter, string> Attributes2 { get; set; }
 
 

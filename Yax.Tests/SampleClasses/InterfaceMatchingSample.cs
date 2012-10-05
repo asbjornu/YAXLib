@@ -15,10 +15,10 @@ namespace Yax.Tests.SampleClasses
         [YAXCollection(CollectionSerializationTypes.Serially)]
         public List<int?> ListOfSamples { get; set; }
 
-        [YAXDictionary(SerializeKeyAs = YAXNodeTypes.Attribute, SerializeValueAs= YAXNodeTypes.Attribute)]
+        [YAXDictionary(SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs= NodeTypes.Attribute)]
         public Dictionary<double?, int> DictNullable2Int { get; set; }
 
-        [YAXDictionary(SerializeKeyAs = YAXNodeTypes.Attribute, SerializeValueAs = YAXNodeTypes.Attribute)]
+        [YAXDictionary(SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<int, double?> DictInt2Nullable { get; set; }
 
         public override string ToString()

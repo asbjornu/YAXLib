@@ -1043,12 +1043,12 @@ namespace Yax
                     eachElementName = eachElementName.OverrideNsIfEmpty(elementName.Namespace.IfEmptyThen(TypeNamespace).IfEmptyThenNone());
                 }
 
-                if (dicAttrInst.SerializeKeyAs == YAXNodeTypes.Attribute)
+                if (dicAttrInst.SerializeKeyAs == NodeTypes.Attribute)
                 {
                     isKeyAttrib = ReflectionUtils.IsBasicType(keyType);
                 }
 
-                if (dicAttrInst.SerializeValueAs == YAXNodeTypes.Attribute)
+                if (dicAttrInst.SerializeValueAs == NodeTypes.Attribute)
                 {
                     isValueAttrib = ReflectionUtils.IsBasicType(valueType);
                 }
@@ -2266,12 +2266,12 @@ namespace Yax
                     eachElementName.OverrideNsIfEmpty(member.Namespace.IfEmptyThen(TypeNamespace).IfEmptyThenNone());
                 }
                 
-                if (member.DictionaryAttributeInstance.SerializeKeyAs == YAXNodeTypes.Attribute)
+                if (member.DictionaryAttributeInstance.SerializeKeyAs == NodeTypes.Attribute)
                 {
                     isKeyAttrib = ReflectionUtils.IsBasicType(keyType);
                 }
 
-                if (member.DictionaryAttributeInstance.SerializeValueAs == YAXNodeTypes.Attribute)
+                if (member.DictionaryAttributeInstance.SerializeValueAs == NodeTypes.Attribute)
                 {
                     isValueAttrib = ReflectionUtils.IsBasicType(valueType);
                 }

@@ -15,8 +15,8 @@ namespace Yax.Tests.SampleClasses
     public class MoreComplexExample
     {
         [YAXDictionary(EachPairName = "PointInfo", KeyName = "PName",
-            ValueName = "ThePoint", SerializeKeyAs = YAXNodeTypes.Attribute,
-            SerializeValueAs = YAXNodeTypes.Attribute)]
+            ValueName = "ThePoint", SerializeKeyAs = NodeTypes.Attribute,
+            SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<string, MyPoint> FamousPoints { get; set; }
 
         private List<int> m_lst = new List<int>();
