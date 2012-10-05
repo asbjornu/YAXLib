@@ -16,7 +16,7 @@ namespace Yax
     /// The base class for all attributes defined in YAXLib.
     /// </summary>
     [AttributeUsage(AttributeTargets.All)]
-    public abstract class BaseAttribute : Attribute
+    public abstract class YaxAttribute : Attribute
     {
     }
 
@@ -25,7 +25,7 @@ namespace Yax
     /// This attribute is applicable to classes, structures, fields, and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Field | AttributeTargets.Property)]
-    public class CommentAttribute : BaseAttribute
+    public class CommentAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -57,7 +57,7 @@ namespace Yax
     /// This attribute is applicable to classes and structures.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
-    public class SerializableTypeAttribute : BaseAttribute
+    public class SerializableTypeAttribute : YaxAttribute
     {
         #region Private Fields
 
@@ -136,7 +136,7 @@ namespace Yax
     /// This attribute is applicable to classes, structs, fields, enums and properties
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Enum | AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Struct)]
-    public class NamespaceAttribute : BaseAttribute
+    public class NamespaceAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -197,7 +197,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class SerializableFieldAttribute : BaseAttribute
+    public class SerializableFieldAttribute : YaxAttribute
     {
     }
     
@@ -206,7 +206,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties only.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class AttributeForClassAttribute : BaseAttribute
+    public class AttributeForClassAttribute : YaxAttribute
     {
     }
 
@@ -215,7 +215,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class AttributeForAttribute : BaseAttribute
+    public class AttributeForAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -246,7 +246,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class ValueForAttribute : BaseAttribute
+    public class ValueForAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -276,7 +276,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class ValueForClassAttribute : BaseAttribute
+    public class ValueForClassAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -298,7 +298,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class DontSerializeAttribute : BaseAttribute
+    public class DontSerializeAttribute : YaxAttribute
     {
     }
 
@@ -308,7 +308,7 @@ namespace Yax
     /// properties, classes, and structs.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class SerializeAsAttribute : BaseAttribute
+    public class SerializeAsAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -338,7 +338,7 @@ namespace Yax
     /// for another element. This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class ElementForAttribute : BaseAttribute
+    public class ElementForAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -369,7 +369,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class CollectionAttribute : BaseAttribute
+    public class CollectionAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -425,7 +425,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class DictionaryAttribute : BaseAttribute
+    public class DictionaryAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -497,7 +497,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class ErrorIfMissedAttribute : BaseAttribute
+    public class ErrorIfMissedAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -539,7 +539,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class FormatAttribute : BaseAttribute
+    public class FormatAttribute : YaxAttribute
     {
         #region Constructors
 
@@ -572,7 +572,7 @@ namespace Yax
     /// This attribute is applicable to fields, properties, classes, and structs.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class NotCollectionAttribute : BaseAttribute
+    public class NotCollectionAttribute : YaxAttribute
     {
     }
 
@@ -581,7 +581,7 @@ namespace Yax
     /// This attribute is applicable to enum members.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class EnumAttribute : BaseAttribute
+    public class EnumAttribute : YaxAttribute
     {
         #region Constructor
 
@@ -613,7 +613,7 @@ namespace Yax
     /// This attribute is applicable to fields, properties, classes, and structs.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class CustomSerializerAttribute : BaseAttribute
+    public class CustomSerializerAttribute : YaxAttribute
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomSerializerAttribute"/> class.
@@ -638,7 +638,7 @@ namespace Yax
     /// deserialization, or add it to the containing class to be applied to all its fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class PreserveWhitespaceAttribute : BaseAttribute
+    public class PreserveWhitespaceAttribute : YaxAttribute
     {
     }
 }
