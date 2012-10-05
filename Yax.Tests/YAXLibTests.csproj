@@ -135,7 +135,7 @@
     <None Include="YAXLib.DevKey.snk" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Yax\YAXLib.csproj">
+    <ProjectReference Include="..\Yax\Yax.csproj">
       <Project>{f1c4d174-c948-4d18-a125-f6855ef55683}</Project>
       <Name>YAXLib</Name>
     </ProjectReference>

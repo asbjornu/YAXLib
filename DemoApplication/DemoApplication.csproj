@@ -114,7 +114,7 @@
       <Project>{4f012f71-c259-481b-a112-ec24d3af24ac}</Project>
       <Name>YAXLibTests</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Yax\YAXLib.csproj">
+    <ProjectReference Include="..\Yax\Yax.csproj">
       <Project>{F1C4D174-C948-4D18-A125-F6855EF55683}</Project>
       <Name>YAXLib</Name>
     </ProjectReference>
