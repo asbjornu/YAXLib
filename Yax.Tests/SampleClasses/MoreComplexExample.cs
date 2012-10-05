@@ -8,13 +8,13 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This example tries to show almost all features of YAXLib which were not shown before.
+    [Comment(@"This example tries to show almost all features of YAXLib which were not shown before.
       FamousPoints - shows a dictionary with a non-primitive value member.
       IntEnumerable - shows serializing properties of type IEnumerable<>
       Students - shows the usage of YAXNotCollection attribute")]
     public class MoreComplexExample
     {
-        [YAXDictionary(EachPairName = "PointInfo", KeyName = "PName",
+        [Dictionary(EachPairName = "PointInfo", KeyName = "PName",
             ValueName = "ThePoint", SerializeKeyAs = NodeTypes.Attribute,
             SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<string, MyPoint> FamousPoints { get; set; }
@@ -34,7 +34,7 @@ namespace Yax.Tests.SampleClasses
             }
         }
 
-        [YAXNotCollection]
+        [NotCollection]
         public Students Students { get; set; }
 
         public override string ToString()
@@ -62,10 +62,10 @@ namespace Yax.Tests.SampleClasses
 
     public class MyPoint
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public int X { get; set; }
 
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public int Y { get; set; }
 
         public override string ToString()

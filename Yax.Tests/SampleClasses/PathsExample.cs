@@ -4,12 +4,12 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This example demonstrates how not to use 
+    [Comment(@"This example demonstrates how not to use 
       white spaces as separators while serializing 
       collection classes serially")]
     public class PathsExample
     {
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
         public List<string> Paths { get; set; }
 
         public override string ToString()

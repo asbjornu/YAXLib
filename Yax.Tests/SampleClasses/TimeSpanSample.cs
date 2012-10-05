@@ -5,7 +5,7 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example shows serialization and deserialization of TimeSpan obejcts")]
+    [Comment("This example shows serialization and deserialization of TimeSpan obejcts")]
     public class TimeSpanSample
     {
         public TimeSpan TheTimeSpan { get; set; }

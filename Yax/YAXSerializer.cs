@@ -1002,8 +1002,8 @@ namespace Yax
             XElement insertionLocation,
             XName elementName,
             object elementValue,
-            YAXDictionaryAttribute dicAttrInst,
-            YAXCollectionAttribute collectionAttrInst)
+            DictionaryAttribute dicAttrInst,
+            CollectionAttribute collectionAttrInst)
         {
             if (elementValue == null)
             {
@@ -1207,7 +1207,7 @@ namespace Yax
         /// </returns>
         private XElement MakeCollectionElement(
             XElement insertionLocation, XName elementName, object elementValue,
-            YAXCollectionAttribute collectionAttrInst, string format)
+            CollectionAttribute collectionAttrInst, string format)
         {
             if (elementValue == null)
             {
@@ -1897,7 +1897,7 @@ namespace Yax
         /// <param name="memberAlias">The member's alias, used only in exception titles.</param>
         /// <param name="colAttrInstance">The collection attribute instance.</param>
         /// <returns></returns>
-        private object DeserializeCollectionValue(Type colType, XElement xelemValue, XName memberAlias, YAXCollectionAttribute colAttrInstance)
+        private object DeserializeCollectionValue(Type colType, XElement xelemValue, XName memberAlias, CollectionAttribute colAttrInstance)
         {
             var lst = new List<object>(); // this will hold the actual data items
             Type itemType = ReflectionUtils.GetCollectionItemType(colType);

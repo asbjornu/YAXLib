@@ -2,27 +2,27 @@
 
 namespace Yax.Tests.SampleClasses
 {
-    [YAXComment("This class contains fields that are vulnerable to culture changes!")]
+    [Comment("This class contains fields that are vulnerable to culture changes!")]
     public class CultureSample
     {
         public double Number1 { get; set; }
 
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public double Number2 { get; set; }
 
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public double? Number3 { get; set; }
 
         public double[] Numbers { get; set; }
 
         public decimal Dec1 { get; set; }
 
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public decimal Dec2 { get; set; }
 
         public DateTime Date1 { get; set; }
 
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public DateTime Date2 { get; set; }
 
         public static CultureSample GetSampleInstance()

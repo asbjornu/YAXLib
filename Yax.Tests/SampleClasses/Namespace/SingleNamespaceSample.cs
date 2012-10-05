@@ -1,7 +1,7 @@
 ﻿namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXComment("This example shows usage of a custom default namespace")]
-    [YAXNamespace("http://namespaces.org/default")]
+    [Comment("This example shows usage of a custom default namespace")]
+    [Namespace("http://namespaces.org/default")]
     public class SingleNamespaceSample
     {
         public static SingleNamespaceSample GetInstance()

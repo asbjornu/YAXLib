@@ -4,24 +4,24 @@ using System.Drawing;
 
 namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXSerializeAs("MobilePhone")]
+    [SerializeAs("MobilePhone")]
     public class CellPhone_CollectionNamespaceForAllItems
     {
         public string DeviceBrand { get; set; }
         public string OS { get; set; }
 
-        [YAXNamespace("app", "http://namespace.org/apps")]
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [Namespace("app", "http://namespace.org/apps")]
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
             EachElementName = "{http://namespace.org/appName}AppName")]
         public List<string> IntalledApps { get; set; }
 
-        [YAXNamespace("cls", "http://namespace.org/colorCol")]
-        [YAXCollection(CollectionSerializationTypes.Recursive,
+        [Namespace("cls", "http://namespace.org/colorCol")]
+        [Collection(CollectionSerializationTypes.Recursive,
             EachElementName = "{http://namespace.org/color}TheColor")]
         public List<Color> AvailableColors { get; set; }
 
-        [YAXNamespace("mdls", "http://namespace.org/modelCol")]
-        [YAXCollection(CollectionSerializationTypes.Serially,
+        [Namespace("mdls", "http://namespace.org/modelCol")]
+        [Collection(CollectionSerializationTypes.Serially,
             EachElementName = "{http://namespace.org/color}TheModel", // should be ignored
             IsWhiteSpaceSeparator=false, SeparateBy=",")]
         public List<String> AvailableModels { get; set; }

@@ -1,10 +1,10 @@
 ﻿namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXNamespace("xmain", "http://namespace.org/nsmain")]
+    [Namespace("xmain", "http://namespace.org/nsmain")]
     public class CellPhone_MemberAndClassDifferentNamespacePrefixes
     {
-        [YAXSerializeAs("TheName")]
-        [YAXNamespace("x1", "http://namespace.org/x1")]
+        [SerializeAs("TheName")]
+        [Namespace("x1", "http://namespace.org/x1")]
         public string DeviceBrand { get; set; }
 
         public string OS { get; set; }

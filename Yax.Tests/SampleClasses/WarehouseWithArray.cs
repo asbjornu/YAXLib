@@ -7,22 +7,22 @@
     }
 
     [ShowInDemoApplication]
-    [YAXComment("This example shows the serialization of arrays")]
+    [Comment("This example shows the serialization of arrays")]
     public class WarehouseWithArray
     {
-        [YAXAttributeForClass()]
+        [AttributeForClass()]
         public string Name { get; set; }
 
-        [YAXSerializeAs("address")]
-        [YAXAttributeFor("SiteInfo")]
+        [SerializeAs("address")]
+        [AttributeFor("SiteInfo")]
         public string Address { get; set; }
 
-        [YAXSerializeAs("SurfaceArea")]
-        [YAXElementFor("SiteInfo")]
+        [SerializeAs("SurfaceArea")]
+        [ElementFor("SiteInfo")]
         public double Area { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
-        [YAXSerializeAs("StoreableItems")]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
+        [SerializeAs("StoreableItems")]
         public PossibleItems[] Items { get; set; }
 
         public override string ToString()

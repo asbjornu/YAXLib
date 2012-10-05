@@ -5,22 +5,22 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example shows how to apply format strings to a class properties")]
+    [Comment("This example shows how to apply format strings to a class properties")]
     public class FormattingExample
     {
-        [YAXFormat("D")]
+        [Format("D")]
         public DateTime CreationDate { get; set; }
 
-        [YAXFormat("d")]
+        [Format("d")]
         public DateTime ModificationDate { get; set; }
 
-        [YAXFormat("F05")]
+        [Format("F05")]
         public double PI { get; set; }
 
-        [YAXFormat("F03")]
+        [Format("F03")]
         public List<double> NaturalExp { get; set; }
 
-        [YAXDictionary(KeyFormatString = "F02", ValueFormatString = "F05")]
+        [Dictionary(KeyFormatString = "F02", ValueFormatString = "F05")]
         public Dictionary<double, double> SomeLogarithmExample { get; set; }
 
 

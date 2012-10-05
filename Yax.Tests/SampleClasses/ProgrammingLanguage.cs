@@ -2,13 +2,13 @@
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example is used in the article to show YAXLib exception handling policies")]
+    [Comment("This example is used in the article to show YAXLib exception handling policies")]
     public class ProgrammingLanguage
     {
-        [YAXErrorIfMissed(ExceptionTypes.Error)]
+        [ErrorIfMissed(ExceptionTypes.Error)]
         public string LanguageName { get; set; }
 
-        [YAXErrorIfMissed(ExceptionTypes.Warning, DefaultValue = true)]
+        [ErrorIfMissed(ExceptionTypes.Warning, DefaultValue = true)]
         public bool IsCaseSensitive { get; set; }
 
         public override string ToString()

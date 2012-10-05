@@ -5,7 +5,7 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example shows a technique for serializing classes without a default constructor")] 
+    [Comment("This example shows a technique for serializing classes without a default constructor")] 
     public class ColorExample
     {
         private Color m_color = Color.Blue;

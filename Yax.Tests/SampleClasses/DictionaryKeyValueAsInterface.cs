@@ -10,14 +10,14 @@ namespace Yax.Tests.SampleClasses
 
     public class DictionaryKeyValueAsInterface
     {
-        [YAXComment("Values are serialized through a reference to their interface.")]
-        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
-        [YAXDictionary(EachPairName = "attribute", KeyName = "key", SerializeKeyAs = NodeTypes.Attribute)]
+        [Comment("Values are serialized through a reference to their interface.")]
+        [ErrorIfMissed(ExceptionTypes.Ignore)]
+        [Dictionary(EachPairName = "attribute", KeyName = "key", SerializeKeyAs = NodeTypes.Attribute)]
         public Dictionary<string, IParameter> Attributes1 { get; set; }
 
-        [YAXComment("Keys are serialized through a reference to their interface.")]
-        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
-        [YAXDictionary(EachPairName = "Entry", ValueName = "value", SerializeValueAs = NodeTypes.Attribute)]
+        [Comment("Keys are serialized through a reference to their interface.")]
+        [ErrorIfMissed(ExceptionTypes.Ignore)]
+        [Dictionary(EachPairName = "Entry", ValueName = "value", SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<IParameter, string> Attributes2 { get; set; }
 
 
@@ -50,21 +50,21 @@ namespace Yax.Tests.SampleClasses
         string Body { get; set; }
     }
 
-    [YAXSerializeAs("parameter")]
+    [SerializeAs("parameter")]
     public abstract class ParameterBase : IParameter
     {
-        [YAXSerializeAs("name")]
-        [YAXAttributeFor("..")]
-        [YAXErrorIfMissed(ExceptionTypes.Error)]
+        [SerializeAs("name")]
+        [AttributeFor("..")]
+        [ErrorIfMissed(ExceptionTypes.Error)]
         public string Name { get; set; }
 
-        [YAXSerializeAs("type")]
-        [YAXAttributeFor("..")]
-        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
+        [SerializeAs("type")]
+        [AttributeFor("..")]
+        [ErrorIfMissed(ExceptionTypes.Ignore)]
         public string Type { get; set; }
 
-        [YAXValueFor("..")]
-        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
+        [ValueFor("..")]
+        [ErrorIfMissed(ExceptionTypes.Ignore)]
         public string Body { get; set; }
     }
 

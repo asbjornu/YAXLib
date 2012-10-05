@@ -2,7 +2,7 @@
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This exmaple shows the usage of nullable fields")]
+    [Comment("This exmaple shows the usage of nullable fields")]
     public class NullableClass
     {
         public string Title { get; set; }

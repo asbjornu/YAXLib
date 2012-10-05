@@ -2,11 +2,11 @@
 {
     public class CellPhone_YAXNamespaceOverridesImplicitNamespace
     {
-        [YAXNamespace("http://namespace.org/explicitBrand")]
-        [YAXSerializeAs("{http://namespace.org/implicitBrand}Brand")]
+        [Namespace("http://namespace.org/explicitBrand")]
+        [SerializeAs("{http://namespace.org/implicitBrand}Brand")]
         public string DeviceBrand { get; set; }
 
-        [YAXSerializeAs("{http://namespace.org/os}OperatingSystem")]
+        [SerializeAs("{http://namespace.org/os}OperatingSystem")]
         public string OS { get; set; }
 
         public override string ToString()

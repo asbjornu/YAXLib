@@ -5,7 +5,7 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example shows serialization and deserialization of GUID obejcts")]
+    [Comment("This example shows serialization and deserialization of GUID obejcts")]
     public class GUIDTest
     {
         public Guid StandaloneGuid { get; set; }

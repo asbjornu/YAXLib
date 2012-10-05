@@ -1,6 +1,6 @@
 ﻿namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXNamespace("http://namespace.org/default")]
+    [Namespace("http://namespace.org/default")]
     public class MutlilevelObjectsWithNamespaces
     {
         public Class1Parent Parent1 { get; set; }
@@ -44,7 +44,7 @@
 
     public class Class1Parent
     {
-        [YAXNamespace("ch1", "http://namespace.org/ch1")]
+        [Namespace("ch1", "http://namespace.org/ch1")]
         public Class1Child Child1 { get; set; }
     }
 
@@ -56,19 +56,19 @@
 
     public class Class2Parent
     {
-        [YAXNamespace("ch2", "http://namespace.org/ch2")]
+        [Namespace("ch2", "http://namespace.org/ch2")]
         public Class2Child Child2 { get; set; }
     }
 
     public class Class2Child
     {
-        [YAXElementFor("../../Parent1/{http://namespace.org/ch1}Child1")]
+        [ElementFor("../../Parent1/{http://namespace.org/ch1}Child1")]
         public string Value1 { get; set; }
 
-        [YAXElementFor("../../Parent1/Child1")]
+        [ElementFor("../../Parent1/Child1")]
         public string Value2 { get; set; }
 
-        [YAXAttributeFor("../../Parent1/{http://namespace.org/ch1}Child1")]
+        [AttributeFor("../../Parent1/{http://namespace.org/ch1}Child1")]
         public string Value3 { get; set; }
 
         public string Value4 { get; set; }

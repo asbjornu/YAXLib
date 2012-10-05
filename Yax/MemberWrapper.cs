@@ -48,12 +48,12 @@ namespace Yax
         /// <summary>
         /// The collection attribute instance
         /// </summary>
-        private YAXCollectionAttribute m_collectionAttributeInstance = null;
+        private CollectionAttribute m_collectionAttributeInstance = null;
 
         /// <summary>
         /// the dictionary attribute instance
         /// </summary>
-        private YAXDictionaryAttribute m_dictionaryAttributeInstance = null;
+        private DictionaryAttribute m_dictionaryAttributeInstance = null;
 
         /// <summary>
         /// <c>true</c> if this instance corresponds to a property, <c>false</c> 
@@ -114,7 +114,7 @@ namespace Yax
             TreatErrorsAs = callerSerializer != null ? callerSerializer.DefaultExceptionType : ExceptionTypes.Error;
 
             // discovver YAXCustomSerializerAttributes earlier, because some other attributes depend on it
-            var attrsToProcessEarlier = new HashSet<Type> {typeof (YAXCustomSerializerAttribute), typeof (YAXCollectionAttribute)};
+            var attrsToProcessEarlier = new HashSet<Type> {typeof (CustomSerializerAttribute), typeof (CollectionAttribute)};
             foreach (var attrType in attrsToProcessEarlier)
             {
                 var customSerAttrs = m_memberInfo.GetCustomAttributes(attrType, true);
@@ -132,7 +132,7 @@ namespace Yax
                 //if (attr is YAXCustomSerializerAttribute)
                 //    continue; // no need to preces, it has been proccessed earlier
 
-                if (attr is YAXBaseAttribute)
+                if (attr is BaseAttribute)
                     ProcessYaxAttribute(attr);
             }
         }
@@ -413,7 +413,7 @@ namespace Yax
         /// Gets the collection attribute instance.
         /// </summary>
         /// <value>The collection attribute instance.</value>
-        public YAXCollectionAttribute CollectionAttributeInstance
+        public CollectionAttribute CollectionAttributeInstance
         {
             get
             {
@@ -425,7 +425,7 @@ namespace Yax
         /// Gets the dictionary attribute instance.
         /// </summary>
         /// <value>The dictionary attribute instance.</value>
-        public YAXDictionaryAttribute DictionaryAttributeInstance
+        public DictionaryAttribute DictionaryAttributeInstance
         {
             get
             {
@@ -486,7 +486,7 @@ namespace Yax
 
         /// <summary>
         /// Gets a value indicating whether this instance has a custom namespace
-        /// defined for it through the <see cref="YAXNamespaceAttribute"/> attribute.
+        /// defined for it through the <see cref="NamespaceAttribute"/> attribute.
         /// </summary>
         public bool HasNamespace
         {
@@ -665,9 +665,9 @@ namespace Yax
         /// <param name="attr">The attribute to process.</param>
         private void ProcessYaxAttribute(object attr)
         {
-            if (attr is YAXCommentAttribute) 
+            if (attr is CommentAttribute) 
             {
-                string comment = (attr as YAXCommentAttribute).Comment;
+                string comment = (attr as CommentAttribute).Comment;
                 if (!String.IsNullOrEmpty(comment))
                 {
                     string[] comments = comment.Split(new [] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -679,11 +679,11 @@ namespace Yax
                     this.Comment = comments;
                 }
             }
-            else if (attr is YAXSerializableFieldAttribute) 
+            else if (attr is SerializableFieldAttribute) 
             {
                 IsAttributedAsSerializable = true;
             }
-            else if (attr is YAXAttributeForClassAttribute) 
+            else if (attr is AttributeForClassAttribute) 
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(MemberType) || CustomSerializerType != null || 
@@ -693,7 +693,7 @@ namespace Yax
                     SerializationLocation = ".";
                 }
             }
-            else if (attr is YAXValueForClassAttribute)
+            else if (attr is ValueForClassAttribute)
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(MemberType) || CustomSerializerType != null ||
@@ -703,7 +703,7 @@ namespace Yax
                     SerializationLocation = ".";
                 }
             }
-            else if (attr is YAXAttributeForAttribute)
+            else if (attr is AttributeForAttribute)
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(MemberType) || CustomSerializerType != null ||
@@ -711,25 +711,25 @@ namespace Yax
                 {
                     IsSerializedAsAttribute = true;
                     string path, alias;
-                    StringUtils.ExttractPathAndAliasFromLocationString((attr as YAXAttributeForAttribute).Parent, out path, out alias);
+                    StringUtils.ExttractPathAndAliasFromLocationString((attr as AttributeForAttribute).Parent, out path, out alias);
                     
                     SerializationLocation = path;
                     if (!String.IsNullOrEmpty(alias))
                         Alias = StringUtils.RefineSingleElement(alias);
                 }
             }
-            else if (attr is YAXElementForAttribute)
+            else if (attr is ElementForAttribute)
             {
                 IsSerializedAsElement = true;
 
                 string path, alias;
-                StringUtils.ExttractPathAndAliasFromLocationString((attr as YAXElementForAttribute).Parent, out path, out alias);
+                StringUtils.ExttractPathAndAliasFromLocationString((attr as ElementForAttribute).Parent, out path, out alias);
 
                 SerializationLocation = path;
                 if (!String.IsNullOrEmpty(alias))
                     Alias = StringUtils.RefineSingleElement(alias);
             }
-            else if (attr is YAXValueForAttribute)
+            else if (attr is ValueForAttribute)
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(this.MemberType) || CustomSerializerType != null ||
@@ -738,48 +738,48 @@ namespace Yax
                     IsSerializedAsValue = true;
 
                     string path, alias;
-                    StringUtils.ExttractPathAndAliasFromLocationString((attr as YAXValueForAttribute).Parent, out path, out alias);
+                    StringUtils.ExttractPathAndAliasFromLocationString((attr as ValueForAttribute).Parent, out path, out alias);
 
                     SerializationLocation = path;
                     if (!String.IsNullOrEmpty(alias))
                         Alias = StringUtils.RefineSingleElement(alias);
                 }
             }
-            else if (attr is YAXDontSerializeAttribute)
+            else if (attr is DontSerializeAttribute)
             {
                 IsAttributedAsDontSerialize = true;
             }
-            else if (attr is YAXSerializeAsAttribute)
+            else if (attr is SerializeAsAttribute)
             {
-                Alias = StringUtils.RefineSingleElement((attr as YAXSerializeAsAttribute).SerializeAs);
+                Alias = StringUtils.RefineSingleElement((attr as SerializeAsAttribute).SerializeAs);
             }
-            else if (attr is YAXCollectionAttribute)
+            else if (attr is CollectionAttribute)
             {
-                m_collectionAttributeInstance = attr as YAXCollectionAttribute;
+                m_collectionAttributeInstance = attr as CollectionAttribute;
             }
-            else if (attr is YAXDictionaryAttribute)
+            else if (attr is DictionaryAttribute)
             {
-                m_dictionaryAttributeInstance = attr as YAXDictionaryAttribute;
+                m_dictionaryAttributeInstance = attr as DictionaryAttribute;
             }
-            else if (attr is YAXErrorIfMissedAttribute)
+            else if (attr is ErrorIfMissedAttribute)
             {
-                var temp = attr as YAXErrorIfMissedAttribute;
+                var temp = attr as ErrorIfMissedAttribute;
                 DefaultValue = temp.DefaultValue;
                 TreatErrorsAs = temp.TreatAs;
             }
-            else if (attr is YAXFormatAttribute)
+            else if (attr is FormatAttribute)
             {
-                Format = (attr as YAXFormatAttribute).Format;
+                Format = (attr as FormatAttribute).Format;
             }
-            else if (attr is YAXNotCollectionAttribute)
+            else if (attr is NotCollectionAttribute)
             {
                 // arrays are always treated as collections
                 if (!ReflectionUtils.IsArray(MemberType))
                     IsAttributedAsNotCollection = true;
             }
-            else if (attr is YAXCustomSerializerAttribute)
+            else if (attr is CustomSerializerAttribute)
             {
-                Type serType = (attr as YAXCustomSerializerAttribute).CustomSerializerType;
+                Type serType = (attr as CustomSerializerAttribute).CustomSerializerType;
 
                 Type genTypeArg;
                 bool isDesiredInterface = ReflectionUtils.IsDerivedFromGenericInterfaceType(serType, typeof(ICustomSerializer<>), out genTypeArg);
@@ -797,18 +797,18 @@ namespace Yax
                     CustomSerializerType = serType;
                 }
             }
-            else if(attr is YAXPreserveWhitespaceAttribute)
+            else if(attr is PreserveWhitespaceAttribute)
             {
                 PreservesWhitespace = true;
             }
-            else if (attr is YAXSerializableTypeAttribute)
+            else if (attr is SerializableTypeAttribute)
             {
                 // this should not happen
                 throw new Exception("This attribute is not applicable to fields and properties!");
             }
-            else if (attr is YAXNamespaceAttribute)
+            else if (attr is NamespaceAttribute)
             {
-                var nsAttrib = (attr as YAXNamespaceAttribute);
+                var nsAttrib = (attr as NamespaceAttribute);
                 Namespace = nsAttrib.Namespace;
                 NamespacePrefix = nsAttrib.Prefix;
             }

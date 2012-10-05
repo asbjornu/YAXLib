@@ -1,7 +1,7 @@
 ﻿namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
-    [YAXComment(@"This example shows serialization of multi-dimensional, 
+    [Comment(@"This example shows serialization of multi-dimensional, 
         and jagged arrays")]
     public class MultiDimArraySample
     {
@@ -11,12 +11,12 @@
 
         public int[][] JaggedArray { get; set; }
 
-        [YAXComment("The containing element should not disappear because of the dims attribute")]
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [Comment("The containing element should not disappear because of the dims attribute")]
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
         public int[,] IntArrayNoContainingElems { get; set; }
 
-        [YAXComment("This element should not be serialized serially because each element is not of basic type")]
-        [YAXCollection(CollectionSerializationTypes.Serially)]
+        [Comment("This element should not be serialized serially because each element is not of basic type")]
+        [Collection(CollectionSerializationTypes.Serially)]
         public int[][] JaggedNotSerially { get; set; }
 
         public override string ToString()

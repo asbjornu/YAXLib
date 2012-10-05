@@ -76,7 +76,7 @@ namespace Yax
 
             foreach (var attr in m_udtType.GetCustomAttributes(false))
             {
-                if (attr is YAXBaseAttribute)
+                if (attr is BaseAttribute)
                     ProcessYAXAttribute(attr);
             }
         }
@@ -291,7 +291,7 @@ namespace Yax
 
         /// <summary>
         /// Gets a value indicating whether this instance has a custom namespace
-        /// defined for it through the <see cref="YAXNamespaceAttribute"/> attribute.
+        /// defined for it through the <see cref="NamespaceAttribute"/> attribute.
         /// </summary>
         public bool HasNamespace 
         {
@@ -403,9 +403,9 @@ namespace Yax
         /// <param name="attr">The attribute to process.</param>
         private void ProcessYAXAttribute(object attr)
         {
-            if (attr is YAXCommentAttribute)
+            if (attr is CommentAttribute)
             {
-                string comment = (attr as YAXCommentAttribute).Comment;
+                string comment = (attr as CommentAttribute).Comment;
                 if(!String.IsNullOrEmpty(comment))
                 {
                     string[] comments = comment.Split(new [] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -417,9 +417,9 @@ namespace Yax
                     this.Comment = comments;
                 }
             }
-            else if (attr is YAXSerializableTypeAttribute)
+            else if (attr is SerializableTypeAttribute)
             {
-                var theAttr = attr as YAXSerializableTypeAttribute;
+                var theAttr = attr as SerializableTypeAttribute;
                 this.FieldsToSerialize = theAttr.FieldsToSerialize;
                 if (theAttr.IsSerializationOptionSet())
                 {
@@ -427,18 +427,18 @@ namespace Yax
                     m_isSerializationOptionSetByAttribute = true;
                 }
             }
-            else if (attr is YAXSerializeAsAttribute)
+            else if (attr is SerializeAsAttribute)
             {
-                Alias = StringUtils.RefineSingleElement((attr as YAXSerializeAsAttribute).SerializeAs);
+                Alias = StringUtils.RefineSingleElement((attr as SerializeAsAttribute).SerializeAs);
             }
-            else if (attr is YAXNotCollectionAttribute)
+            else if (attr is NotCollectionAttribute)
             {
                 if(!ReflectionUtils.IsArray(m_udtType))
                     IsAttributedAsNotCollection = true;
             }
-            else if (attr is YAXCustomSerializerAttribute)
+            else if (attr is CustomSerializerAttribute)
             {
-                Type serType = (attr as YAXCustomSerializerAttribute).CustomSerializerType;
+                Type serType = (attr as CustomSerializerAttribute).CustomSerializerType;
 
                 Type genTypeArg;
                 bool isDesiredInterface = ReflectionUtils.IsDerivedFromGenericInterfaceType(serType, typeof(ICustomSerializer<>), out genTypeArg);
@@ -455,13 +455,13 @@ namespace Yax
                 
                 this.CustomSerializerType = serType;
             }
-            else if(attr is YAXPreserveWhitespaceAttribute)
+            else if(attr is PreserveWhitespaceAttribute)
             {
                 PreservesWhitespace = true;
             }
-            else if (attr is YAXNamespaceAttribute)
+            else if (attr is NamespaceAttribute)
             {
-                var nsAttrib = (attr as YAXNamespaceAttribute);
+                var nsAttrib = (attr as NamespaceAttribute);
                 Namespace = nsAttrib.Namespace;
                 NamespacePrefix = nsAttrib.Prefix;
             }

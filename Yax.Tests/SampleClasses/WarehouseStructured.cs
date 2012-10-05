@@ -2,18 +2,18 @@
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example shows our hypothetical warehouse, a little bit structured")]
+    [Comment("This example shows our hypothetical warehouse, a little bit structured")]
     public class WarehouseStructured
     {
-        [YAXAttributeForClass()]
+        [AttributeForClass()]
         public string Name { get; set; }
 
-        [YAXSerializeAs("address")]
-        [YAXAttributeFor("SiteInfo")]
+        [SerializeAs("address")]
+        [AttributeFor("SiteInfo")]
         public string Address { get; set; }
 
-        [YAXSerializeAs("SurfaceArea")]
-        [YAXElementFor("SiteInfo")]
+        [SerializeAs("SurfaceArea")]
+        [ElementFor("SiteInfo")]
         public double Area { get; set; }
 
         public override string ToString()

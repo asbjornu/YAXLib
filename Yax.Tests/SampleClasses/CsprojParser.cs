@@ -27,25 +27,25 @@ namespace Yax.Tests.SampleClasses
         }
     }
 
-    [YAXNamespace("http://schemas.microsoft.com/developer/msbuild/2003")]
-    [YAXSerializeAs("Project")]
+    [Namespace("http://schemas.microsoft.com/developer/msbuild/2003")]
+    [SerializeAs("Project")]
     public class ProjectBuildDefinition
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public string ToolsVersion { get; set; }
 
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public string DefaultTargets { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
             EachElementName = "PropertyGroup")]
         public List<PropertyGroup> PropertyGroups { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
            EachElementName = "ItemGroup")]
         public List<ItemGroup> ItemGroups { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
            EachElementName = "Import")]
         public List<ImportItem> ImportItems { get; set; }
     }
@@ -54,15 +54,15 @@ namespace Yax.Tests.SampleClasses
     {
         public string Configuration { get; set; }
 
-        [YAXSerializeAs("Condition")]
-        [YAXAttributeFor("Configuration")]
+        [SerializeAs("Condition")]
+        [AttributeFor("Configuration")]
         public string ConfigCondition { get; set; }
 
 
         public string Platform { get; set; }
 
-        [YAXSerializeAs("Condition")]
-        [YAXAttributeFor("Platform")]
+        [SerializeAs("Condition")]
+        [AttributeFor("Platform")]
         public string PlatformCondition { get; set; }
 
         public string ProductVersion { get; set; }
@@ -89,16 +89,16 @@ namespace Yax.Tests.SampleClasses
 
     public class ItemGroup
     {
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement, 
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement, 
             EachElementName = "Reference")]
         public List<ReferenceItem> ReferenceItems { get; set; }
     }
 
 
-    [YAXSerializeAs("Reference")]
+    [SerializeAs("Reference")]
     public class ReferenceItem
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public string Include { get; set; }
 
         public string HintPath { get; set; }
@@ -106,10 +106,10 @@ namespace Yax.Tests.SampleClasses
         public bool SpecificVersion { get; set; }
     }
 
-    [YAXSerializeAs("Import")]
+    [SerializeAs("Import")]
     public class ImportItem
     {
-        [YAXAttributeForClass()]
+        [AttributeForClass()]
         public string Project { get; set; }
     }
 

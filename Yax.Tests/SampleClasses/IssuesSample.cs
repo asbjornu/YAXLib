@@ -3,18 +3,18 @@ using System.Collections.Generic;
 
 namespace Yax.Tests.SampleClasses
 {
-    [YAXSerializeAs("issues")]
+    [SerializeAs("issues")]
     public class IssuesSample
     {
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="issue")]
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="issue")]
         public List<Issue> Issues { get; set; }
 
-        [YAXSerializeAs("type")]
-        [YAXAttributeForClass]
+        [SerializeAs("type")]
+        [AttributeForClass]
         public string Type { get; set; }
 
-        [YAXSerializeAs("count")]
-        [YAXAttributeForClass]
+        [SerializeAs("count")]
+        [AttributeForClass]
         public int Count { get; set; }
 
         public static IssuesSample GetSampleInstance()
@@ -56,68 +56,68 @@ namespace Yax.Tests.SampleClasses
 
     public class Issue
     {
-        [YAXSerializeAs("id")]
+        [SerializeAs("id")]
         public int IssueID { get; set; }
 
-        [YAXSerializeAs("name")]
-        [YAXAttributeFor("project")]
+        [SerializeAs("name")]
+        [AttributeFor("project")]
         public string ProjectName { get; set; }
 
-        [YAXSerializeAs("id")]
-        [YAXAttributeFor("project")]
+        [SerializeAs("id")]
+        [AttributeFor("project")]
         public int ProjectId { get; set; }
 
-        [YAXSerializeAs("name")]
-        [YAXAttributeFor("tracker")]
+        [SerializeAs("name")]
+        [AttributeFor("tracker")]
         public string TrackerName { get; set; }
 
-        [YAXSerializeAs("id")]
-        [YAXAttributeFor("tracker")]
+        [SerializeAs("id")]
+        [AttributeFor("tracker")]
         public int TrackerId { get; set; }
 
              // do the same for status, priority, author
 
-        [YAXSerializeAs("subject")]
+        [SerializeAs("subject")]
         public string Subject { get; set; }
 
-        [YAXSerializeAs("description")]
+        [SerializeAs("description")]
         public string Description { get; set; }
 
-        [YAXSerializeAs("start_date")]
-        [YAXFormat("yyyy-MM-dd")]
+        [SerializeAs("start_date")]
+        [Format("yyyy-MM-dd")]
         public DateTime StartDate { get; set; }
 
-        [YAXSerializeAs("due_date")]
-        [YAXFormat("yyyy-MM-dd")]
+        [SerializeAs("due_date")]
+        [Format("yyyy-MM-dd")]
         public DateTime DueDate { get; set; }
 
         // and so on
 
-        [YAXCollection(CollectionSerializationTypes.Recursive, EachElementName="custom_field")]
-        [YAXSerializeAs("custom_fields")]
+        [Collection(CollectionSerializationTypes.Recursive, EachElementName="custom_field")]
+        [SerializeAs("custom_fields")]
         public List<CustomField> CustomFields { get; set; }
 
-        [YAXSerializeAs("created_on")]
-        [YAXFormat("R")]
+        [SerializeAs("created_on")]
+        [Format("R")]
         public DateTime CreatedOn { get; set; }
 
-        [YAXSerializeAs("updated_on")]
-        [YAXFormat("R")]
+        [SerializeAs("updated_on")]
+        [Format("R")]
         public DateTime UpdatedOn { get; set; }
     }
 
     public class CustomField
     {
-        [YAXSerializeAs("name")]
-        [YAXAttributeForClass]
+        [SerializeAs("name")]
+        [AttributeForClass]
         public string Name { get; set; }
 
-        [YAXSerializeAs("id")]
-        [YAXAttributeForClass]
+        [SerializeAs("id")]
+        [AttributeForClass]
         public int ID { get; set; }
 
-        [YAXSerializeAs("value")]
-        [YAXAttributeForClass]
+        [SerializeAs("value")]
+        [AttributeForClass]
         public string Value { get; set; }
 
         public CustomField(string name, int id, string value)

@@ -2,17 +2,17 @@
 {
     public class Author
     {
-        [YAXSerializeAs("Author's Name")]
-        [YAXAttributeFor("..")]
+        [SerializeAs("Author's Name")]
+        [AttributeFor("..")]
         public string Name { get; set; }
 
-        [YAXSerializeAs("Author's Age")]
-        [YAXElementFor("../Something/Or/Another")]
+        [SerializeAs("Author's Age")]
+        [ElementFor("../Something/Or/Another")]
         public int Age { get; set; }
     }
 
     [ShowInDemoApplication]
-    [YAXComment(@"This class shows how members of nested objects 
+    [Comment(@"This class shows how members of nested objects 
         can be serialized in their parents using serialization 
         addresses including ""..""")]
     public class MoreComplexBook2

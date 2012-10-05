@@ -6,7 +6,7 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This sample demonstrates serialization of non-generic collection classes")]
+    [Comment("This sample demonstrates serialization of non-generic collection classes")]
     public class NonGenericCollectionsSample
     {
         public List<object> ObjList { get; set; }

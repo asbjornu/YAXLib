@@ -8,7 +8,7 @@ namespace Yax.Tests.SampleClasses
 {
     //[ShowInDemoApplication]
 
-    [YAXSerializeAs("root")]
+    [SerializeAs("root")]
     public class Code4PublicThemesCollection : List<Theme>
     {
         public override string ToString()
@@ -53,62 +53,62 @@ namespace Yax.Tests.SampleClasses
 
     public class Theme
     {
-        [YAXAttributeFor(".#name")]
+        [AttributeFor(".#name")]
         public string Name { get; set; }
 
-        [YAXElementFor("Header#Border")]
+        [ElementFor("Header#Border")]
         public BorderInfo HeaderBorder { get; set; }
 
-        [YAXElementFor("Header#Font")]
+        [ElementFor("Header#Font")]
         public FontInfo HeaderFont { get; set; }
 
-        [YAXAttributeFor("Header/BackColor#value")]
-        [YAXCustomSerializer(typeof(ColorSerializer))]
+        [AttributeFor("Header/BackColor#value")]
+        [CustomSerializer(typeof(ColorSerializer))]
         public Color HeaderBackColor { get; set; }
 
-        [YAXAttributeFor("Header/FontSize#value")]
+        [AttributeFor("Header/FontSize#value")]
         public int HeaderFontSize { get; set; }
 
-        [YAXElementFor("MainContent#Border")]
+        [ElementFor("MainContent#Border")]
         public BorderInfo MainContentBorder { get; set; }
 
-        [YAXAttributeFor("MainContent/FontSize#value")]
+        [AttributeFor("MainContent/FontSize#value")]
         public int MainContentFontSize { get; set; }
 
-        [YAXAttributeFor("LineNumbers/SeperatorLine#show")]
+        [AttributeFor("LineNumbers/SeperatorLine#show")]
         public bool LineNumbersShowSeperatorLine { get; set; }
 
-        [YAXAttributeFor("LineNumbers/SeperatorLine#color")]
-        [YAXCustomSerializer(typeof(ColorSerializer))]
+        [AttributeFor("LineNumbers/SeperatorLine#color")]
+        [CustomSerializer(typeof(ColorSerializer))]
         public Color LineNumbersSeperatorLineColor { get; set; }
 
-        [YAXElementFor("LineNumbers#Font")]
+        [ElementFor("LineNumbers#Font")]
         public FontInfo LineNumbersFont { get; set; }
 
-        [YAXCustomSerializer(typeof(ColorSerializer))]
-        [YAXAttributeFor("LineNumbers/BackColor#value")]
+        [CustomSerializer(typeof(ColorSerializer))]
+        [AttributeFor("LineNumbers/BackColor#value")]
         public Color LineNumbersBackColor { get; set; }
 
-        [YAXAttributeFor("LineNumbers/ShowZeros#value")]
+        [AttributeFor("LineNumbers/ShowZeros#value")]
         public bool LineNumbersShowZeros { get; set; }
 
-        [YAXAttributeFor("LineNumbers/CharAfterLineNo#show")]
+        [AttributeFor("LineNumbers/CharAfterLineNo#show")]
         public bool LineNumbersShowStringAfter { get; set; }
 
-        [YAXAttributeFor("LineNumbers/CharAfterLineNo#value")]
+        [AttributeFor("LineNumbers/CharAfterLineNo#value")]
         public string LineNumbersStringAfter { get; set; }
 
-        [YAXAttributeFor("LineNumbers/SpacesAfter#count")]
+        [AttributeFor("LineNumbers/SpacesAfter#count")]
         public int LineNumbersSpacesAfter { get; set; }
 
-        [YAXAttributeFor("LineNumbers/SpacesBefore#count")]
+        [AttributeFor("LineNumbers/SpacesBefore#count")]
         public int LineNumbersSpacesBefore { get; set; }
 
-        [YAXCustomSerializer(typeof(ColorSerializer))]
-        [YAXAttributeFor("CodeContent/BackColor#value")]
+        [CustomSerializer(typeof(ColorSerializer))]
+        [AttributeFor("CodeContent/BackColor#value")]
         public Color CodeContentBackColor { get; set; }
 
-        [YAXElementFor("CodeContent#Font")]
+        [ElementFor("CodeContent#Font")]
         public FontInfo CodeContentFont { get; set; }
 
         
@@ -130,20 +130,20 @@ namespace Yax.Tests.SampleClasses
             this.Color = color;
         }
 
-        [YAXAttributeFor(".#top")]
+        [AttributeFor(".#top")]
         public bool Top { get; set; }
 
-        [YAXAttributeFor(".#bottom")]
+        [AttributeFor(".#bottom")]
         public bool Bottom { get; set; }
 
-        [YAXAttributeFor(".#left")]
+        [AttributeFor(".#left")]
         public bool Left { get; set; }
 
-        [YAXAttributeFor(".#right")]
+        [AttributeFor(".#right")]
         public bool Right { get; set; }
 
-        [YAXAttributeFor(".#color")]
-        [YAXCustomSerializer(typeof(ColorSerializer))]
+        [AttributeFor(".#color")]
+        [CustomSerializer(typeof(ColorSerializer))]
         public Color Color { get; set; }
 
     }
@@ -162,14 +162,14 @@ namespace Yax.Tests.SampleClasses
             this.Color = color;
         }
 
-        [YAXAttributeFor(".#bold")]
+        [AttributeFor(".#bold")]
         public bool Bold { get; set; }
 
-        [YAXAttributeFor(".#italic")]
+        [AttributeFor(".#italic")]
         public bool Italic { get; set; }
 
-        [YAXCustomSerializer(typeof(ColorSerializer))]
-        [YAXAttributeFor(".#color")]
+        [CustomSerializer(typeof(ColorSerializer))]
+        [AttributeFor(".#color")]
         public Color Color { get; set; }
 
     }

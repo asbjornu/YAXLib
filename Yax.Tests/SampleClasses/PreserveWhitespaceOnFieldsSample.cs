@@ -4,20 +4,20 @@ namespace Yax.Tests.SampleClasses
 {
     public class PreserveWhitespaceOnClassSample
     {
-        [YAXPreserveWhitespace]
+        [PreserveWhitespace]
         public string Str1 { get; set; }
 
-        [YAXPreserveWhitespace]
+        [PreserveWhitespace]
         public string Str2 { get; set; }
 
-        [YAXPreserveWhitespace]
-        [YAXValueFor("SomeElem")]
+        [PreserveWhitespace]
+        [ValueFor("SomeElem")]
         public string Str3 { get; set; }
 
-        [YAXPreserveWhitespace]
+        [PreserveWhitespace]
         public string[] Strings { get; set; }
 
-        [YAXPreserveWhitespace]
+        [PreserveWhitespace]
         public Dictionary<string, int> StringDic { get; set; }
 
         public override string ToString()

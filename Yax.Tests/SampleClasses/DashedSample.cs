@@ -1,10 +1,10 @@
 ﻿namespace Yax.Tests.SampleClasses
 {
-    [YAXSerializeAs("dashed-sample")]
+    [SerializeAs("dashed-sample")]
     public class DashedSample
     {
-        [YAXSerializeAs("dashed-name")]
-        [YAXAttributeForClass]
+        [SerializeAs("dashed-name")]
+        [AttributeForClass]
         public string DashedName { get; set; }
     }
 }

@@ -1,30 +1,30 @@
 ﻿namespace Yax.Tests.SampleClasses
 {
-    [YAXSerializeAs("Pricing")]
+    [SerializeAs("Pricing")]
     public class Request
     {
         public Request()
         { }
 
-        [YAXAttributeForClass()]
+        [AttributeForClass()]
         public string id { get; set; }
 
-        [YAXAttributeFor("version")]
+        [AttributeFor("version")]
         public string major { get; set; }
 
-        [YAXAttributeFor("version")]
+        [AttributeFor("version")]
         public string minor { get; set; }
 
-        [YAXSerializeAs("value_date")]
-        [YAXElementFor("input")]
+        [SerializeAs("value_date")]
+        [ElementFor("input")]
         public string valueDate { get; set; }
 
-        [YAXSerializeAs("storage_date")]
-        [YAXElementFor("input")]
+        [SerializeAs("storage_date")]
+        [ElementFor("input")]
         public string storageDate { get; set; }
 
-        [YAXSerializeAs("user")]
-        [YAXElementFor("input")]
+        [SerializeAs("user")]
+        [ElementFor("input")]
         public string user { get; set; }
 
         //[YAXElementFor("input")]
@@ -33,8 +33,8 @@
         //[YAXElementFor("skylab_config")]
         //public string job { get; set; }
 
-        [YAXElementFor("input")]
-        [YAXSerializeAs("skylab_config")]
+        [ElementFor("input")]
+        [SerializeAs("skylab_config")]
         public SkyLabConfig Config { get; set; }
 
         internal static Request GetSampleInstance()
@@ -59,10 +59,10 @@
 
     public class SkyLabConfig
     {
-        [YAXSerializeAs("SomeString")]
+        [SerializeAs("SomeString")]
         public string Config { get; set; }
 
-        [YAXSerializeAs("job")]
+        [SerializeAs("job")]
         public string Job { get; set; }
     }
 }

@@ -6,26 +6,26 @@ namespace Yax.Tests.SampleClasses
 {
     public class GuidAsBasicType
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public Guid GuidAsAttr { get; set; }
 
         public Guid GuidAsElem { get; set; }
 
         public Guid[] GuidArray { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Serially)]
+        [Collection(CollectionSerializationTypes.Serially)]
         public Guid[] GuidArraySerially { get; set; }
 
         public List<Guid> GuidsList { get; set; }
 
         public Dictionary<Guid, int> DicKeyGuid { get; set; }
 
-        [YAXDictionary(EachPairName = "Pair", KeyName = "TheGuid", SerializeKeyAs = NodeTypes.Attribute)]
+        [Dictionary(EachPairName = "Pair", KeyName = "TheGuid", SerializeKeyAs = NodeTypes.Attribute)]
         public Dictionary<Guid, int> DicKeyAttrGuid { get; set; }
 
         public Dictionary<int, Guid> DicValueGuid { get; set; }
 
-        [YAXDictionary(EachPairName = "Pair", ValueName = "TheGuid", SerializeValueAs = NodeTypes.Attribute)]
+        [Dictionary(EachPairName = "Pair", ValueName = "TheGuid", SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<int, Guid> DicValueAttrGuid { get; set; }
 
         public override string ToString()

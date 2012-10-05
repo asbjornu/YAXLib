@@ -25,7 +25,7 @@ namespace Yax.Tests.SampleClasses
     }
 
     [ShowInDemoApplication]
-    [YAXComment(@"This example shows serialization and deserialization of
+    [Comment(@"This example shows serialization and deserialization of
         objects through a reference to their base class or interface")]
     public class CollectionOfInterfacesSample
     {

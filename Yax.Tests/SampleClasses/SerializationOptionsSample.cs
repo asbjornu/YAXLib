@@ -1,19 +1,19 @@
 ﻿namespace Yax.Tests.SampleClasses
 {
-    [YAXSerializableType(Options = SerializationOptions.DontSerializeNullObjects)]
+    [SerializableType(Options = SerializationOptions.DontSerializeNullObjects)]
     public class ClassWithOptionsSet
     {
         public string StrNotNull { get; set; }
 
         // the default value should not be used && no warning or errors should be reported
-        [YAXErrorIfMissed(ExceptionTypes.Warning, DefaultValue="Salam")]
+        [ErrorIfMissed(ExceptionTypes.Warning, DefaultValue="Salam")]
         public string StrNull { get; set; }
 
-        [YAXErrorIfMissed(ExceptionTypes.Warning, DefaultValue = 123)]
+        [ErrorIfMissed(ExceptionTypes.Warning, DefaultValue = 123)]
         public int SomeValueType { get; set; }
     }
 
-    [YAXSerializableType(Options = SerializationOptions.SerializeNullObjects)]
+    [SerializableType(Options = SerializationOptions.SerializeNullObjects)]
     public class AnotherClassWithOptionsSet
     {
         public string StrNotNull { get; set; }
@@ -30,15 +30,15 @@
 
     public class SerializationOptionsSample
     {
-        [YAXComment(@"Str2Null must NOT be serialized when it is null, even 
+        [Comment(@"Str2Null must NOT be serialized when it is null, even 
 if the serialization options of the serializer is changed")]
         public ClassWithOptionsSet ObjectWithOptionsSet { get; set; }
 
-        [YAXComment(@"Str2Null must be serialized when it is null, even 
+        [Comment(@"Str2Null must be serialized when it is null, even 
 if the serialization options of the serializer is changed")]
         public AnotherClassWithOptionsSet AnotherObjectWithOptionsSet { get; set; }
 
-        [YAXComment(@"serialization of Str2Null must obey the options set 
+        [Comment(@"serialization of Str2Null must obey the options set 
 in the serializer itself")]
         public ClassWithoutOptionsSet ObjectWithoutOptionsSet { get; set; }
 

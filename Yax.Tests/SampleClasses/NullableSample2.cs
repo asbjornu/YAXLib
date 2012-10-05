@@ -2,11 +2,11 @@
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This example shows how nullable fields 
+    [Comment(@"This example shows how nullable fields 
         may not be serialized in their expected location")]
     public class NullableSample2
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public int? Number { get; set; }
 
         public override string ToString()

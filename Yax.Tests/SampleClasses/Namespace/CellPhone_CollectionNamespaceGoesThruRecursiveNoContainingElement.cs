@@ -2,14 +2,14 @@
 
 namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXSerializeAs("MobilePhone")]
+    [SerializeAs("MobilePhone")]
     public class CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement
     {
         public string DeviceBrand { get; set; }
         public string OS { get; set; }
 
-        [YAXNamespace("app", "http://namespace.org/apps")]
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [Namespace("app", "http://namespace.org/apps")]
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
         public List<string> IntalledApps { get; set; }
 
         public override string ToString()

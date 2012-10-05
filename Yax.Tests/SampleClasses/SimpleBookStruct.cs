@@ -2,7 +2,7 @@
 {
     [ShowInDemoApplication(SortKey="002")]
 
-    [YAXComment("This example demonstrates serailizing a very simple struct")]
+    [Comment("This example demonstrates serailizing a very simple struct")]
     public struct BookStruct
     {
         public string Title { get; set; }

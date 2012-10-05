@@ -1,13 +1,13 @@
 ﻿namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXNamespace("http://namespaces.org/default")]
+    [Namespace("http://namespaces.org/default")]
     public class AttributeNamespaceSample
     {
-        [YAXAttributeFor("Attribs")]
+        [AttributeFor("Attribs")]
         public string attrib { get; private set; }
 
-        [YAXAttributeFor("Attribs")]
-        [YAXNamespace("ns", "http://namespaces.org/ns")]
+        [AttributeFor("Attribs")]
+        [Namespace("ns", "http://namespaces.org/ns")]
         public string attrib2 { get; private set; }
 
         public static AttributeNamespaceSample GetSampleInstance()

@@ -4,41 +4,41 @@ namespace Yax.Tests.SampleClasses
 {
     public class PersonFormatted
     {
-        [YAXAttributeForClass()]
+        [AttributeForClass()]
         public string SSN { get; set; }
 
-        [YAXAttributeFor("Identification")]
+        [AttributeFor("Identification")]
         public string Name { get; set; }
 
-        [YAXAttributeFor("Identification")]
+        [AttributeFor("Identification")]
         public string Family { get; set; }
 
         public int Age { get; set; }
     }
 
     [ShowInDemoApplication]
-    [YAXComment("This example demonstrates serializing nested objects")]
+    [Comment("This example demonstrates serializing nested objects")]
     public class WarehouseNestedObjectExample
     {
-        [YAXAttributeForClass()]
+        [AttributeForClass()]
         public string Name { get; set; }
 
-        [YAXSerializeAs("address")]
-        [YAXAttributeFor("SiteInfo")]
+        [SerializeAs("address")]
+        [AttributeFor("SiteInfo")]
         public string Address { get; set; }
 
-        [YAXSerializeAs("SurfaceArea")]
-        [YAXElementFor("SiteInfo")]
+        [SerializeAs("SurfaceArea")]
+        [ElementFor("SiteInfo")]
         public double Area { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
-        [YAXSerializeAs("StoreableItems")]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
+        [SerializeAs("StoreableItems")]
         public PossibleItems[] Items { get; set; }
 
-        [YAXDictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
+        [Dictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
                        SerializeKeyAs = NodeTypes.Attribute,
                        SerializeValueAs = NodeTypes.Attribute)]
-        [YAXSerializeAs("ItemQuantities")]
+        [SerializeAs("ItemQuantities")]
         public Dictionary<PossibleItems, int> ItemQuantitiesDic { get; set; }
 
         public PersonFormatted Owner { get; set; }

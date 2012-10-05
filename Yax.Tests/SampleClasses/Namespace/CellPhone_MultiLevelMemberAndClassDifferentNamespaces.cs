@@ -1,11 +1,11 @@
 ﻿namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXNamespace("http://namespace.org/nsmain")]
+    [Namespace("http://namespace.org/nsmain")]
     public class CellPhone_MultiLevelMemberAndClassDifferentNamespaces
     {
-        [YAXElementFor("Level1/Level2")]
-        [YAXSerializeAs("TheName")]
-        [YAXNamespace("x1", "http://namespace.org/x1")]
+        [ElementFor("Level1/Level2")]
+        [SerializeAs("TheName")]
+        [Namespace("x1", "http://namespace.org/x1")]
         public string DeviceBrand { get; set; }
 
         public string OS { get; set; }

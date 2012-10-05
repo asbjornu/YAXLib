@@ -2,7 +2,7 @@
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example is our basic hypothetical warehouse")]
+    [Comment("This example is our basic hypothetical warehouse")]
     public class WarehouseSimple
     {
         public string Name { get; set; }

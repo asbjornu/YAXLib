@@ -1,7 +1,7 @@
 ﻿namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
-    [YAXComment("This example shows usage of jagged multi-dimensional arrays")]
+    [Comment("This example shows usage of jagged multi-dimensional arrays")]
     public class AnotherArraySample
     {
         public int[][,] Array1 { get; set; }

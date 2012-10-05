@@ -3,7 +3,7 @@
 
 namespace Yax.Tests.SampleClasses
 {
-    [YAXComment("This example demonstrates serailizing a very simple class")]
+    [Comment("This example demonstrates serailizing a very simple class")]
     public class SimpleBookClassWithDecimalPrice
     {
         public string Title { get; set; }

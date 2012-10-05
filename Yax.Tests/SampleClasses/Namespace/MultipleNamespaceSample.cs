@@ -1,17 +1,17 @@
 ﻿namespace Yax.Tests.SampleClasses.Namespace
 {
-    [YAXComment("This example shows usage of a number of custom namespaces")]
-    [YAXNamespace("ns1", "http://namespaces.org/ns1")]
+    [Comment("This example shows usage of a number of custom namespaces")]
+    [Namespace("ns1", "http://namespaces.org/ns1")]
     public class MultipleNamespaceSample
     {
         public bool BoolItem
         { get; set; }
 
-        [YAXNamespace("ns2", "http://namespaces.org/ns2")]
+        [Namespace("ns2", "http://namespaces.org/ns2")]
         public string StringItem
         { get; set; }
 
-        [YAXNamespace("ns3", "http://namespaces.org/ns3")]
+        [Namespace("ns3", "http://namespaces.org/ns3")]
         public int IntItem
         { get; set; }
 

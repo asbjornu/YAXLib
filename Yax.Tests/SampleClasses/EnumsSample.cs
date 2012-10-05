@@ -6,30 +6,30 @@ namespace Yax.Tests.SampleClasses
     [Flags]
     public enum Seasons
     {
-        [YAXEnum("Spring")]
+        [Enum("Spring")]
         First = 1,
 
-        [YAXEnum("Summer")]
+        [Enum("Summer")]
         Second = 2,
 
-        [YAXEnum(" Autumn or fall ")]
+        [Enum(" Autumn or fall ")]
         Third = 4,
 
-        [YAXEnum("Winter")]
+        [Enum("Winter")]
         Fourth = 8
     }
 
     [ShowInDemoApplication]
-    [YAXComment("This example shows how to define aliases for enum members")]
+    [Comment("This example shows how to define aliases for enum members")]
     public class EnumsSample
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public Seasons OneInstance { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
         public Seasons[] TheSeasonSerially { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Recursive)]
+        [Collection(CollectionSerializationTypes.Recursive)]
         public Seasons[] TheSeasonRecursive { get; set; }
 
         public Dictionary<Seasons, int> DicSeasonToInt { get; set; }

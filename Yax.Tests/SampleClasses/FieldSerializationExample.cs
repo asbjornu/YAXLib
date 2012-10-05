@@ -4,17 +4,17 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment("This example shows how to choose the fields to be serialized")]
-    [YAXSerializableType(FieldsToSerialize=SerializationFields.AttributedFieldsOnly)]
+    [Comment("This example shows how to choose the fields to be serialized")]
+    [SerializableType(FieldsToSerialize=SerializationFields.AttributedFieldsOnly)]
     public class FieldSerializationExample
     {
-        [YAXSerializableField]
+        [SerializableField]
         private int m_someInt;
 
-        [YAXSerializableField]
+        [SerializableField]
         private double m_someDouble;
 
-        [YAXSerializableField]
+        [SerializableField]
         private string SomePrivateStringProperty { get; set; }
 
         public string SomePublicPropertyThatIsNotSerialized { get; set; }

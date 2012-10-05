@@ -5,13 +5,13 @@ namespace Yax.Tests.SampleClasses.Namespace
 {
     public class CellPhone_DictionaryNamespaceForAllItems
     {
-        [YAXSerializeAs("{http://namespace.org/brand}Brand")]
+        [SerializeAs("{http://namespace.org/brand}Brand")]
         public string DeviceBrand { get; set; }
 
         public string OS { get; set; }
 
-        [YAXSerializeAs("{http://namespace.org/prices}ThePrices")]
-        [YAXDictionary(EachPairName="{http://namespace.org/pricepair}PricePair",
+        [SerializeAs("{http://namespace.org/prices}ThePrices")]
+        [Dictionary(EachPairName="{http://namespace.org/pricepair}PricePair",
             KeyName="{http://namespace.org/color}TheColor", 
             ValueName="{http://namespace.org/pricevalue}ThePrice")]
         public Dictionary<Color, double> Prices { get; set; }

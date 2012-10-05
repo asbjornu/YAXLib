@@ -2,14 +2,14 @@
 
 namespace Yax.Tests.SampleClasses
 {
-    [YAXPreserveWhitespace]
+    [PreserveWhitespace]
     public class PreserveWhitespaceOnFieldsSample
     {
         public string Str1 { get; set; }
 
         public string Str2 { get; set; }
 
-        [YAXValueFor("SomeElem")]
+        [ValueFor("SomeElem")]
         public string Str3 { get; set; }
 
         public string[] Strings { get; set; }

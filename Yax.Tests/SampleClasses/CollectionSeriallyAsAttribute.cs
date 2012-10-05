@@ -4,16 +4,16 @@
 
     public class CollectionSeriallyAsAttribute
     {
-        [YAXAttributeFor("Info#names")]
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy=",", IsWhiteSpaceSeparator = false)]
+        [AttributeFor("Info#names")]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy=",", IsWhiteSpaceSeparator = false)]
         public string[] Names { get; set; }
 
-        [YAXValueFor("TheCities")]
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
+        [ValueFor("TheCities")]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
         public string[] Cities { get; set; }
 
-        [YAXElementFor("Location")]
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
+        [ElementFor("Location")]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
         public string[] Countries { get; set; }
 
         public static CollectionSeriallyAsAttribute GetSampleInstance()

@@ -4,19 +4,19 @@
 
     public class PathAndAliasAssignmentSample
     {
-        [YAXAttributeFor("Title#value")]
+        [AttributeFor("Title#value")]
         public string Title { get; set; }
 
-        [YAXAttributeFor("Price#value")]
+        [AttributeFor("Price#value")]
         public double Price { get; set; }
 
-        [YAXAttributeFor("Publish#year")]
+        [AttributeFor("Publish#year")]
         public int PublishYear { get; set; }
 
-        [YAXAttributeFor("Notes/Comments#value")]
+        [AttributeFor("Notes/Comments#value")]
         public string Comments { get; set; }
 
-        [YAXAttributeFor("Author#name")]
+        [AttributeFor("Author#name")]
         public string Author { get; set; }
 
         public override string ToString()

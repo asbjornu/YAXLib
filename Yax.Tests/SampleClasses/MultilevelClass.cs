@@ -5,7 +5,7 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This example shows a multi-level class, which helps to test 
+    [Comment(@"This example shows a multi-level class, which helps to test 
       the null references identity problem. 
       Thanks go to Anton Levshunov for proposing this example,
       and a disussion on this matter.")]

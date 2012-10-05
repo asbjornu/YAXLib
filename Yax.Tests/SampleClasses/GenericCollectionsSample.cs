@@ -4,16 +4,16 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This class provides an example of successful serialization/deserialization 
+    [Comment(@"This class provides an example of successful serialization/deserialization 
         of collection objects in ""System.Collections.Generic"" namespaces")]
     public class GenericCollectionsSample
     {
         public Stack<int> TheStack { get; set; }
 
-        [YAXDictionary(EachPairName = "Item", SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
+        [Dictionary(EachPairName = "Item", SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
         public SortedList<double, string> TheSortedList { get; set; }
 
-        [YAXDictionary(EachPairName = "Item", SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
+        [Dictionary(EachPairName = "Item", SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
         public SortedDictionary<int, double> TheSortedDictionary { get; set; }
 
         public Queue<string> TheQueue { get; set; }

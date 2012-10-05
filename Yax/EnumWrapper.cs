@@ -50,9 +50,9 @@ namespace Yax
                     string alias = originalName;
                     foreach (var attr in m.GetCustomAttributes(false))
                     {
-                        if (attr is YAXEnumAttribute)
+                        if (attr is EnumAttribute)
                         {
-                            alias = (attr as YAXEnumAttribute).Alias;
+                            alias = (attr as EnumAttribute).Alias;
                         }
                     }
 

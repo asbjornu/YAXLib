@@ -5,33 +5,33 @@ namespace Yax.Tests.SampleClasses
     [ShowInDemoApplication]
     public class WarehouseWithComments
     {
-        [YAXComment("Comment for name")]
-        [YAXElementFor("foo/bar/one/two")]
+        [Comment("Comment for name")]
+        [ElementFor("foo/bar/one/two")]
         public string Name { get; set; }
 
-        [YAXComment("Comment for OwnerName")]
-        [YAXElementFor("foo/bar/one")]
+        [Comment("Comment for OwnerName")]
+        [ElementFor("foo/bar/one")]
         public string OwnerName { get; set; }
 
-        [YAXComment("This will not be shown, because it is an attribute")]
-        [YAXSerializeAs("address")]
-        [YAXAttributeFor("SiteInfo")]
+        [Comment("This will not be shown, because it is an attribute")]
+        [SerializeAs("address")]
+        [AttributeFor("SiteInfo")]
         public string Address { get; set; }
 
-        [YAXSerializeAs("SurfaceArea")]
-        [YAXElementFor("SiteInfo")]
+        [SerializeAs("SurfaceArea")]
+        [ElementFor("SiteInfo")]
         public double Area { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
-        [YAXSerializeAs("StoreableItems")]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
+        [SerializeAs("StoreableItems")]
         public PossibleItems[] Items { get; set; }
 
-        [YAXComment("This dictionary is serilaized without container")]
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
-        [YAXDictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
+        [Comment("This dictionary is serilaized without container")]
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [Dictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
                        SerializeKeyAs = NodeTypes.Attribute,
                        SerializeValueAs = NodeTypes.Attribute)]
-        [YAXSerializeAs("ItemQuantities")]
+        [SerializeAs("ItemQuantities")]
         public Dictionary<PossibleItems, int> ItemQuantitiesDic { get; set; }
 
         public override string ToString()

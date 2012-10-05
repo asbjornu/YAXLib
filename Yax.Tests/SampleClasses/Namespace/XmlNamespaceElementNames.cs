@@ -2,13 +2,13 @@
 {
     public class XmlNamespaceElementNames
     {
-        [YAXSerializeAs("NoNs")]
+        [SerializeAs("NoNs")]
         public string WithoutNamespace { get; set; }
 
-        [YAXSerializeAs("{xs}WithNs")]
+        [SerializeAs("{xs}WithNs")]
         public string WithNamespace { get; set; }
 
-        [YAXSerializeAs("{xs}Another")]
+        [SerializeAs("{xs}Another")]
         public string AnotherOne { get; set; }
 
         

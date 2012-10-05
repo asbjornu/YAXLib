@@ -2,7 +2,7 @@
 
 namespace Yax.Tests.SampleClasses
 {
-    [YAXSerializableType(Options= SerializationOptions.DontSerializeNullObjects)]
+    [SerializableType(Options= SerializationOptions.DontSerializeNullObjects)]
     public class SomeCollectionItem
     {
         public string Value { get; set; }
@@ -13,17 +13,17 @@ namespace Yax.Tests.SampleClasses
     [ShowInDemoApplication]
     public class BookClassTesgingSerializeAsValue
     {
-        [YAXValueFor(".")]
+        [ValueFor(".")]
         public double Price { get; set; }
 
         public int PublishYear { get; set; }
 
-        [YAXValueFor(".")]
+        [ValueFor(".")]
         public string Comments { get; set; }
 
         public string Author { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
         public List<SomeCollectionItem> TheCollection { get; set; }
 
         public override string ToString()

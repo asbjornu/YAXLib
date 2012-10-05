@@ -4,21 +4,21 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This example shows serialization and deserialization of objects
+    [Comment(@"This example shows serialization and deserialization of objects
                 through a reference to their base class or interface while used in 
                 collection classes")]
     public class InterfaceMatchingSample
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public int? SomeNumber { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Serially)]
+        [Collection(CollectionSerializationTypes.Serially)]
         public List<int?> ListOfSamples { get; set; }
 
-        [YAXDictionary(SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs= NodeTypes.Attribute)]
+        [Dictionary(SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs= NodeTypes.Attribute)]
         public Dictionary<double?, int> DictNullable2Int { get; set; }
 
-        [YAXDictionary(SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
+        [Dictionary(SerializeKeyAs = NodeTypes.Attribute, SerializeValueAs = NodeTypes.Attribute)]
         public Dictionary<int, double?> DictInt2Nullable { get; set; }
 
         public override string ToString()

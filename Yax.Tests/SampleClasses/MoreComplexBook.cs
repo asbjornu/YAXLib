@@ -2,15 +2,15 @@
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This example shows how to provide serialization address
+    [Comment(@"This example shows how to provide serialization address
         for elements and attributes. Theses addresses resemble those used
         in known file-systems")]
     public class MoreComplexBook
     {
-        [YAXAttributeFor("SomeTag/SomeOtherTag/AndSo")]
+        [AttributeFor("SomeTag/SomeOtherTag/AndSo")]
         public string Title { get; set; }
 
-        [YAXElementFor("SomeTag/SomeOtherTag/AndSo")]
+        [ElementFor("SomeTag/SomeOtherTag/AndSo")]
         public string Author { get; set; }
 
         public int PublishYear { get; set; }

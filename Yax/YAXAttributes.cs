@@ -16,7 +16,7 @@ namespace Yax
     /// The base class for all attributes defined in YAXLib.
     /// </summary>
     [AttributeUsage(AttributeTargets.All)]
-    public abstract class YAXBaseAttribute : System.Attribute
+    public abstract class BaseAttribute : Attribute
     {
     }
 
@@ -25,15 +25,15 @@ namespace Yax
     /// This attribute is applicable to classes, structures, fields, and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXCommentAttribute : YAXBaseAttribute
+    public class CommentAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXCommentAttribute"/> class.
+        /// Initializes a new instance of the <see cref="CommentAttribute"/> class.
         /// </summary>
         /// <param name="comment">The comment.</param>
-        public YAXCommentAttribute(string comment)
+        public CommentAttribute(string comment)
         {
             this.Comment = comment;
         }
@@ -57,7 +57,7 @@ namespace Yax
     /// This attribute is applicable to classes and structures.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
-    public class YAXSerializableTypeAttribute : YAXBaseAttribute
+    public class SerializableTypeAttribute : BaseAttribute
     {
         #region Private Fields
 
@@ -76,9 +76,9 @@ namespace Yax
 
         #region Constructors
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXSerializableTypeAttribute"/> class.
+        /// Initializes a new instance of the <see cref="SerializableTypeAttribute"/> class.
         /// </summary>
-        public YAXSerializableTypeAttribute()
+        public SerializableTypeAttribute()
         {
             this.FieldsToSerialize = SerializationFields.PublicPropertiesOnly;
         }
@@ -136,26 +136,26 @@ namespace Yax
     /// This attribute is applicable to classes, structs, fields, enums and properties
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Enum | AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Struct)]
-    public class YAXNamespaceAttribute : YAXBaseAttribute
+    public class NamespaceAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXNamespaceAttribute"/> class.
+        /// Initializes a new instance of the <see cref="NamespaceAttribute"/> class.
         /// </summary>
         /// <remarks>
         /// The element this applies to will take on the given XML namespace. In the case
         /// of this constructor, the default one defined by xmlns="namespace"
         /// </remarks>
         /// <param name="defaultNamespace">The default namespace to use for this item</param>
-        public YAXNamespaceAttribute(string defaultNamespace)
+        public NamespaceAttribute(string defaultNamespace)
         {
             Namespace = defaultNamespace;
             Prefix = null;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXNamespaceAttribute"/> class.
+        /// Initializes a new instance of the <see cref="NamespaceAttribute"/> class.
         /// </summary>
         /// <remarks>
         /// The element this applies to will take on the given XML namespace. The namespace
@@ -164,7 +164,7 @@ namespace Yax
         /// </remarks>
         /// <param name="namespacePrefix">The prefix to use for this element's namespace</param>
         /// <param name="xmlNamespace">The xml namespace to use for this item</param>
-        public YAXNamespaceAttribute(string namespacePrefix, string xmlNamespace)
+        public NamespaceAttribute(string namespacePrefix, string xmlNamespace)
         {
             Namespace = xmlNamespace;
             Prefix = namespacePrefix;
@@ -197,7 +197,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXSerializableFieldAttribute : YAXBaseAttribute
+    public class SerializableFieldAttribute : BaseAttribute
     {
     }
     
@@ -206,7 +206,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties only.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXAttributeForClassAttribute : YAXBaseAttribute
+    public class AttributeForClassAttribute : BaseAttribute
     {
     }
 
@@ -215,15 +215,15 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXAttributeForAttribute : YAXBaseAttribute
+    public class AttributeForAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXAttributeForAttribute"/> class.
+        /// Initializes a new instance of the <see cref="AttributeForAttribute"/> class.
         /// </summary>
         /// <param name="parent">The element of which the property becomes an attribute.</param>
-        public YAXAttributeForAttribute(string parent)
+        public AttributeForAttribute(string parent)
         {
             this.Parent = parent;
         }
@@ -246,15 +246,15 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXValueForAttribute : YAXBaseAttribute
+    public class ValueForAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXAttributeForAttribute"/> class.
+        /// Initializes a new instance of the <see cref="AttributeForAttribute"/> class.
         /// </summary>
         /// <param name="parent">The element of which the property becomes an attribute.</param>
-        public YAXValueForAttribute(string parent)
+        public ValueForAttribute(string parent)
         {
             this.Parent = parent;
         }
@@ -276,14 +276,14 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXValueForClassAttribute : YAXBaseAttribute
+    public class ValueForClassAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXValueForClassAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ValueForClassAttribute"/> class.
         /// </summary>
-        public YAXValueForClassAttribute()
+        public ValueForClassAttribute()
         {
         }
 
@@ -298,7 +298,7 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXDontSerializeAttribute : YAXBaseAttribute
+    public class DontSerializeAttribute : BaseAttribute
     {
     }
 
@@ -308,15 +308,15 @@ namespace Yax
     /// properties, classes, and structs.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class YAXSerializeAsAttribute : YAXBaseAttribute
+    public class SerializeAsAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXSerializeAsAttribute"/> class.
+        /// Initializes a new instance of the <see cref="SerializeAsAttribute"/> class.
         /// </summary>
         /// <param name="serializeAs">the alias for the property under which the property will be serialized.</param>
-        public YAXSerializeAsAttribute(string serializeAs)
+        public SerializeAsAttribute(string serializeAs)
         {
             this.SerializeAs = serializeAs;
         }
@@ -338,15 +338,15 @@ namespace Yax
     /// for another element. This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXElementForAttribute : YAXBaseAttribute
+    public class ElementForAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXElementForAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ElementForAttribute"/> class.
         /// </summary>
         /// <param name="parent">The element of which the property becomes a child element.</param>
-        public YAXElementForAttribute(string parent)
+        public ElementForAttribute(string parent)
         {
             this.Parent = parent;
         }
@@ -369,15 +369,15 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXCollectionAttribute : YAXBaseAttribute
+    public class CollectionAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXCollectionAttribute"/> class.
+        /// Initializes a new instance of the <see cref="CollectionAttribute"/> class.
         /// </summary>
         /// <param name="serType">type of the serialization of the collection.</param>
-        public YAXCollectionAttribute(CollectionSerializationTypes serType)
+        public CollectionAttribute(CollectionSerializationTypes serType)
         {
             this.SerializationType = serType;
             this.SeparateBy = " ";
@@ -425,14 +425,14 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXDictionaryAttribute : YAXBaseAttribute
+    public class DictionaryAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXDictionaryAttribute"/> class.
+        /// Initializes a new instance of the <see cref="DictionaryAttribute"/> class.
         /// </summary>
-        public YAXDictionaryAttribute()
+        public DictionaryAttribute()
         {
             this.KeyName = null;
             this.ValueName = null;
@@ -497,15 +497,15 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXErrorIfMissedAttribute : YAXBaseAttribute
+    public class ErrorIfMissedAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXErrorIfMissedAttribute"/> class.
+        /// Initializes a new instance of the <see cref="ErrorIfMissedAttribute"/> class.
         /// </summary>
         /// <param name="treatAs">The value indicating this situation is going to be treated as Error or Warning.</param>
-        public YAXErrorIfMissedAttribute(ExceptionTypes treatAs)
+        public ErrorIfMissedAttribute(ExceptionTypes treatAs)
         {
             this.TreatAs = treatAs;
             this.DefaultValue = null;
@@ -539,15 +539,15 @@ namespace Yax
     /// This attribute is applicable to fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXFormatAttribute : YAXBaseAttribute
+    public class FormatAttribute : BaseAttribute
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXFormatAttribute"/> class.
+        /// Initializes a new instance of the <see cref="FormatAttribute"/> class.
         /// </summary>
         /// <param name="format">The format string.</param>
-        public YAXFormatAttribute(string format)
+        public FormatAttribute(string format)
         {
             this.Format = format;
         }
@@ -572,7 +572,7 @@ namespace Yax
     /// This attribute is applicable to fields, properties, classes, and structs.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class YAXNotCollectionAttribute : YAXBaseAttribute
+    public class NotCollectionAttribute : BaseAttribute
     {
     }
 
@@ -581,15 +581,15 @@ namespace Yax
     /// This attribute is applicable to enum members.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
-    public class YAXEnumAttribute : YAXBaseAttribute
+    public class EnumAttribute : BaseAttribute
     {
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXEnumAttribute"/> class.
+        /// Initializes a new instance of the <see cref="EnumAttribute"/> class.
         /// </summary>
         /// <param name="alias">The alias.</param>
-        public YAXEnumAttribute(string alias)
+        public EnumAttribute(string alias)
         {
             this.Alias = alias.Trim();
         }
@@ -613,13 +613,13 @@ namespace Yax
     /// This attribute is applicable to fields, properties, classes, and structs.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class YAXCustomSerializerAttribute : YAXBaseAttribute
+    public class CustomSerializerAttribute : BaseAttribute
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXCustomSerializerAttribute"/> class.
+        /// Initializes a new instance of the <see cref="CustomSerializerAttribute"/> class.
         /// </summary>
         /// <param name="customSerializerType">Type of the custom serializer.</param>
-        public YAXCustomSerializerAttribute(Type customSerializerType)
+        public CustomSerializerAttribute(Type customSerializerType)
         {
             this.CustomSerializerType = customSerializerType;
         }
@@ -638,7 +638,7 @@ namespace Yax
     /// deserialization, or add it to the containing class to be applied to all its fields and properties.
     /// </summary>
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Class | AttributeTargets.Struct)]
-    public class YAXPreserveWhitespaceAttribute : YAXBaseAttribute
+    public class PreserveWhitespaceAttribute : BaseAttribute
     {
     }
 }

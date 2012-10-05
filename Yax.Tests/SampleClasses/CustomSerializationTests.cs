@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace Yax.Tests.SampleClasses
 {
-    [YAXCustomSerializer(typeof(CustomMessageSerializer))]
+    [CustomSerializer(typeof(CustomMessageSerializer))]
     public class Message
     {
         public string MessageText { get; set; }
@@ -21,8 +21,8 @@ namespace Yax.Tests.SampleClasses
     [ShowInDemoApplication]
     public class CustomSerializationTests
     {
-        [YAXCustomSerializer(typeof(CustomTitleSerializer))]
-        [YAXElementFor("SomeTitle")]
+        [CustomSerializer(typeof(CustomTitleSerializer))]
+        [ElementFor("SomeTitle")]
         public string Title { get; set; }
 
         public Message Message { get; set; }

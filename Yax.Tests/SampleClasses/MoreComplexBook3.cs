@@ -2,29 +2,29 @@
 {
     public class Author3
     {
-        [YAXSerializeAs("AuthorName")]
-        [YAXAttributeFor("../PublishYear")]
+        [SerializeAs("AuthorName")]
+        [AttributeFor("../PublishYear")]
         public string Name { get; set; }
 
-        [YAXSerializeAs("AuthorAge")]
-        [YAXElementFor("..")]
+        [SerializeAs("AuthorAge")]
+        [ElementFor("..")]
         public int Age { get; set; }
     }
 
     [ShowInDemoApplication]
-    [YAXComment(@"This example shows how to serialize collection objects while
+    [Comment(@"This example shows how to serialize collection objects while
             not serializing the element for their enclosing collection itself")]
     public class MoreComplexBook3
     {
         public string Title { get; set; }
 
-        [YAXComment("Comment for author")]
+        [Comment("Comment for author")]
         public Author3 Author { get; set; }
 
         public int PublishYear { get; set; }
         public double Price { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="Editor")]
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="Editor")]
         public string[] Editors { get; set; }
 
         public override string ToString()

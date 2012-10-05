@@ -5,7 +5,7 @@ namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
-    [YAXComment(@"This example demonstrates usage of recursive collection serialization
+    [Comment(@"This example demonstrates usage of recursive collection serialization
                 and deserialization. In this case a Dictionary whose Key, or Value is 
                 another dictionary or collection has been used.")]
     public class NestedDicSample

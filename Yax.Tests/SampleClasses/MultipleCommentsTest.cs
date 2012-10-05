@@ -2,14 +2,14 @@
 {
     [ShowInDemoApplication]
 
-    [YAXComment("How multi-line comments are serialized as multiple XML comments")]
+    [Comment("How multi-line comments are serialized as multiple XML comments")]
     public class MultipleCommentsTest
     {
-        [YAXComment(@"Using @ quoted style 
+        [Comment(@"Using @ quoted style 
                      comments for multiline comments")]
         public int Dummy { get; set; }
 
-        [YAXComment("Comment 1 for member\nComment 2 for member")]
+        [Comment("Comment 1 for member\nComment 2 for member")]
         public int SomeInt { get; set; }
 
         public override string ToString()

@@ -3,30 +3,30 @@
 namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
-    [YAXComment(@"This example shows how dictionary objects can be serialized without
+    [Comment(@"This example shows how dictionary objects can be serialized without
         their enclosing element")]
     public class WarehouseWithDictionaryNoContainer
     {
-        [YAXAttributeForClass]
+        [AttributeForClass]
         public string Name { get; set; }
 
-        [YAXSerializeAs("address")]
-        [YAXAttributeFor("SiteInfo")]
+        [SerializeAs("address")]
+        [AttributeFor("SiteInfo")]
         public string Address { get; set; }
 
-        [YAXSerializeAs("SurfaceArea")]
-        [YAXElementFor("SiteInfo")]
+        [SerializeAs("SurfaceArea")]
+        [ElementFor("SiteInfo")]
         public double Area { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
-        [YAXSerializeAs("StoreableItems")]
+        [Collection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
+        [SerializeAs("StoreableItems")]
         public PossibleItems[] Items { get; set; }
 
-        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
-        [YAXDictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
+        [Collection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [Dictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
                        SerializeKeyAs = NodeTypes.Attribute,
                        SerializeValueAs = NodeTypes.Attribute)]
-        [YAXSerializeAs("ItemQuantities")]
+        [SerializeAs("ItemQuantities")]
         public Dictionary<PossibleItems, int> ItemQuantitiesDic { get; set; }
 
         public override string ToString()
