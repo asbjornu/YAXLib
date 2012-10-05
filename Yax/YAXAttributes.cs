@@ -70,7 +70,7 @@ namespace Yax
         /// <summary>
         /// Private variable to hold the serialization options
         /// </summary>
-        private YAXSerializationOptions m_serializationOptions = YAXSerializationOptions.SerializeNullObjects;
+        private SerializationOptions m_serializationOptions = SerializationOptions.SerializeNullObjects;
 
         #endregion
 
@@ -97,7 +97,7 @@ namespace Yax
         /// Gets or sets the serialization options.
         /// </summary>
         /// <value>The options.</value>
-        public YAXSerializationOptions Options 
+        public SerializationOptions Options 
         {
             get
             {

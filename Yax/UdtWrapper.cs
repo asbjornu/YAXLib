@@ -121,7 +121,7 @@ namespace Yax
         /// Gets the serialization options.
         /// </summary>
         /// <value>The serialization options.</value>
-        public YAXSerializationOptions SerializationOption { get; private set; }
+        public SerializationOptions SerializationOption { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is attributed as not collection.
@@ -207,7 +207,7 @@ namespace Yax
         {
             get
             {
-                return this.SerializationOption == YAXSerializationOptions.DontSerializeNullObjects;
+                return this.SerializationOption == SerializationOptions.DontSerializeNullObjects;
             }
         }
 
@@ -350,7 +350,7 @@ namespace Yax
         {
             if (!m_isSerializationOptionSetByAttribute)
             {
-                SerializationOption = caller != null ? caller.SerializationOption : YAXSerializationOptions.SerializeNullObjects;
+                SerializationOption = caller != null ? caller.SerializationOption : SerializationOptions.SerializeNullObjects;
             }
         }
 

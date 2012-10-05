@@ -55,7 +55,7 @@ namespace Yax
     /// <summary>
     /// Enumerates different serialization options which could be set at construction time.
     /// </summary>
-    public enum YAXSerializationOptions
+    public enum SerializationOptions
     {
         /// <summary>
         /// Prevents serialization of null objects.

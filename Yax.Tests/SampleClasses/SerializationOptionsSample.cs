@@ -1,6 +1,6 @@
 ﻿namespace Yax.Tests.SampleClasses
 {
-    [YAXSerializableType(Options = YAXSerializationOptions.DontSerializeNullObjects)]
+    [YAXSerializableType(Options = SerializationOptions.DontSerializeNullObjects)]
     public class ClassWithOptionsSet
     {
         public string StrNotNull { get; set; }
@@ -13,7 +13,7 @@
         public int SomeValueType { get; set; }
     }
 
-    [YAXSerializableType(Options = YAXSerializationOptions.SerializeNullObjects)]
+    [YAXSerializableType(Options = SerializationOptions.SerializeNullObjects)]
     public class AnotherClassWithOptionsSet
     {
         public string StrNotNull { get; set; }

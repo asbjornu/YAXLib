@@ -30,7 +30,7 @@ namespace Yax.Tests
         private void GetTheTwoStrings(object obj, out string originalString, out string gottonString, out int errorCounts)
         {
             originalString = GeneralToStringProvider.GeneralToString(obj);
-            var serializer = new YAXSerializer(obj.GetType(), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(obj.GetType(), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             object gottonObject = serializer.Deserialize(serializer.Serialize(obj));
             errorCounts = serializer.ParsingErrors.Count;
             gottonString = GeneralToStringProvider.GeneralToString(gottonObject);
@@ -323,7 +323,7 @@ namespace Yax.Tests
 
             string initialToString = book.ToString();
 
-            YAXSerializer serializer = new YAXSerializer(typeof(MoreComplexBook2), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            YAXSerializer serializer = new YAXSerializer(typeof(MoreComplexBook2), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             serializer.SetDeserializationBaseObject(book);
             MoreComplexBook2 bookResult = (MoreComplexBook2)serializer.Deserialize(result);
             Assert.AreNotEqual(bookResult.ToString(), initialToString);
@@ -356,7 +356,7 @@ namespace Yax.Tests
   </ObjectWithoutOptionsSet>
 </SerializationOptionsSample>";
 
-            var serializer = new YAXSerializer(typeof(SerializationOptionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.DontSerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(SerializationOptionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.DontSerializeNullObjects);
             var gottonObject = serializer.Deserialize(input1) as SerializationOptionsSample;
 
             Assert.That(123, Is.EqualTo(gottonObject.ObjectWithOptionsSet.SomeValueType));

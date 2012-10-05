@@ -2,7 +2,7 @@
 
 namespace Yax.Tests.SampleClasses
 {
-    [YAXSerializableType(Options= YAXSerializationOptions.DontSerializeNullObjects)]
+    [YAXSerializableType(Options= SerializationOptions.DontSerializeNullObjects)]
     public class SomeCollectionItem
     {
         public string Value { get; set; }

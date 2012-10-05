@@ -22,14 +22,14 @@ namespace Yax.Demo
         {
             this.comboPolicy.Items.AddRange(Enum.GetNames(typeof(ExceptionHandlingPolicies)));
             this.comboErrorType.Items.AddRange(Enum.GetNames(typeof(ExceptionTypes)));
-            this.comboOptions.Items.AddRange(Enum.GetNames(typeof(YAXSerializationOptions)));
+            this.comboOptions.Items.AddRange(Enum.GetNames(typeof(SerializationOptions)));
 
             if (this.comboPolicy.Items.Count > 0)
                 this.comboPolicy.Text = ExceptionHandlingPolicies.DoNotThrow.ToString();
             if(this.comboErrorType.Items.Count > 0)
                 this.comboErrorType.Text = ExceptionTypes.Error.ToString();
             if (this.comboOptions.Items.Count > 0)
-                this.comboOptions.Text = YAXSerializationOptions.SerializeNullObjects.ToString();
+                this.comboOptions.Text = SerializationOptions.SerializeNullObjects.ToString();
         }
 
         private ExceptionTypes GetSelectedDefaultExceptionType()
@@ -42,9 +42,9 @@ namespace Yax.Demo
             return (ExceptionHandlingPolicies)Enum.Parse(typeof(ExceptionHandlingPolicies), this.comboPolicy.Text);
         }
 
-        private YAXSerializationOptions GetSelectedSerializationOption()
+        private SerializationOptions GetSelectedSerializationOption()
         {
-            return (YAXSerializationOptions)Enum.Parse(typeof(YAXSerializationOptions), this.comboOptions.Text);
+            return (SerializationOptions)Enum.Parse(typeof(SerializationOptions), this.comboOptions.Text);
         }
 
         private void InitListOfClasses()
@@ -127,7 +127,7 @@ namespace Yax.Demo
             var info = selItem as ClassInfoListItem;
             ExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
             ExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
-            YAXSerializationOptions serOption = GetSelectedSerializationOption();
+            SerializationOptions serOption = GetSelectedSerializationOption();
 
             try
             {
@@ -187,7 +187,7 @@ namespace Yax.Demo
             ClassInfoListItem info = selItem as ClassInfoListItem;
             ExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
             ExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
-            YAXSerializationOptions serOption = GetSelectedSerializationOption();
+            SerializationOptions serOption = GetSelectedSerializationOption();
 
             try
             {
