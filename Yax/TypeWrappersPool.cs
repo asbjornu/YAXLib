@@ -77,7 +77,7 @@ namespace Yax
         /// <param name="t">The type whose wrapper is needed.</param>
         /// <param name="caller">reference to the serializer instance which called this method.</param>
         /// <returns>the type wrapper corresponding to the specified type</returns>
-        public UdtWrapper GetTypeWrapper(Type t, YAXSerializer caller)
+        public UdtWrapper GetTypeWrapper(Type t, Serializer caller)
         {
             lock (m_lockDic)
             {

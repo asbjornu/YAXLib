@@ -132,7 +132,7 @@ namespace Yax.Demo
             try
             {
                 object deserializedObject = null;
-                YAXSerializer serializer = new YAXSerializer(info.ClassType, exPolicy, defaultExType, serOption);
+                Serializer serializer = new Serializer(info.ClassType, exPolicy, defaultExType, serOption);
 
                 if (openFromFile)
                     deserializedObject = serializer.DeserializeFromFile(fileName);
@@ -191,7 +191,7 @@ namespace Yax.Demo
 
             try
             {
-                YAXSerializer serializer = new YAXSerializer(info.ClassType, exPolicy, defaultExType, serOption);
+                Serializer serializer = new Serializer(info.ClassType, exPolicy, defaultExType, serOption);
 
                 if (saveToFile)
                     serializer.SerializeToFile(info.SampleObject, fileName);

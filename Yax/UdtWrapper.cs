@@ -60,7 +60,7 @@ namespace Yax
         /// <param name="udtType">The underlying type to create the wrapper around.</param>
         /// <param name="callerSerializer">reference to the serializer 
         /// instance which is building this instance.</param>
-        public UdtWrapper(Type udtType, YAXSerializer callerSerializer)
+        public UdtWrapper(Type udtType, Serializer callerSerializer)
         {
             m_isTypeDictionary = false;
             m_udtType = udtType;
@@ -346,7 +346,7 @@ namespace Yax
         /// Sets the serializer options.
         /// </summary>
         /// <param name="caller">The caller serializer.</param>
-        public void SetYAXSerializerOptions(YAXSerializer caller)
+        public void SetYAXSerializerOptions(Serializer caller)
         {
             if (!m_isSerializationOptionSetByAttribute)
             {

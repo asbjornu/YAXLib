@@ -58,7 +58,7 @@ namespace Yax.Tests
         public void TestWrappers()
         {
             var typeToTest = typeof (TimeSpan);
-            var serializer = new YAXSerializer(typeToTest);
+            var serializer = new Serializer(typeToTest);
             var typeWrapper = new UdtWrapper(typeToTest, serializer);
 
             Assert.That((object)typeWrapper.IsKnownType, Is.True);
@@ -68,7 +68,7 @@ namespace Yax.Tests
         public void TestSingleKnownTypeSerialization()
         {
             var typeToTest = typeof(Color);
-            var serializer = new YAXSerializer(typeToTest);
+            var serializer = new Serializer(typeToTest);
 
             var col1 = Color.FromArgb(145, 123, 123);
             var colStr1 = serializer.Serialize(col1);
@@ -96,7 +96,7 @@ namespace Yax.Tests
             inst.TheElement = null;
             inst.TheAttribute = null;
 
-            var ser = new YAXSerializer(typeof (ClassContainingXElement), ExceptionHandlingPolicies.ThrowErrorsOnly,
+            var ser = new Serializer(typeof (ClassContainingXElement), ExceptionHandlingPolicies.ThrowErrorsOnly,
                                         ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
 
             try

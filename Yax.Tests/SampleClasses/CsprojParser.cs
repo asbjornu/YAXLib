@@ -6,7 +6,7 @@ namespace Yax.Tests.SampleClasses
     {
         public static ProjectBuildDefinition Parse(string xml)
         {
-            var yaxSer = new YAXSerializer(typeof(ProjectBuildDefinition),
+            var yaxSer = new Serializer(typeof(ProjectBuildDefinition),
                 ExceptionHandlingPolicies.DoNotThrow,
                 ExceptionTypes.Ignore,
                 SerializationOptions.DontSerializeNullObjects);
@@ -18,7 +18,7 @@ namespace Yax.Tests.SampleClasses
         {
             var project = Parse(xml);
 
-            var yaxSer = new YAXSerializer(typeof(ProjectBuildDefinition),
+            var yaxSer = new Serializer(typeof(ProjectBuildDefinition),
                 ExceptionHandlingPolicies.DoNotThrow,
                 ExceptionTypes.Ignore,
                 SerializationOptions.DontSerializeNullObjects);

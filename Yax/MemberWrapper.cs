@@ -90,7 +90,7 @@ namespace Yax
         /// </summary>
         /// <param name="memberInfo">The member-info to build this instance from.</param>
         /// <param name="callerSerializer">The caller serializer.</param>
-        public MemberWrapper(MemberInfo memberInfo, YAXSerializer callerSerializer)
+        public MemberWrapper(MemberInfo memberInfo, Serializer callerSerializer)
         {
             if (!(memberInfo.MemberType == MemberTypes.Property || memberInfo.MemberType == MemberTypes.Field))
                 throw new Exception("Member must be either property or field");

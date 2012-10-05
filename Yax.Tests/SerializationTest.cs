@@ -38,11 +38,11 @@ namespace Yax.Tests
 
             for (int i = 0; i < objs.Length; i++)
             {
-                var serializer = new YAXSerializer(objs[i].GetType());
+                var serializer = new Serializer(objs[i].GetType());
                 var got = serializer.Serialize(objs[i]);
                 Assert.That(got, Is.EqualTo(serializedResults[i]));
 
-                var deser = new YAXSerializer(types[i]);
+                var deser = new Serializer(types[i]);
                 var obj = deser.Deserialize(got);
                 Assert.That(objs[i], Is.EqualTo(obj));
             }
@@ -60,7 +60,7 @@ namespace Yax.Tests
   <PublishYear>2002</PublishYear>
   <Price>30.5</Price>
 </Book>";
-            var serializer = new YAXSerializer(typeof(Book), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(Book), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(Book.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -74,9 +74,9 @@ namespace Yax.Tests
                 {
                     var th = new Thread(() =>
                         {
-                            var serializer = new YAXSerializer(typeof(Book), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+                            var serializer = new Serializer(typeof(Book), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
                             string got = serializer.Serialize(Book.GetSampleInstance());
-                            var deserializer = new YAXSerializer(typeof(Book), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+                            var deserializer = new Serializer(typeof(Book), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
                             var book = deserializer.Deserialize(got) as Book;
                             Assert.That(book, Is.Not.Null);
                         }
@@ -103,7 +103,7 @@ namespace Yax.Tests
   <PublishYear>2002</PublishYear>
   <Price>32.20</Price>
 </SimpleBookClassWithDecimalPrice>";
-            var serializer = new YAXSerializer(typeof(SimpleBookClassWithDecimalPrice), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(SimpleBookClassWithDecimalPrice), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(SimpleBookClassWithDecimalPrice.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -114,19 +114,19 @@ namespace Yax.Tests
             var curCulture = CultureInfo.CurrentCulture;
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("fr-FR");
-            var serializer = new YAXSerializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string frResult = serializer.Serialize(CultureSample.GetSampleInstance());
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("fa-IR");
-            serializer = new YAXSerializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            serializer = new Serializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string faResult = serializer.Serialize(CultureSample.GetSampleInstance());
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("de-DE");
-            serializer = new YAXSerializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            serializer = new Serializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string deResult = serializer.Serialize(CultureSample.GetSampleInstance());
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-            serializer = new YAXSerializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            serializer = new Serializer(typeof(CultureSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string usResult = serializer.Serialize(CultureSample.GetSampleInstance());
 
             Thread.CurrentThread.CurrentCulture = curCulture;
@@ -163,7 +163,7 @@ namespace Yax.Tests
   <PublishYear>1998</PublishYear>
   <Price>38.75</Price>
 </BookStruct>";
-            var serializer = new YAXSerializer(typeof(BookStruct), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(BookStruct), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(BookStruct.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -178,7 +178,7 @@ namespace Yax.Tests
   <Address>No. 10, Some Ave., Some City, Some Country</Address>
   <Area>120000.5</Area>
 </WarehouseSimple>";
-            var serializer = new YAXSerializer(typeof(WarehouseSimple), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(WarehouseSimple), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(WarehouseSimple.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -193,7 +193,7 @@ namespace Yax.Tests
     <SurfaceArea>120000.5</SurfaceArea>
   </SiteInfo>
 </WarehouseStructured>";
-            var serializer = new YAXSerializer(typeof(WarehouseStructured), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(WarehouseStructured), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(WarehouseStructured.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -209,7 +209,7 @@ namespace Yax.Tests
   </SiteInfo>
   <StoreableItems>Item3, Item6, Item9, Item12</StoreableItems>
 </WarehouseWithArray>";
-            var serializer = new YAXSerializer(typeof(WarehouseWithArray), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(WarehouseWithArray), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(WarehouseWithArray.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -231,7 +231,7 @@ namespace Yax.Tests
     <ItemInfo Item=""Item12"" Count=""25"" />
   </ItemQuantities>
 </WarehouseWithDictionary>";
-            var serializer = new YAXSerializer(typeof(WarehouseWithDictionary), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(WarehouseWithDictionary), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(WarehouseWithDictionary.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -257,7 +257,7 @@ namespace Yax.Tests
     <Age>50</Age>
   </Owner>
 </WarehouseNestedObjectExample>";
-            var serializer = new YAXSerializer(typeof(WarehouseNestedObjectExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(WarehouseNestedObjectExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(WarehouseNestedObjectExample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -271,7 +271,7 @@ namespace Yax.Tests
   <LanguageName>C#</LanguageName>
   <IsCaseSensitive>True</IsCaseSensitive>
 </ProgrammingLanguage>";
-            var serializer = new YAXSerializer(typeof(ProgrammingLanguage), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(ProgrammingLanguage), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(ProgrammingLanguage.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -284,7 +284,7 @@ namespace Yax.Tests
 <ColorExample>
   <TheColor>#FF0000FF</TheColor>
 </ColorExample>";
-            var serializer = new YAXSerializer(typeof(ColorExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(ColorExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(ColorExample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -311,7 +311,7 @@ namespace Yax.Tests
     </FirstLevelClass>
   </items>
 </MultilevelClass>";
-            var serializer = new YAXSerializer(typeof(MultilevelClass), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(MultilevelClass), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MultilevelClass.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -352,7 +352,7 @@ namespace Yax.Tests
                 FormattingExample.GetSampleInstance().ModificationDate.ToShortDateString()
                 );
 
-            var serializer = new YAXSerializer(typeof(FormattingExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(FormattingExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(FormattingExample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -367,7 +367,7 @@ namespace Yax.Tests
 <PathsExample>
   <Paths>C:\SomeFile.txt;C:\SomeFolder\SomeFile.txt;C:\Some Folder With Space Such As\Program Files</Paths>
 </PathsExample>";
-            var serializer = new YAXSerializer(typeof(PathsExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(PathsExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(PathsExample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -412,7 +412,7 @@ namespace Yax.Tests
     </Families>
   </Students>
 </MoreComplexExample>";
-            var serializer = new YAXSerializer(typeof(MoreComplexExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(MoreComplexExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MoreComplexExample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -502,7 +502,7 @@ namespace Yax.Tests
     </KeyValuePairOfDictionaryOfDoubleDictionaryOfInt32Int32DictionaryOfDictionaryOfStringStringListOfDouble>
   </SomeDic>
 </NestedDicSample>";
-            var serializer = new YAXSerializer(typeof(NestedDicSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(NestedDicSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(NestedDicSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -534,7 +534,7 @@ namespace Yax.Tests
     </KeyValuePairOfGuidInt32>
   </SomeDic>
 </GUIDTest>", g1.ToString(), g2.ToString(), g3.ToString(), g4.ToString());
-            var serializer = new YAXSerializer(typeof(GUIDTest), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(GUIDTest), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(GUIDTest.GetSampleInstance(g1,g2,g3,g4));
             Assert.That(got, Is.EqualTo(result));
         }
@@ -549,7 +549,7 @@ namespace Yax.Tests
   <PublishYear>2002</PublishYear>
   <PurchaseYear />
 </NullableClass>";
-            var serializer = new YAXSerializer(typeof(NullableClass), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(NullableClass), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(NullableClass.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -563,7 +563,7 @@ namespace Yax.Tests
 <NullableSample2 xmlns:yaxlib=""http://www.sinairv.com/yaxlib/"">
   <Number yaxlib:realtype=""System.Int32"">10</Number>
 </NullableSample2>";
-            var serializer = new YAXSerializer(typeof(NullableSample2), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(NullableSample2), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(NullableSample2.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -579,7 +579,7 @@ namespace Yax.Tests
     <String>Hello</String>
   </ListOfStrings>
 </ListHolderClass>";
-            var serializer = new YAXSerializer(typeof(ListHolderClass), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(ListHolderClass), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(ListHolderClass.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -592,7 +592,7 @@ namespace Yax.Tests
   <String>Hi</String>
   <String>Hello</String>
 </ListOfString>";
-            var serializer = new YAXSerializer(ListHolderClass.GetSampleInstance().ListOfStrings.GetType(), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(ListHolderClass.GetSampleInstance().ListOfStrings.GetType(), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(ListHolderClass.GetSampleInstance().ListOfStrings);
             Assert.That(got, Is.EqualTo(result));
         }
@@ -614,7 +614,7 @@ namespace Yax.Tests
     </PersonInfo>
   </Persons>
 </NamesExample>";
-            var serializer = new YAXSerializer(typeof(NamesExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(NamesExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(NamesExample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -635,7 +635,7 @@ namespace Yax.Tests
     </skylab_config>
   </input>
 </Pricing>";
-            var serializer = new YAXSerializer(typeof(Request), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(Request), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(Request.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -648,7 +648,7 @@ namespace Yax.Tests
   <Audio FileName=""filesname.jpg"">base64</Audio>
   <Image FileName=""filesname.jpg"">base64</Image>
 </AudioSample>";
-            var serializer = new YAXSerializer(typeof(AudioSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(AudioSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(AudioSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -672,7 +672,7 @@ namespace Yax.Tests
     </KeyValuePairOfTimeSpanInt32>
   </DicTimeSpans>
 </TimeSpanSample>";
-            var serializer = new YAXSerializer(typeof(TimeSpanSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(TimeSpanSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(TimeSpanSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -688,7 +688,7 @@ namespace Yax.Tests
   <m_someInt>8</m_someInt>
   <m_someDouble>3.14</m_someDouble>
 </FieldSerializationExample>";
-            var serializer = new YAXSerializer(typeof(FieldSerializationExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(FieldSerializationExample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(FieldSerializationExample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -711,7 +711,7 @@ namespace Yax.Tests
   <PublishYear>2002</PublishYear>
   <Price>30.5</Price>
 </MoreComplexBook>";
-            var serializer = new YAXSerializer(typeof(MoreComplexBook), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(MoreComplexBook), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MoreComplexBook.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -735,7 +735,7 @@ namespace Yax.Tests
   <PublishYear>2002</PublishYear>
   <Price>30.5</Price>
 </MoreComplexBook2>";
-            var serializer = new YAXSerializer(typeof(MoreComplexBook2), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(MoreComplexBook2), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MoreComplexBook2.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -756,7 +756,7 @@ namespace Yax.Tests
   <Editor>Timothy Jones</Editor>
   <Editor>Oliver Twist</Editor>
 </MoreComplexBook3>";
-            var serializer = new YAXSerializer(typeof(MoreComplexBook3), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(MoreComplexBook3), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MoreComplexBook3.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -777,7 +777,7 @@ namespace Yax.Tests
   <ItemInfo Item=""Item9"" Count=""600"" />
   <ItemInfo Item=""Item12"" Count=""25"" />
 </WarehouseWithDictionaryNoContainer>";
-            var serializer = new YAXSerializer(typeof(WarehouseWithDictionaryNoContainer), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(WarehouseWithDictionaryNoContainer), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(WarehouseWithDictionaryNoContainer.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -809,7 +809,7 @@ namespace Yax.Tests
   <ItemInfo Item=""Item9"" Count=""600"" />
   <ItemInfo Item=""Item12"" Count=""25"" />
 </WarehouseWithComments>";
-            var serializer = new YAXSerializer(typeof(WarehouseWithComments), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(WarehouseWithComments), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(WarehouseWithComments.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -864,7 +864,7 @@ namespace Yax.Tests
     </KeyValuePairOfInt32Seasons>
   </DicIntToSeason>
 </EnumsSample>";
-            var serializer = new YAXSerializer(typeof(EnumsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(EnumsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(EnumsSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -955,7 +955,7 @@ namespace Yax.Tests
     </Array1OfInt32>
   </JaggedNotSerially>
 </MultiDimArraySample>";
-            var serializer = new YAXSerializer(typeof(MultiDimArraySample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(MultiDimArraySample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MultiDimArraySample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -985,7 +985,7 @@ namespace Yax.Tests
     </Array2OfInt32>
   </Array1>
 </AnotherArraySample>";
-            var serializer = new YAXSerializer(typeof(AnotherArraySample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(AnotherArraySample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(AnotherArraySample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1066,7 +1066,7 @@ namespace Yax.Tests
     </KeyValuePairOfInt32ISample>
   </DictInt2Sample>
 </CollectionOfInterfacesSample>";
-            var serializer = new YAXSerializer(typeof(CollectionOfInterfacesSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(CollectionOfInterfacesSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CollectionOfInterfacesSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1084,7 +1084,7 @@ namespace Yax.Tests
   <!-- Comment 2 for member -->
   <SomeInt>10</SomeInt>
 </MultipleCommentsTest>";
-            var serializer = new YAXSerializer(typeof(MultipleCommentsTest), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(MultipleCommentsTest), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MultipleCommentsTest.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1120,7 +1120,7 @@ namespace Yax.Tests
     <KeyValuePairOfInt32NullableOfDouble Key=""3"" Value="""" />
   </DictInt2Nullable>
 </InterfaceMatchingSample>";
-            var serializer = new YAXSerializer(typeof(InterfaceMatchingSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(InterfaceMatchingSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(InterfaceMatchingSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1218,7 +1218,7 @@ namespace Yax.Tests
             string possibleResult2 = String.Format(result, part2, part1);
 
 
-            var serializer = new YAXSerializer(typeof(NonGenericCollectionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(NonGenericCollectionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(NonGenericCollectionsSample.GetSampleInstance());
             //result.ShouldEqualWithDiff(got, DiffStyle.Minimal);
             Assert.That(got, Is.EqualTo(possibleResult1).Or.EqualTo(possibleResult2));
@@ -1265,7 +1265,7 @@ namespace Yax.Tests
   </TheLinkedList>
 </GenericCollectionsSample>";
 
-            var serializer = new YAXSerializer(typeof(GenericCollectionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(GenericCollectionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(GenericCollectionsSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1283,7 +1283,7 @@ namespace Yax.Tests
   </Notes>
   <Author name=""Tom Archer &amp; Andrew Whitechapel"" />
 </PathAndAliasAssignmentSample>";
-            var serializer = new YAXSerializer(typeof(PathAndAliasAssignmentSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(PathAndAliasAssignmentSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(PathAndAliasAssignmentSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1299,7 +1299,7 @@ namespace Yax.Tests
     <Countries>Iran,Australia,United States of America,France</Countries>
   </Location>
 </CollectionSeriallyAsAttribute>";
-            var serializer = new YAXSerializer(typeof(CollectionSeriallyAsAttribute), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(CollectionSeriallyAsAttribute), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CollectionSeriallyAsAttribute.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1330,7 +1330,7 @@ namespace Yax.Tests
   </ObjectWithoutOptionsSet>
 </SerializationOptionsSample>";
 
-            var serializer = new YAXSerializer(typeof(SerializationOptionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(SerializationOptionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(SerializationOptionsSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(resultWithSerializeNullRefs));
 
@@ -1355,7 +1355,7 @@ namespace Yax.Tests
   </ObjectWithoutOptionsSet>
 </SerializationOptionsSample>";
 
-            serializer = new YAXSerializer(typeof(SerializationOptionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.DontSerializeNullObjects);
+            serializer = new Serializer(typeof(SerializationOptionsSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.DontSerializeNullObjects);
             got = serializer.Serialize(SerializationOptionsSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(resultWithDontSerializeNullRefs));
         }
@@ -1366,7 +1366,7 @@ namespace Yax.Tests
             var initialInstance = ClassContainingXElement.GetSampleInstance();
             string initialInstanceString = initialInstance.ToString();
 
-            var ser = new YAXSerializer(typeof (ClassContainingXElement), ExceptionHandlingPolicies.DoNotThrow,
+            var ser = new Serializer(typeof (ClassContainingXElement), ExceptionHandlingPolicies.DoNotThrow,
                                         ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
 
             var initialXmlSer = ser.Serialize(initialInstance);
@@ -1400,7 +1400,7 @@ namespace Yax.Tests
   <ObjValuedRandom yaxlib:realtype=""System.Random"" />
   <ObjNullRandom />
 </PropertylessClassesSample>";
-            var serializer = new YAXSerializer(typeof(PropertylessClassesSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(PropertylessClassesSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(PropertylessClassesSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1477,7 +1477,7 @@ namespace Yax.Tests
     </Pair>
   </DicValueAttrGuid>
 </GuidAsBasicType>";
-            var serializer = new YAXSerializer(typeof(GuidAsBasicType), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
+            var serializer = new Serializer(typeof(GuidAsBasicType), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, SerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(GuidAsBasicType.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -1486,7 +1486,7 @@ namespace Yax.Tests
         public void PolymorphicSerializationThroughObjectTest()
         {
             object content = "this is just a simple test";
-            var ser = new YAXSerializer(typeof(object));
+            var ser = new Serializer(typeof(object));
             string xmlResult = ser.Serialize(content);
 
             string expectedResult = 
@@ -1502,7 +1502,7 @@ namespace Yax.Tests
         public void PolymorphicSerializationThroughListTest()
         {
             var lst = new List<int> {1, 2, 3};
-            var ser = new YAXSerializer(typeof(object));
+            var ser = new Serializer(typeof(object));
             string xmlResult = ser.Serialize(lst);
 
             string expectedResult = 
@@ -1524,7 +1524,7 @@ namespace Yax.Tests
         public void PolymorphicSerializationThroughListWhichMayContainYaxlibNamespaceTest()
         {
             var lst = new List<object> { 1, 2, 3 };
-            var ser = new YAXSerializer(typeof(object));
+            var ser = new Serializer(typeof(object));
             string xmlResult = ser.Serialize(lst);
 
             string expectedResult =
@@ -1552,7 +1552,7 @@ namespace Yax.Tests
                 DashedName = "Name"
             };
 
-            YAXSerializer ser = new YAXSerializer(typeof(DashedSample));
+            Serializer ser = new Serializer(typeof(DashedSample));
             string got = ser.Serialize(sample);
             Assert.That(got, Is.EqualTo(expectedResult));
         }

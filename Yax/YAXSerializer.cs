@@ -25,7 +25,7 @@ namespace Yax
     /// An XML serialization class which lets developers design the XML file structure and select the exception handling policy.
     /// This class also supports serializing most of the collection classes such as the Dictionary generic class.
     /// </summary>
-    public class YAXSerializer
+    public class Serializer
     {
         #region Fields
 
@@ -110,43 +110,43 @@ namespace Yax
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXSerializer"/> class.
+        /// Initializes a new instance of the <see cref="Serializer"/> class.
         /// </summary>
         /// <param name="type">The type of the object being serialized/deserialized.</param>
-        public YAXSerializer(Type type)
+        public Serializer(Type type)
             : this(type, ExceptionHandlingPolicies.ThrowWarningsAndErrors, ExceptionTypes.Error, SerializationOptions.SerializeNullObjects)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXSerializer"/> class.
+        /// Initializes a new instance of the <see cref="Serializer"/> class.
         /// </summary>
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         /// <param name="exceptionPolicy">The exception handling policy.</param>
-        public YAXSerializer(Type type, ExceptionHandlingPolicies exceptionPolicy)
+        public Serializer(Type type, ExceptionHandlingPolicies exceptionPolicy)
             : this(type, exceptionPolicy, ExceptionTypes.Error, SerializationOptions.SerializeNullObjects)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXSerializer"/> class.
+        /// Initializes a new instance of the <see cref="Serializer"/> class.
         /// </summary>
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         /// <param name="exceptionPolicy">The exception handling policy.</param>
         /// <param name="defaultExType">The exceptions are treated as the value specified, unless otherwise specified.</param>
-        public YAXSerializer(Type type, ExceptionHandlingPolicies exceptionPolicy, ExceptionTypes defaultExType)
+        public Serializer(Type type, ExceptionHandlingPolicies exceptionPolicy, ExceptionTypes defaultExType)
             : this(type, exceptionPolicy, defaultExType, SerializationOptions.SerializeNullObjects)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXSerializer"/> class.
+        /// Initializes a new instance of the <see cref="Serializer"/> class.
         /// </summary>
         /// <param name="t">The type of the object being serialized/deserialized.</param>
         /// <param name="exceptionPolicy">The exception handling policy.</param>
         /// <param name="defaultExType">The exceptions are treated as the value specified, unless otherwise specified.</param>
         /// <param name="option">The serialization option.</param>
-        public YAXSerializer(Type t, ExceptionHandlingPolicies exceptionPolicy, ExceptionTypes defaultExType, SerializationOptions option)
+        public Serializer(Type t, ExceptionHandlingPolicies exceptionPolicy, ExceptionTypes defaultExType, SerializationOptions option)
         {
             m_type = t;
             m_exceptionPolicy = exceptionPolicy;
@@ -496,7 +496,7 @@ namespace Yax
                 // another base value such as System.Object but is provided with an
                 // object of its child
 
-                var ser = new YAXSerializer(obj.GetType(), m_exceptionPolicy, 
+                var ser = new Serializer(obj.GetType(), m_exceptionPolicy, 
                     m_defaultExceptionType, m_serializationOption);
                 ser.SetNamespaceToOverrideEmptyNamespace(TypeNamespace);
                 
@@ -886,7 +886,7 @@ namespace Yax
             }
         }
 
-        private void ImportNamespaces(YAXSerializer otherSerializer)
+        private void ImportNamespaces(Serializer otherSerializer)
         {
             foreach (var pair in otherSerializer.m_namespaceToPrefix)
             {
@@ -1345,7 +1345,7 @@ namespace Yax
             }
             else
             {
-                YAXSerializer ser = new YAXSerializer(value.GetType(), m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
+                Serializer ser = new Serializer(value.GetType(), m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
                 ser.SetNamespaceToOverrideEmptyNamespace(name.Namespace);
                 ser.SetBaseElement(insertionLocation);
                 XElement elem = ser.SerializeBase(value, name);
@@ -1862,7 +1862,7 @@ namespace Yax
             }
             else
             {
-                var ser = new YAXSerializer(memberType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
+                var ser = new Serializer(memberType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
                 ser.SetNamespaceToOverrideEmptyNamespace(
                     member.Namespace.
                         IfEmptyThen(this.TypeNamespace).
@@ -1980,7 +1980,7 @@ namespace Yax
                     }
                     else
                     {
-                        var ser = new YAXSerializer(curElementType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
+                        var ser = new Serializer(curElementType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
                         ser.SetNamespaceToOverrideEmptyNamespace(
                             memberAlias.Namespace.
                                 IfEmptyThen(this.TypeNamespace).
@@ -2293,7 +2293,7 @@ namespace Yax
             foreach (XElement childElem in xelemValue.Elements(eachElementName))
             {
                 object key = null, value = null;
-                YAXSerializer keySer = null, valueSer = null;
+                Serializer keySer = null, valueSer = null;
 
                 bool isKeyFound = VerifyDictionaryPairElements(ref keyType, ref isKeyAttrib, keyAlias, childElem);
                 bool isValueFound = VerifyDictionaryPairElements(ref valueType, ref isValueAttrib, valueAlias, childElem);
@@ -2315,7 +2315,7 @@ namespace Yax
                     {
                         if (keySer == null)
                         {
-                            keySer = new YAXSerializer(keyType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
+                            keySer = new Serializer(keyType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
                             keySer.SetNamespaceToOverrideEmptyNamespace(keyAlias.Namespace);
                         }
 
@@ -2338,7 +2338,7 @@ namespace Yax
                     {
                         if (valueSer == null)
                         {
-                            valueSer = new YAXSerializer(valueType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
+                            valueSer = new Serializer(valueType, m_exceptionPolicy, m_defaultExceptionType, m_serializationOption);
                             valueSer.SetNamespaceToOverrideEmptyNamespace(valueAlias.Namespace);
                         }
 
@@ -2467,7 +2467,7 @@ namespace Yax
             }
             else
             {
-                var ser = new YAXSerializer(keyType, m_exceptionPolicy, 
+                var ser = new Serializer(keyType, m_exceptionPolicy, 
                     m_defaultExceptionType, m_serializationOption);
                 ser.SetNamespaceToOverrideEmptyNamespace(xnameKey.Namespace.IfEmptyThenNone());
 
@@ -2499,7 +2499,7 @@ namespace Yax
             }
             else
             {
-                var ser = new YAXSerializer(valueType, m_exceptionPolicy, 
+                var ser = new Serializer(valueType, m_exceptionPolicy, 
                     m_defaultExceptionType, m_serializationOption);
                 ser.SetNamespaceToOverrideEmptyNamespace(xnameValue.Namespace.IfEmptyThenNone());
                 valueValue = ser.DeserializeBase(baseElement.Element(xnameValue));
