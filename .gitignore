@@ -8,7 +8,7 @@
 obj/
 _ReSharper*/
 DemoApplication/bin/
-YAXLibTests/bin/
+Yax.Tests/bin/
 TestResults/
 Bin/*.dll
 Bin/*.xml

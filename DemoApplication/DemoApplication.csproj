@@ -110,7 +110,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\YAXLibTests\YAXLibTests.csproj">
+    <ProjectReference Include="..\Yax.Tests\YAXLibTests.csproj">
       <Project>{4f012f71-c259-481b-a112-ec24d3af24ac}</Project>
       <Name>YAXLibTests</Name>
     </ProjectReference>

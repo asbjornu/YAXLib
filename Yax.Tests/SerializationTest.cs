@@ -998,20 +998,20 @@ namespace Yax.Tests
 @"<!-- This example shows serialization and deserialization of -->
 <!-- objects through a reference to their base class or interface -->
 <CollectionOfInterfacesSample xmlns:yaxlib=""http://www.sinairv.com/yaxlib/"">
-  <SingleRef yaxlib:realtype=""YAXLibTests.SampleClasses.Class2"">
+  <SingleRef yaxlib:realtype=""Yax.Tests.SampleClasses.Class2"">
     <IntInInterface>22</IntInInterface>
     <StringInClass2>SingleRef</StringInClass2>
   </SingleRef>
   <ListOfSamples>
-    <Class1 yaxlib:realtype=""YAXLibTests.SampleClasses.Class1"">
+    <Class1 yaxlib:realtype=""Yax.Tests.SampleClasses.Class1"">
       <IntInInterface>1</IntInInterface>
       <DoubleInClass1>1</DoubleInClass1>
     </Class1>
-    <Class2 yaxlib:realtype=""YAXLibTests.SampleClasses.Class2"">
+    <Class2 yaxlib:realtype=""Yax.Tests.SampleClasses.Class2"">
       <IntInInterface>2</IntInInterface>
       <StringInClass2>Class2</StringInClass2>
     </Class2>
-    <Class3_1 yaxlib:realtype=""YAXLibTests.SampleClasses.Class3_1"">
+    <Class3_1 yaxlib:realtype=""Yax.Tests.SampleClasses.Class3_1"">
       <StringInClass3_1>Class3_1</StringInClass3_1>
       <IntInInterface>3</IntInInterface>
       <DoubleInClass1>3</DoubleInClass1>
@@ -1019,21 +1019,21 @@ namespace Yax.Tests
   </ListOfSamples>
   <DictSample2Int>
     <KeyValuePairOfISampleInt32>
-      <Key yaxlib:realtype=""YAXLibTests.SampleClasses.Class1"">
+      <Key yaxlib:realtype=""Yax.Tests.SampleClasses.Class1"">
         <IntInInterface>1</IntInInterface>
         <DoubleInClass1>1</DoubleInClass1>
       </Key>
       <Value>1</Value>
     </KeyValuePairOfISampleInt32>
     <KeyValuePairOfISampleInt32>
-      <Key yaxlib:realtype=""YAXLibTests.SampleClasses.Class2"">
+      <Key yaxlib:realtype=""Yax.Tests.SampleClasses.Class2"">
         <IntInInterface>2</IntInInterface>
         <StringInClass2>Class2</StringInClass2>
       </Key>
       <Value>2</Value>
     </KeyValuePairOfISampleInt32>
     <KeyValuePairOfISampleInt32>
-      <Key yaxlib:realtype=""YAXLibTests.SampleClasses.Class3_1"">
+      <Key yaxlib:realtype=""Yax.Tests.SampleClasses.Class3_1"">
         <StringInClass3_1>Class3_1</StringInClass3_1>
         <IntInInterface>3</IntInInterface>
         <DoubleInClass1>3</DoubleInClass1>
@@ -1044,21 +1044,21 @@ namespace Yax.Tests
   <DictInt2Sample>
     <KeyValuePairOfInt32ISample>
       <Key>1</Key>
-      <Value yaxlib:realtype=""YAXLibTests.SampleClasses.Class1"">
+      <Value yaxlib:realtype=""Yax.Tests.SampleClasses.Class1"">
         <IntInInterface>1</IntInInterface>
         <DoubleInClass1>1</DoubleInClass1>
       </Value>
     </KeyValuePairOfInt32ISample>
     <KeyValuePairOfInt32ISample>
       <Key>2</Key>
-      <Value yaxlib:realtype=""YAXLibTests.SampleClasses.Class2"">
+      <Value yaxlib:realtype=""Yax.Tests.SampleClasses.Class2"">
         <IntInInterface>2</IntInInterface>
         <StringInClass2>Class2</StringInClass2>
       </Value>
     </KeyValuePairOfInt32ISample>
     <KeyValuePairOfInt32ISample>
       <Key>3</Key>
-      <Value yaxlib:realtype=""YAXLibTests.SampleClasses.Class3_1"">
+      <Value yaxlib:realtype=""Yax.Tests.SampleClasses.Class3_1"">
         <StringInClass3_1>Class3_1</StringInClass3_1>
         <IntInInterface>3</IntInInterface>
         <DoubleInClass1>3</DoubleInClass1>
@@ -1143,7 +1143,7 @@ namespace Yax.Tests
         </Another>
       </Or>
     </Something>
-    <Author yaxlib:realtype=""YAXLibTests.SampleClasses.Author"" />
+    <Author yaxlib:realtype=""Yax.Tests.SampleClasses.Author"" />
   </ObjList>
   <TheArrayList Author_s_Name=""Steve"">
     <Int32 yaxlib:realtype=""System.Int32"">2</Int32>
@@ -1156,7 +1156,7 @@ namespace Yax.Tests
         </Another>
       </Or>
     </Something>
-    <Author yaxlib:realtype=""YAXLibTests.SampleClasses.Author"" />
+    <Author yaxlib:realtype=""Yax.Tests.SampleClasses.Author"" />
   </TheArrayList>
   <TheHashtable>
 {0}
@@ -1221,9 +1221,7 @@ namespace Yax.Tests
             var serializer = new YAXSerializer(typeof(NonGenericCollectionsSample), YAXExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(NonGenericCollectionsSample.GetSampleInstance());
             //result.ShouldEqualWithDiff(got, DiffStyle.Minimal);
-            bool result1Match = String.Equals(got, possibleResult1, StringComparison.Ordinal);
-            bool result2Match = String.Equals(got, possibleResult2, StringComparison.Ordinal);
-            Assert.That(result1Match || result2Match, Is.True);
+            Assert.That(got, Is.EqualTo(possibleResult1).Or.EqualTo(possibleResult2));
         }
 
 
