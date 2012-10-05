@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAXLibTests", "Yax.Tests\YAXLibTests.csproj", "{4F012F71-C259-481B-A112-EC24D3AF24AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yax.Tests", "Yax.Tests\Yax.Tests.csproj", "{4F012F71-C259-481B-A112-EC24D3AF24AC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yax", "Yax\Yax.csproj", "{F1C4D174-C948-4D18-A125-F6855EF55683}"
 EndProject
