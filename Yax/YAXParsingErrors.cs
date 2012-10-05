@@ -18,7 +18,7 @@ namespace Yax
     /// <summary>
     /// Holds list of exception occured during serialization/deserialization.
     /// </summary>
-    public class YAXParsingErrors
+    public class ParsingErrors
     {
         #region Fields
 
@@ -98,7 +98,7 @@ namespace Yax
         /// Adds the list of errors within another instance of <c>YAXParsingErrors</c>.
         /// </summary>
         /// <param name="parsingErrors">The parsing errors to add its content.</param>
-        public void AddRange(YAXParsingErrors parsingErrors)
+        public void AddRange(ParsingErrors parsingErrors)
         {
             parsingErrors.listExceptions.ForEach(this.listExceptions.Add);
         }

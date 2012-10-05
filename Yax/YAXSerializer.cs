@@ -42,7 +42,7 @@ namespace Yax
         /// <summary>
         /// The list of all errors that have occured.
         /// </summary>
-        private YAXParsingErrors m_parsingErrors = new YAXParsingErrors();
+        private ParsingErrors m_parsingErrors = new ParsingErrors();
 
         /// <summary>
         /// The exception error behaviour enumeration to be used by the YAX library.
@@ -222,7 +222,7 @@ namespace Yax
         /// Gets the parsing errors.
         /// </summary>
         /// <value>The parsing errors.</value>
-        public YAXParsingErrors ParsingErrors
+        public ParsingErrors ParsingErrors
         {
             get
             {
