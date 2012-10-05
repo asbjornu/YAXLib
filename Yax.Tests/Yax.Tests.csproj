@@ -136,7 +136,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Yax\Yax.csproj">
       <Project>{f1c4d174-c948-4d18-a125-f6855ef55683}</Project>
-      <Name>YAXLib</Name>
+      <Name>Yax</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

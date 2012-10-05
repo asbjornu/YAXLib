@@ -7,7 +7,7 @@
 *.ncrunchsolution
 obj/
 _ReSharper*/
-DemoApplication/bin/
+Yax.Demo/bin/
 Yax.Tests/bin/
 TestResults/
 Bin/*.dll

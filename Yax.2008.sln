@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yax", "Yax\Yax.csproj", "{F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yax.Tests.2008", "Yax.Tests\Yax.Tests.2008.csproj", "{70D42BC6-4F21-4680-AB55-D7A50AC2CACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApplication.2008", "DemoApplication\DemoApplication.2008.csproj", "{40A6C570-2CC0-44BF-8A2A-FD41CE598C41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yax.Demo.2008", "Yax.Demo\Yax.Demo.2008.csproj", "{40A6C570-2CC0-44BF-8A2A-FD41CE598C41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,7 +30,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		CodeStyleEnforcer_RulesLocation = 0
 		CodeStyleEnforcer_Active = -1
+		CodeStyleEnforcer_RulesLocation = 0
 	EndGlobalSection
 EndGlobal
