@@ -27,7 +27,7 @@ namespace Yax.Tests
   <IntItem>10</IntItem>
 </SingleNamespaceSample>";
 
-            var serializer = new YAXSerializer(typeof(SingleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(SingleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(SingleNamespaceSample.GetInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -42,7 +42,7 @@ namespace Yax.Tests
   <ns3:IntItem>10</ns3:IntItem>
 </ns1:MultipleNamespaceSample>";
 
-            var serializer = new YAXSerializer(typeof(MultipleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(MultipleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MultipleNamespaceSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -54,7 +54,7 @@ namespace Yax.Tests
   <Attribs " + "attrib=\"value\" ns:attrib2=\"value2\"" + @" />
 </AttributeNamespaceSample>";
 
-            var serializer = new YAXSerializer(typeof(AttributeNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(AttributeNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(AttributeNamespaceSample.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -67,7 +67,7 @@ namespace Yax.Tests
   <OS>Windows Phone 8</OS>
 </CellPhone_MemberAndClassDifferentNamespaces>";
 
-            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_MemberAndClassDifferentNamespaces.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -81,7 +81,7 @@ namespace Yax.Tests
   <xmain:OS>Windows Phone 8</xmain:OS>
 </xmain:CellPhone_MemberAndClassDifferentNamespacePrefixes>";
 
-            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespacePrefixes), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespacePrefixes), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_MemberAndClassDifferentNamespacePrefixes.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -99,7 +99,7 @@ namespace Yax.Tests
   <OS>Windows Phone 8</OS>
 </CellPhone_MultiLevelMemberAndClassDifferentNamespaces>";
 
-            var serializer = new YAXSerializer(typeof(CellPhone_MultiLevelMemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_MultiLevelMemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_MultiLevelMemberAndClassDifferentNamespaces.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -126,7 +126,7 @@ namespace Yax.Tests
     </p1:KeyValuePairOfColorDouble>
   </p1:Prices>
 </CellPhone_DictionaryNamespace>";
-            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespace), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespace), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_DictionaryNamespace.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -153,7 +153,7 @@ namespace Yax.Tests
     </p3:PricePair>
   </p2:ThePrices>
 </CellPhone_DictionaryNamespaceForAllItems>";
-            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_DictionaryNamespaceForAllItems.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -169,7 +169,7 @@ namespace Yax.Tests
   <app:String>Google+</app:String>
   <app:String>Google Play</app:String>
 </MobilePhone>";
-            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -191,7 +191,7 @@ namespace Yax.Tests
   </cls:AvailableColors>
   <mdls:AvailableModels>S1,MII,SXi,NoneSense</mdls:AvailableModels>
 </MobilePhone>";
-            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_CollectionNamespaceForAllItems.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -205,7 +205,7 @@ namespace Yax.Tests
   <p2:OperatingSystem>Android 2</p2:OperatingSystem>
 </CellPhone_YAXNamespaceOverridesImplicitNamespace>";
 
-            var serializer = new YAXSerializer(typeof(CellPhone_YAXNamespaceOverridesImplicitNamespace), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_YAXNamespaceOverridesImplicitNamespace), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_YAXNamespaceOverridesImplicitNamespace.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -230,7 +230,7 @@ namespace Yax.Tests
   </Parent2>
 </MutlilevelObjectsWithNamespaces>";
 
-            var serializer = new YAXSerializer(typeof(MutlilevelObjectsWithNamespaces), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(MutlilevelObjectsWithNamespaces), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MutlilevelObjectsWithNamespaces.GetSampleInstance());
             Assert.That(got, Is.EqualTo(result));
         }
@@ -239,7 +239,7 @@ namespace Yax.Tests
         [Test]
         public void SingleNamespaceDeserializationTest()
         {            
-            var serializer = new YAXSerializer(typeof(SingleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(SingleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string serialized = serializer.Serialize(SingleNamespaceSample.GetInstance());
             var deserialized = serializer.Deserialize(serialized) as SingleNamespaceSample;
             Assert.That(deserialized, Is.Not.Null);
@@ -249,7 +249,7 @@ namespace Yax.Tests
         [Test]
         public void MultipleNamespaceDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(MultipleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(MultipleNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string serialized = serializer.Serialize(MultipleNamespaceSample.GetSampleInstance());
             var deserialized = serializer.Deserialize(serialized) as MultipleNamespaceSample;
             Assert.That(deserialized, Is.Not.Null);
@@ -259,7 +259,7 @@ namespace Yax.Tests
         [Test]
         public void AttributeNamespaceDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(AttributeNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(AttributeNamespaceSample), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(AttributeNamespaceSample.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as AttributeNamespaceSample;
             Assert.That(deserialized, Is.Not.Null);
@@ -269,7 +269,7 @@ namespace Yax.Tests
         [Test]
         public void MemberAndClassDifferentNamespacesSerializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_MemberAndClassDifferentNamespaces.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_MemberAndClassDifferentNamespaces;
             Assert.That(deserialized, Is.Not.Null);
@@ -279,7 +279,7 @@ namespace Yax.Tests
         [Test]
         public void MemberAndClassDifferentNamespacePrefixesDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespacePrefixes), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_MemberAndClassDifferentNamespacePrefixes), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_MemberAndClassDifferentNamespacePrefixes.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_MemberAndClassDifferentNamespacePrefixes;
             Assert.That(deserialized, Is.Not.Null);
@@ -289,7 +289,7 @@ namespace Yax.Tests
         [Test]
         public void MultiLevelMemberAndClassDifferentNamespacesDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_MultiLevelMemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_MultiLevelMemberAndClassDifferentNamespaces), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_MultiLevelMemberAndClassDifferentNamespaces.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_MultiLevelMemberAndClassDifferentNamespaces;
             Assert.That(deserialized, Is.Not.Null);
@@ -299,7 +299,7 @@ namespace Yax.Tests
         [Test]
         public void DictionaryNamespaceDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_DictionaryNamespaceForAllItems.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_DictionaryNamespaceForAllItems;
             Assert.That(deserialized, Is.Not.Null);
@@ -309,7 +309,7 @@ namespace Yax.Tests
         [Test]
         public void DictionaryNamespaceForAllItemsDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespace), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_DictionaryNamespace), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_DictionaryNamespace.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_DictionaryNamespace;
             Assert.That(deserialized, Is.Not.Null);
@@ -320,7 +320,7 @@ namespace Yax.Tests
         [Test]
         public void CollectionNamespaceGoesThruRecursiveNoContainingElementDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_CollectionNamespaceGoesThruRecursiveNoContainingElement;
             Assert.That(deserialized, Is.Not.Null);
@@ -330,7 +330,7 @@ namespace Yax.Tests
         [Test]
         public void CollectionNamespaceForAllItemsDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_CollectionNamespaceForAllItems), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_CollectionNamespaceForAllItems.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_CollectionNamespaceForAllItems;
             Assert.That(deserialized, Is.Not.Null);
@@ -340,7 +340,7 @@ namespace Yax.Tests
         [Test]
         public void YAXNamespaceOverridesImplicitNamespaceDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(CellPhone_YAXNamespaceOverridesImplicitNamespace), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(CellPhone_YAXNamespaceOverridesImplicitNamespace), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(CellPhone_YAXNamespaceOverridesImplicitNamespace.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as CellPhone_YAXNamespaceOverridesImplicitNamespace;
             Assert.That(deserialized, Is.Not.Null);
@@ -350,7 +350,7 @@ namespace Yax.Tests
         [Test]
         public void MutlilevelObjectsWithNamespacesDeserializationTest()
         {
-            var serializer = new YAXSerializer(typeof(MutlilevelObjectsWithNamespaces), ExceptionHandlingPolicies.DoNotThrow, YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+            var serializer = new YAXSerializer(typeof(MutlilevelObjectsWithNamespaces), ExceptionHandlingPolicies.DoNotThrow, ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
             string got = serializer.Serialize(MutlilevelObjectsWithNamespaces.GetSampleInstance());
             var deserialized = serializer.Deserialize(got) as MutlilevelObjectsWithNamespaces;
             Assert.That(deserialized, Is.Not.Null);

@@ -6,10 +6,10 @@
         public string StrNotNull { get; set; }
 
         // the default value should not be used && no warning or errors should be reported
-        [YAXErrorIfMissed(YAXExceptionTypes.Warning, DefaultValue="Salam")]
+        [YAXErrorIfMissed(ExceptionTypes.Warning, DefaultValue="Salam")]
         public string StrNull { get; set; }
 
-        [YAXErrorIfMissed(YAXExceptionTypes.Warning, DefaultValue = 123)]
+        [YAXErrorIfMissed(ExceptionTypes.Warning, DefaultValue = 123)]
         public int SomeValueType { get; set; }
     }
 

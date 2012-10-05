@@ -11,12 +11,12 @@ namespace Yax.Tests.SampleClasses
     public class DictionaryKeyValueAsInterface
     {
         [YAXComment("Values are serialized through a reference to their interface.")]
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore)]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
         [YAXDictionary(EachPairName = "attribute", KeyName = "key", SerializeKeyAs = YAXNodeTypes.Attribute)]
         public Dictionary<string, IParameter> Attributes1 { get; set; }
 
         [YAXComment("Keys are serialized through a reference to their interface.")]
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore)]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
         [YAXDictionary(EachPairName = "Entry", ValueName = "value", SerializeValueAs = YAXNodeTypes.Attribute)]
         public Dictionary<IParameter, string> Attributes2 { get; set; }
 
@@ -55,16 +55,16 @@ namespace Yax.Tests.SampleClasses
     {
         [YAXSerializeAs("name")]
         [YAXAttributeFor("..")]
-        [YAXErrorIfMissed(YAXExceptionTypes.Error)]
+        [YAXErrorIfMissed(ExceptionTypes.Error)]
         public string Name { get; set; }
 
         [YAXSerializeAs("type")]
         [YAXAttributeFor("..")]
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore)]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
         public string Type { get; set; }
 
         [YAXValueFor("..")]
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore)]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
         public string Body { get; set; }
     }
 

@@ -111,7 +111,7 @@ namespace Yax
 
             InitInstance();
 
-            TreatErrorsAs = callerSerializer != null ? callerSerializer.DefaultExceptionType : YAXExceptionTypes.Error;
+            TreatErrorsAs = callerSerializer != null ? callerSerializer.DefaultExceptionType : ExceptionTypes.Error;
 
             // discovver YAXCustomSerializerAttributes earlier, because some other attributes depend on it
             var attrsToProcessEarlier = new HashSet<Type> {typeof (YAXCustomSerializerAttribute), typeof (YAXCollectionAttribute)};
@@ -407,7 +407,7 @@ namespace Yax
         /// Gets the exception type for this instance in case of encountering missing values
         /// </summary>
         /// <value>The exception type for this instance in case of encountering missing values</value>
-        public YAXExceptionTypes TreatErrorsAs { get; private set; }
+        public ExceptionTypes TreatErrorsAs { get; private set; }
 
         /// <summary>
         /// Gets the collection attribute instance.

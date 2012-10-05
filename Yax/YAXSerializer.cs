@@ -47,7 +47,7 @@ namespace Yax
         /// <summary>
         /// The exception error behaviour enumeration to be used by the YAX library.
         /// </summary>
-        private YAXExceptionTypes m_defaultExceptionType = YAXExceptionTypes.Warning;
+        private ExceptionTypes m_defaultExceptionType = ExceptionTypes.Warning;
 
         /// <summary>
         /// Specifies whether an exception is occurred during the deserialization of the current member
@@ -114,7 +114,7 @@ namespace Yax
         /// </summary>
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         public YAXSerializer(Type type)
-            : this(type, ExceptionHandlingPolicies.ThrowWarningsAndErrors, YAXExceptionTypes.Error, YAXSerializationOptions.SerializeNullObjects)
+            : this(type, ExceptionHandlingPolicies.ThrowWarningsAndErrors, ExceptionTypes.Error, YAXSerializationOptions.SerializeNullObjects)
         {
         }
 
@@ -124,7 +124,7 @@ namespace Yax
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         /// <param name="exceptionPolicy">The exception handling policy.</param>
         public YAXSerializer(Type type, ExceptionHandlingPolicies exceptionPolicy)
-            : this(type, exceptionPolicy, YAXExceptionTypes.Error, YAXSerializationOptions.SerializeNullObjects)
+            : this(type, exceptionPolicy, ExceptionTypes.Error, YAXSerializationOptions.SerializeNullObjects)
         {
         }
 
@@ -134,7 +134,7 @@ namespace Yax
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         /// <param name="exceptionPolicy">The exception handling policy.</param>
         /// <param name="defaultExType">The exceptions are treated as the value specified, unless otherwise specified.</param>
-        public YAXSerializer(Type type, ExceptionHandlingPolicies exceptionPolicy, YAXExceptionTypes defaultExType)
+        public YAXSerializer(Type type, ExceptionHandlingPolicies exceptionPolicy, ExceptionTypes defaultExType)
             : this(type, exceptionPolicy, defaultExType, YAXSerializationOptions.SerializeNullObjects)
         {
         }
@@ -146,7 +146,7 @@ namespace Yax
         /// <param name="exceptionPolicy">The exception handling policy.</param>
         /// <param name="defaultExType">The exceptions are treated as the value specified, unless otherwise specified.</param>
         /// <param name="option">The serialization option.</param>
-        public YAXSerializer(Type t, ExceptionHandlingPolicies exceptionPolicy, YAXExceptionTypes defaultExType, YAXSerializationOptions option)
+        public YAXSerializer(Type t, ExceptionHandlingPolicies exceptionPolicy, ExceptionTypes defaultExType, YAXSerializationOptions option)
         {
             m_type = t;
             m_exceptionPolicy = exceptionPolicy;
@@ -186,7 +186,7 @@ namespace Yax
         /// Gets the default type of the exception.
         /// </summary>
         /// <value>The default type of the exception.</value>
-        public YAXExceptionTypes DefaultExceptionType
+        public ExceptionTypes DefaultExceptionType
         {
             get
             {
@@ -1454,7 +1454,7 @@ namespace Yax
                         {
                             this.OnExceptionOccurred(new YAXAttributeMissingException(
                                 StringUtils.CombineLocationAndElementName(serializationLocation, member.Alias)),
-                                (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? YAXExceptionTypes.Ignore : member.TreatErrorsAs);
+                                (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                         }
                     }
                     else
@@ -1471,7 +1471,7 @@ namespace Yax
                     {
                         this.OnExceptionOccurred(new YAXElementMissingException(
                                 serializationLocation),
-                                (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? YAXExceptionTypes.Ignore : member.TreatErrorsAs);
+                                (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                     }
                     else
                     {
@@ -1488,7 +1488,7 @@ namespace Yax
                             else
                             {
                                 this.OnExceptionOccurred(new YAXElementValueMissingException(serializationLocation),
-                                    (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? YAXExceptionTypes.Ignore : member.TreatErrorsAs);
+                                    (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                             }
                         }
                         else
@@ -1541,7 +1541,7 @@ namespace Yax
                         {
                             this.OnExceptionOccurred(new YAXElementMissingException(
                                 StringUtils.CombineLocationAndElementName(serializationLocation, member.Alias.OverrideNsIfEmpty(TypeNamespace))),
-                                (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? YAXExceptionTypes.Ignore : member.TreatErrorsAs);
+                                (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                         }
                     }
                     else
@@ -2592,17 +2592,17 @@ namespace Yax
         /// </summary>
         /// <param name="ex">The exception that has occurred.</param>
         /// <param name="exceptionType">Type of the exception.</param>
-        private void OnExceptionOccurred(YAXException ex, YAXExceptionTypes exceptionType)
+        private void OnExceptionOccurred(YAXException ex, ExceptionTypes exceptionType)
         {
             m_exceptionOccurredDuringMemberDeserialization = true;
-            if (exceptionType == YAXExceptionTypes.Ignore)
+            if (exceptionType == ExceptionTypes.Ignore)
             {
                 return;
             }
 
             this.m_parsingErrors.AddException(ex, exceptionType);
             if ((this.m_exceptionPolicy == ExceptionHandlingPolicies.ThrowWarningsAndErrors) ||
-                (this.m_exceptionPolicy == ExceptionHandlingPolicies.ThrowErrorsOnly && exceptionType == YAXExceptionTypes.Error))
+                (this.m_exceptionPolicy == ExceptionHandlingPolicies.ThrowErrorsOnly && exceptionType == ExceptionTypes.Error))
             {
                 throw ex;
             }

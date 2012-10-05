@@ -21,20 +21,20 @@ namespace Yax.Demo
         private void InitComboBoxes()
         {
             this.comboPolicy.Items.AddRange(Enum.GetNames(typeof(ExceptionHandlingPolicies)));
-            this.comboErrorType.Items.AddRange(Enum.GetNames(typeof(YAXExceptionTypes)));
+            this.comboErrorType.Items.AddRange(Enum.GetNames(typeof(ExceptionTypes)));
             this.comboOptions.Items.AddRange(Enum.GetNames(typeof(YAXSerializationOptions)));
 
             if (this.comboPolicy.Items.Count > 0)
                 this.comboPolicy.Text = ExceptionHandlingPolicies.DoNotThrow.ToString();
             if(this.comboErrorType.Items.Count > 0)
-                this.comboErrorType.Text = YAXExceptionTypes.Error.ToString();
+                this.comboErrorType.Text = ExceptionTypes.Error.ToString();
             if (this.comboOptions.Items.Count > 0)
                 this.comboOptions.Text = YAXSerializationOptions.SerializeNullObjects.ToString();
         }
 
-        private YAXExceptionTypes GetSelectedDefaultExceptionType()
+        private ExceptionTypes GetSelectedDefaultExceptionType()
         {
-            return (YAXExceptionTypes)Enum.Parse(typeof(YAXExceptionTypes), this.comboErrorType.Text);
+            return (ExceptionTypes)Enum.Parse(typeof(ExceptionTypes), this.comboErrorType.Text);
         }
 
         private ExceptionHandlingPolicies GetSelectedExceptionHandlingPolicy()
@@ -125,7 +125,7 @@ namespace Yax.Demo
             }
 
             var info = selItem as ClassInfoListItem;
-            YAXExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
+            ExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
             ExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
             YAXSerializationOptions serOption = GetSelectedSerializationOption();
 
@@ -185,7 +185,7 @@ namespace Yax.Demo
             }
 
             ClassInfoListItem info = selItem as ClassInfoListItem;
-            YAXExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
+            ExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
             ExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
             YAXSerializationOptions serOption = GetSelectedSerializationOption();
 

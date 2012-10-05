@@ -34,7 +34,7 @@ namespace Yax
     /// <summary>
     /// Enumerates different possible behaviours of the library toward exceptions
     /// </summary>
-    public enum YAXExceptionTypes
+    public enum ExceptionTypes
     {
         /// <summary>
         /// Ignore non-fatal exceptions; neither throw them, nor log them.

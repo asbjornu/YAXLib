@@ -97,7 +97,7 @@ namespace Yax.Tests
             inst.TheAttribute = null;
 
             var ser = new YAXSerializer(typeof (ClassContainingXElement), ExceptionHandlingPolicies.ThrowErrorsOnly,
-                                        YAXExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
+                                        ExceptionTypes.Warning, YAXSerializationOptions.SerializeNullObjects);
 
             try
             {

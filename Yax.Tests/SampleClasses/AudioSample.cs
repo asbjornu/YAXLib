@@ -2,20 +2,20 @@
 {
     public class AudioSample
     {
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore)]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
         public string Audio { get; set; }
         
         [YAXSerializeAs("FileName")]
         [YAXAttributeFor("Audio")]
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore, DefaultValue = "")]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore, DefaultValue = "")]
         public string AudioFileName { get; set; }
         
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore)]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore)]
         public string Image { get; set; }
 
         [YAXSerializeAs("FileName")]
         [YAXAttributeFor("Image")]
-        [YAXErrorIfMissed(YAXExceptionTypes.Ignore, DefaultValue = "")]
+        [YAXErrorIfMissed(ExceptionTypes.Ignore, DefaultValue = "")]
         public string ImageFileName { get; set; }
         
         public override string ToString()

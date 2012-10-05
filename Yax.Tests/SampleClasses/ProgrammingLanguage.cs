@@ -5,10 +5,10 @@
     [YAXComment("This example is used in the article to show YAXLib exception handling policies")]
     public class ProgrammingLanguage
     {
-        [YAXErrorIfMissed(YAXExceptionTypes.Error)]
+        [YAXErrorIfMissed(ExceptionTypes.Error)]
         public string LanguageName { get; set; }
 
-        [YAXErrorIfMissed(YAXExceptionTypes.Warning, DefaultValue = true)]
+        [YAXErrorIfMissed(ExceptionTypes.Warning, DefaultValue = true)]
         public bool IsCaseSensitive { get; set; }
 
         public override string ToString()

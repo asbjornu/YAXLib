@@ -8,7 +8,7 @@ namespace Yax.Tests.SampleClasses
         {
             var yaxSer = new YAXSerializer(typeof(ProjectBuildDefinition),
                 ExceptionHandlingPolicies.DoNotThrow,
-                YAXExceptionTypes.Ignore,
+                ExceptionTypes.Ignore,
                 YAXSerializationOptions.DontSerializeNullObjects);
 
             return yaxSer.Deserialize(xml) as ProjectBuildDefinition;
@@ -20,7 +20,7 @@ namespace Yax.Tests.SampleClasses
 
             var yaxSer = new YAXSerializer(typeof(ProjectBuildDefinition),
                 ExceptionHandlingPolicies.DoNotThrow,
-                YAXExceptionTypes.Ignore,
+                ExceptionTypes.Ignore,
                 YAXSerializationOptions.DontSerializeNullObjects);
 
             return yaxSer.Serialize(project);
