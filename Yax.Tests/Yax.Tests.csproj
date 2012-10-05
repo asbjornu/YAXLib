@@ -132,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="YAXLib.DevKey.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Yax\Yax.csproj">
