@@ -323,7 +323,7 @@ namespace Yax
             }
             catch (XmlException ex)
             {
-                OnExceptionOccurred(new YAXBadlyFormedXML(ex), m_defaultExceptionType);
+                OnExceptionOccurred(new BadlyFormedXML(ex), m_defaultExceptionType);
                 return null;
             }
         }
@@ -343,7 +343,7 @@ namespace Yax
             }
             catch (XmlException ex)
             {
-                OnExceptionOccurred(new YAXBadlyFormedXML(ex), m_defaultExceptionType);
+                OnExceptionOccurred(new BadlyFormedXML(ex), m_defaultExceptionType);
                 return null;
             }
         }
@@ -363,7 +363,7 @@ namespace Yax
             }
             catch (XmlException ex)
             {
-                OnExceptionOccurred(new YAXBadlyFormedXML(ex), m_defaultExceptionType);
+                OnExceptionOccurred(new BadlyFormedXML(ex), m_defaultExceptionType);
                 return null;
             }
         }
@@ -383,7 +383,7 @@ namespace Yax
             }
             catch (XmlException ex)
             {
-                OnExceptionOccurred(new YAXBadlyFormedXML(ex), m_defaultExceptionType);
+                OnExceptionOccurred(new BadlyFormedXML(ex), m_defaultExceptionType);
                 return null;
             }
         }
@@ -401,7 +401,7 @@ namespace Yax
             }
             catch (XmlException ex)
             {
-                OnExceptionOccurred(new YAXBadlyFormedXML(ex), m_defaultExceptionType);
+                OnExceptionOccurred(new BadlyFormedXML(ex), m_defaultExceptionType);
                 return null;
             }
         }
@@ -415,7 +415,7 @@ namespace Yax
         {
             if (obj != null && !m_type.IsInstanceOfType(obj))
             {
-                throw new YAXObjectTypeMismatch(m_type, obj.GetType());
+                throw new ObjectTypeMismatch(m_type, obj.GetType());
             }
 
             m_desObject = obj;
@@ -464,7 +464,7 @@ namespace Yax
         {
             if (!m_type.IsInstanceOfType(obj))
             {
-                throw new YAXObjectTypeMismatch(m_type, obj.GetType());
+                throw new ObjectTypeMismatch(m_type, obj.GetType());
             }
 
             // to serialize stand-alone collection or dictionary objects
@@ -609,7 +609,7 @@ namespace Yax
 
                     if (elementValue != null && member.MemberType == m_type)
                     {
-                        throw new YAXCannotSerializeSelfReferentialTypes(m_type);
+                        throw new CannotSerializeSelfReferentialTypes(m_type);
                     }
 
                     // make this flat true, so that we know that this object was not empty of fields
@@ -649,7 +649,7 @@ namespace Yax
 
                             if (attrToCreate == null)
                             {
-                                throw new YAXBadLocationException(serializationLocation);
+                                throw new BadLocationException(serializationLocation);
                             }
 
                             if (member.HasCustomSerializer)
@@ -676,7 +676,7 @@ namespace Yax
                         }
                         else
                         {
-                            throw new YAXAttributeAlreadyExistsException(member.Alias.LocalName);
+                            throw new AttributeAlreadyExistsException(member.Alias.LocalName);
                         }
                     }
                     else if (member.IsSerializedAsValue && (areOfSameType || hasCustomSerializer || isCollectionSerially || isKnownType))
@@ -687,11 +687,11 @@ namespace Yax
                         {
                             // see if the location can be created
                             if (!XMLUtils.CanCreateLocation(m_baseElement, serializationLocation))
-                                throw new YAXBadLocationException(serializationLocation);
+                                throw new BadLocationException(serializationLocation);
                             // try to create the location
                             parElem = XMLUtils.CreateLocation(m_baseElement, serializationLocation);
                             if (parElem == null)
-                                throw new YAXBadLocationException(serializationLocation);
+                                throw new BadLocationException(serializationLocation);
                         }
 
                         // if control is moved here, it means that the parent 
@@ -735,11 +735,11 @@ namespace Yax
                         {
                             // see if the location can be created
                             if (!XMLUtils.CanCreateLocation(m_baseElement, serializationLocation))
-                                throw new YAXBadLocationException(serializationLocation);
+                                throw new BadLocationException(serializationLocation);
                             // try to create the location
                             parElem = XMLUtils.CreateLocation(m_baseElement, serializationLocation);
                             if (parElem == null)
-                                throw new YAXBadLocationException(serializationLocation);
+                                throw new BadLocationException(serializationLocation);
                         }
 
                         // if control is moved here, it means that the parent 
@@ -1452,7 +1452,7 @@ namespace Yax
                         }
                         else
                         {
-                            this.OnExceptionOccurred(new YAXAttributeMissingException(
+                            this.OnExceptionOccurred(new AttributeMissingException(
                                 StringUtils.CombineLocationAndElementName(serializationLocation, member.Alias)),
                                 (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                         }
@@ -1469,7 +1469,7 @@ namespace Yax
                     XElement elem = XMLUtils.FindLocation(baseElement, serializationLocation);
                     if (elem == null) // such element is not found
                     {
-                        this.OnExceptionOccurred(new YAXElementMissingException(
+                        this.OnExceptionOccurred(new ElementMissingException(
                                 serializationLocation),
                                 (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                     }
@@ -1487,7 +1487,7 @@ namespace Yax
                             }
                             else
                             {
-                                this.OnExceptionOccurred(new YAXElementValueMissingException(serializationLocation),
+                                this.OnExceptionOccurred(new ElementValueMissingException(serializationLocation),
                                     (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                             }
                         }
@@ -1539,7 +1539,7 @@ namespace Yax
 
                         if (!canContinue)
                         {
-                            this.OnExceptionOccurred(new YAXElementMissingException(
+                            this.OnExceptionOccurred(new ElementMissingException(
                                 StringUtils.CombineLocationAndElementName(serializationLocation, member.Alias.OverrideNsIfEmpty(TypeNamespace))),
                                 (!member.MemberType.IsValueType && m_udtWrapper.IsNotAllowdNullObjectSerialization) ? ExceptionTypes.Ignore : member.TreatErrorsAs);
                         }
@@ -1567,7 +1567,7 @@ namespace Yax
                             catch
                             {
                                 OnExceptionOccurred(
-                                    new YAXDefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue),
+                                    new DefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue),
                                     m_defaultExceptionType);
                             }
                         }
@@ -1580,7 +1580,7 @@ namespace Yax
                             catch
                             {
                                 OnExceptionOccurred(
-                                    new YAXDefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue),
+                                    new DefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue),
                                     m_defaultExceptionType);
                             }
                         }
@@ -1623,7 +1623,7 @@ namespace Yax
                     }
                     catch
                     {
-                        OnExceptionOccurred(new YAXPropertyCannotBeAssignedTo(member.Alias.LocalName), m_defaultExceptionType);
+                        OnExceptionOccurred(new PropertyCannotBeAssignedTo(member.Alias.LocalName), m_defaultExceptionType);
                     }
                 }
                 else if (elemValue != null)
@@ -1787,7 +1787,7 @@ namespace Yax
                 }
                 catch
                 {
-                    OnExceptionOccurred(new YAXDefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue), member.TreatErrorsAs);
+                    OnExceptionOccurred(new DefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue), member.TreatErrorsAs);
                 }
             }
             else if (memberType == typeof(string))
@@ -1806,7 +1806,7 @@ namespace Yax
                 }
                 catch
                 {
-                    this.OnExceptionOccurred(new YAXPropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
+                    this.OnExceptionOccurred(new PropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
                 }
             }
             else if (ReflectionUtils.IsBasicType(memberType))
@@ -1830,17 +1830,17 @@ namespace Yax
                     }
                     catch
                     {
-                        this.OnExceptionOccurred(new YAXPropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
+                        this.OnExceptionOccurred(new PropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
                     }
                 }
                 catch (Exception ex)
                 {
-                    if (ex is YAXException)
+                    if (ex is YaxException)
                     {
                         throw;
                     }
 
-                    this.OnExceptionOccurred(new YAXBadlyFormedInput(member.Alias.LocalName, elemValue), member.TreatErrorsAs);
+                    this.OnExceptionOccurred(new BadlyFormedInput(member.Alias.LocalName, elemValue), member.TreatErrorsAs);
 
                     try
                     {
@@ -1848,7 +1848,7 @@ namespace Yax
                     }
                     catch
                     {
-                        this.OnExceptionOccurred(new YAXDefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue), m_defaultExceptionType);
+                        this.OnExceptionOccurred(new DefaultValueCannotBeAssigned(member.Alias.LocalName, member.DefaultValue), m_defaultExceptionType);
                     }
                 }
             }
@@ -1884,7 +1884,7 @@ namespace Yax
                 }
                 catch
                 {
-                    this.OnExceptionOccurred(new YAXPropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
+                    this.OnExceptionOccurred(new PropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
                 }
             }
         }
@@ -1924,7 +1924,7 @@ namespace Yax
                     }
                     catch
                     {
-                        OnExceptionOccurred(new YAXBadlyFormedInput(memberAlias.ToString(), elemValue), m_defaultExceptionType);
+                        OnExceptionOccurred(new BadlyFormedInput(memberAlias.ToString(), elemValue), m_defaultExceptionType);
                     }
                 }
             }
@@ -1975,7 +1975,7 @@ namespace Yax
                         }
                         catch
                         {
-                            this.OnExceptionOccurred(new YAXBadlyFormedInput(childElem.Name.ToString(), childElem.Value), m_defaultExceptionType);
+                            this.OnExceptionOccurred(new BadlyFormedInput(childElem.Name.ToString(), childElem.Value), m_defaultExceptionType);
                         }
                     }
                     else
@@ -2021,7 +2021,7 @@ namespace Yax
                         catch
                         {
                             OnExceptionOccurred(
-                                new YAXCannotAddObjectToCollection(memberAlias.ToString(), lst[i]),
+                                new CannotAddObjectToCollection(memberAlias.ToString(), lst[i]),
                                 this.m_defaultExceptionType);
                         }
                     }
@@ -2041,7 +2041,7 @@ namespace Yax
                         catch
                         {
                             OnExceptionOccurred(
-                                new YAXCannotAddObjectToCollection(memberAlias.ToString(), lst[i]),
+                                new CannotAddObjectToCollection(memberAlias.ToString(), lst[i]),
                                 this.m_defaultExceptionType);
                         }
                     }
@@ -2064,7 +2064,7 @@ namespace Yax
                     }
                     catch
                     {
-                        this.OnExceptionOccurred(new YAXCannotAddObjectToCollection(memberAlias.ToString(), lstItem), this.m_defaultExceptionType);
+                        this.OnExceptionOccurred(new CannotAddObjectToCollection(memberAlias.ToString(), lstItem), this.m_defaultExceptionType);
                     }
                 }
 
@@ -2084,7 +2084,7 @@ namespace Yax
                     }
                     catch
                     {
-                        this.OnExceptionOccurred(new YAXCannotAddObjectToCollection(memberAlias.ToString(), lstItem), this.m_defaultExceptionType);
+                        this.OnExceptionOccurred(new CannotAddObjectToCollection(memberAlias.ToString(), lstItem), this.m_defaultExceptionType);
                     }
                 }
 
@@ -2123,7 +2123,7 @@ namespace Yax
                     }
                     catch
                     {
-                        this.OnExceptionOccurred(new YAXCannotAddObjectToCollection(memberAlias.ToString(), lst[i]), this.m_defaultExceptionType);
+                        this.OnExceptionOccurred(new CannotAddObjectToCollection(memberAlias.ToString(), lst[i]), this.m_defaultExceptionType);
                     }
                 }
 
@@ -2161,7 +2161,7 @@ namespace Yax
                     }
                     catch
                     {
-                        this.OnExceptionOccurred(new YAXCannotAddObjectToCollection(memberAlias.ToString(), lstItem), this.m_defaultExceptionType);
+                        this.OnExceptionOccurred(new CannotAddObjectToCollection(memberAlias.ToString(), lstItem), this.m_defaultExceptionType);
                     }
                 }
 
@@ -2201,7 +2201,7 @@ namespace Yax
             }
             catch
             {
-                OnExceptionOccurred(new YAXPropertyCannotBeAssignedTo(member.Alias.LocalName), m_defaultExceptionType);
+                OnExceptionOccurred(new PropertyCannotBeAssignedTo(member.Alias.LocalName), m_defaultExceptionType);
             }
         }
 
@@ -2354,7 +2354,7 @@ namespace Yax
                 catch
                 {
                     this.OnExceptionOccurred(
-                        new YAXCannotAddObjectToCollection(member.Alias.LocalName, new KeyValuePair<object, object>(key, value)),
+                        new CannotAddObjectToCollection(member.Alias.LocalName, new KeyValuePair<object, object>(key, value)),
                         m_defaultExceptionType);
                 }
             }
@@ -2365,7 +2365,7 @@ namespace Yax
             }
             catch
             {
-                this.OnExceptionOccurred(new YAXPropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
+                this.OnExceptionOccurred(new PropertyCannotBeAssignedTo(member.Alias.LocalName), this.m_defaultExceptionType);
             }
         }
 
@@ -2592,7 +2592,7 @@ namespace Yax
         /// </summary>
         /// <param name="ex">The exception that has occurred.</param>
         /// <param name="exceptionType">Type of the exception.</param>
-        private void OnExceptionOccurred(YAXException ex, ExceptionTypes exceptionType)
+        private void OnExceptionOccurred(YaxException ex, ExceptionTypes exceptionType)
         {
             m_exceptionOccurredDuringMemberDeserialization = true;
             if (exceptionType == ExceptionTypes.Ignore)

@@ -63,7 +63,7 @@ namespace Yax
                         else if (!m_enumMembers.ContainsKey(originalName))
                             m_enumMembers.Add(m.Name, originalName);
                         else
-                            throw new YAXException("Enum alias already exists");
+                            throw new YaxException("Enum alias already exists");
                     }
                 }
             }

@@ -205,7 +205,7 @@ namespace Yax
             var elemHeight = elem.Element(GetXName("Height", overridingNamespace));
 
             if (elemHeight == null || elemWidth == null || elemTop == null || elemLeft == null)
-                throw new YAXElementMissingException(elem.Name + ":[Left|Top|Width|Height]");
+                throw new ElementMissingException(elem.Name + ":[Left|Top|Width|Height]");
 
             return new Rectangle(
                 Int32.Parse(elemLeft.Value),
@@ -284,7 +284,7 @@ namespace Yax
                 TimeSpan timeSpanResult;
                 if (!TimeSpan.TryParse(strTimeSpanString, out timeSpanResult))
                 {
-                    throw new YAXBadlyFormedInput(elem.Name.ToString(), elem.Value);
+                    throw new BadlyFormedInput(elem.Name.ToString(), elem.Value);
                 }
                 return timeSpanResult;
             }
@@ -294,7 +294,7 @@ namespace Yax
                 long ticks;
                 if (!Int64.TryParse(strTicks, out ticks))
                 {
-                    throw new YAXBadlyFormedInput("Ticks", elemTicks.Value);
+                    throw new BadlyFormedInput("Ticks", elemTicks.Value);
                 }
                 return new TimeSpan(ticks);
             }

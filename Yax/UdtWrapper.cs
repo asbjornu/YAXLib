@@ -76,7 +76,7 @@ namespace Yax
 
             foreach (var attr in m_udtType.GetCustomAttributes(false))
             {
-                if (attr is BaseAttribute)
+                if (attr is YaxAttribute)
                     ProcessYAXAttribute(attr);
             }
         }
@@ -445,12 +445,12 @@ namespace Yax
 
                 if (!isDesiredInterface)
                 {
-                    throw new YAXException("The provided custom serialization type is not derived from the proper interface");
+                    throw new YaxException("The provided custom serialization type is not derived from the proper interface");
                 }
 
                 if (genTypeArg != UnderlyingType)
                 {
-                    throw new YAXException("The generic argument of the class and the type of the class do not match");
+                    throw new YaxException("The generic argument of the class and the type of the class do not match");
                 }
                 
                 this.CustomSerializerType = serType;

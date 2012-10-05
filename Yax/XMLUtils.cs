@@ -383,7 +383,7 @@ namespace Yax
             {
                 if (dst.Attribute(attr.Name) != null)
                 {
-                    throw new YAXAttributeAlreadyExistsException(attr.Name.ToString());
+                    throw new AttributeAlreadyExistsException(attr.Name.ToString());
                 }
 
                 dst.Add(attr);

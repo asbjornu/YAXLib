@@ -158,7 +158,7 @@ namespace Yax.Demo
                 else
                     this.rtbDeserializeOutput.Text = "The deserialized object is null";
             }
-            catch (YAXException ex)
+            catch (YaxException ex)
             {
                 this.rtbDeserializeOutput.Text = "";
                 MessageBox.Show("YAXException handled:\r\n\r\n" + ex.ToString());
@@ -199,7 +199,7 @@ namespace Yax.Demo
                     this.rtbXMLOutput.Text = serializer.Serialize(info.SampleObject);
                 this.rtbParsingErrors.Text = serializer.ParsingErrors.ToString();
             }
-            catch (YAXException ex)
+            catch (YaxException ex)
             {
                 MessageBox.Show("YAXException handled:\r\n\r\n" + ex.ToString());
             }

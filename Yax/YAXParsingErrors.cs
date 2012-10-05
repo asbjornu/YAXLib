@@ -25,7 +25,7 @@ namespace Yax
         /// <summary>
         /// The list of exception occured during serialization/deserialization.
         /// </summary>
-        private List<KeyValuePair<YAXException, ExceptionTypes>> listExceptions = new List<KeyValuePair<YAXException, ExceptionTypes>>();
+        private List<KeyValuePair<YaxException, ExceptionTypes>> listExceptions = new List<KeyValuePair<YaxException, ExceptionTypes>>();
 
         #endregion
 
@@ -64,7 +64,7 @@ namespace Yax
         /// </summary>
         /// <param name="n">The index of the exception/exception type pair in the error list to return.</param>
         /// <value></value>
-        public KeyValuePair<YAXException, ExceptionTypes> this[int n]
+        public KeyValuePair<YaxException, ExceptionTypes> this[int n]
         {
             get
             {
@@ -81,9 +81,9 @@ namespace Yax
         /// </summary>
         /// <param name="exception">The exception to add.</param>
         /// <param name="exceptionType">Type of the exception added.</param>
-        public void AddException(YAXException exception, ExceptionTypes exceptionType)
+        public void AddException(YaxException exception, ExceptionTypes exceptionType)
         {
-            this.listExceptions.Add(new KeyValuePair<YAXException, ExceptionTypes>(exception, exceptionType));
+            this.listExceptions.Add(new KeyValuePair<YaxException, ExceptionTypes>(exception, exceptionType));
         }
 
         /// <summary>

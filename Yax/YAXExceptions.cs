@@ -16,23 +16,22 @@ namespace Yax
     /// <summary>
     /// The base for all exception classes of YAXLib
     /// </summary>
-    public class YAXException : System.Exception
+    public class YaxException : Exception
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXException"/> class.
+        /// Initializes a new instance of the <see cref="YaxException"/> class.
         /// </summary>
-        public YAXException()
+        public YaxException()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXException"/> class.
+        /// Initializes a new instance of the <see cref="YaxException"/> class.
         /// </summary>
         /// <param name="message">The message.</param>
-        public YAXException(string message) 
+        public YaxException(string message) 
             : base(message)
         {
-            
         }
     }
 
@@ -41,15 +40,15 @@ namespace Yax
     /// created or cannot be read from.
     /// This exception is raised during serialization and deserialization
     /// </summary>
-    public class YAXBadLocationException : YAXException
+    public class BadLocationException : YaxException
     {
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXBadLocationException"/> class.
+        /// Initializes a new instance of the <see cref="BadLocationException"/> class.
         /// </summary>
         /// <param name="location">The location.</param>
-        public YAXBadLocationException(string location)
+        public BadLocationException(string location)
         {
 
         }
@@ -87,15 +86,15 @@ namespace Yax
     /// another attribute with the same name already exists.
     /// This exception is raised during serialization.
     /// </summary>
-    public class YAXAttributeAlreadyExistsException : YAXException
+    public class AttributeAlreadyExistsException : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXAttributeAlreadyExistsException"/> class.
+        /// Initializes a new instance of the <see cref="AttributeAlreadyExistsException"/> class.
         /// </summary>
         /// <param name="attrName">Name of the attribute.</param>
-        public YAXAttributeAlreadyExistsException(string attrName)
+        public AttributeAlreadyExistsException(string attrName)
         {
             this.AttrName = attrName;
         }
@@ -132,15 +131,15 @@ namespace Yax
     /// Raised when the attribute corresponding to some property is not present in the given XML file, when deserializing.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXAttributeMissingException : YAXException
+    public class AttributeMissingException : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXAttributeMissingException"/> class.
+        /// Initializes a new instance of the <see cref="AttributeMissingException"/> class.
         /// </summary>
         /// <param name="attrName">Name of the attribute.</param>
-        public YAXAttributeMissingException(string attrName)
+        public AttributeMissingException(string attrName)
         {
             this.AttributeName = attrName;
         }
@@ -177,15 +176,15 @@ namespace Yax
     /// Raised when the element value corresponding to some property is not present in the given XML file, when deserializing.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXElementValueMissingException : YAXException
+    public class ElementValueMissingException : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXAttributeMissingException"/> class.
+        /// Initializes a new instance of the <see cref="AttributeMissingException"/> class.
         /// </summary>
         /// <param name="elementName">Name of the element.</param>
-        public YAXElementValueMissingException(string elementName)
+        public ElementValueMissingException(string elementName)
         {
             this.ElementName = elementName;
         }
@@ -222,15 +221,15 @@ namespace Yax
     /// Raised when the element value corresponding to some property is not present in the given XML file, when deserializing.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXElementValueAlreadyExistsException : YAXException
+    public class ElementValueAlreadyExistsException : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXAttributeMissingException"/> class.
+        /// Initializes a new instance of the <see cref="AttributeMissingException"/> class.
         /// </summary>
         /// <param name="elementName">Name of the element.</param>
-        public YAXElementValueAlreadyExistsException(string elementName)
+        public ElementValueAlreadyExistsException(string elementName)
         {
             this.ElementName = elementName;
         }
@@ -268,15 +267,15 @@ namespace Yax
     /// Raised when the element corresponding to some property is not present in the given XML file, when deserializing.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXElementMissingException : YAXException
+    public class ElementMissingException : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXElementMissingException"/> class.
+        /// Initializes a new instance of the <see cref="ElementMissingException"/> class.
         /// </summary>
         /// <param name="elemName">Name of the element.</param>
-        public YAXElementMissingException(string elemName)
+        public ElementMissingException(string elemName)
         {
             this.ElementName = elemName;
         }
@@ -314,16 +313,16 @@ namespace Yax
     /// converted to the type of the property.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXBadlyFormedInput : YAXException
+    public class BadlyFormedInput : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXBadlyFormedInput"/> class.
+        /// Initializes a new instance of the <see cref="BadlyFormedInput"/> class.
         /// </summary>
         /// <param name="elemName">Name of the element.</param>
         /// <param name="badInput">The value of the input which could not be converted to the type of the property.</param>
-        public YAXBadlyFormedInput(string elemName, string badInput)
+        public BadlyFormedInput(string elemName, string badInput)
         {
             this.ElementName = elemName;
             this.BadInput = badInput;
@@ -372,15 +371,15 @@ namespace Yax
     /// assigned to the property.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXPropertyCannotBeAssignedTo : YAXException
+    public class PropertyCannotBeAssignedTo : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXPropertyCannotBeAssignedTo"/> class.
+        /// Initializes a new instance of the <see cref="PropertyCannotBeAssignedTo"/> class.
         /// </summary>
         /// <param name="propName">Name of the property.</param>
-        public YAXPropertyCannotBeAssignedTo(string propName)
+        public PropertyCannotBeAssignedTo(string propName)
         {
             this.PropertyName = propName;
         }
@@ -417,16 +416,16 @@ namespace Yax
     /// Raised when some member of the collection in the input XML, cannot be added to the collection object.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXCannotAddObjectToCollection : YAXException
+    public class CannotAddObjectToCollection : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXCannotAddObjectToCollection"/> class.
+        /// Initializes a new instance of the <see cref="CannotAddObjectToCollection"/> class.
         /// </summary>
         /// <param name="propName">Name of the property.</param>
         /// <param name="obj">The object that could not be added to the collection.</param>
-        public YAXCannotAddObjectToCollection(string propName, object obj)
+        public CannotAddObjectToCollection(string propName, object obj)
         {
             this.PropertyName = propName;
             this.ObjectToAdd = obj;
@@ -474,16 +473,16 @@ namespace Yax
     /// Raised when the default value specified by the <c>YAXErrorIfMissedAttribute</c> could not be assigned to the property.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXDefaultValueCannotBeAssigned : YAXException
+    public class DefaultValueCannotBeAssigned : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXDefaultValueCannotBeAssigned"/> class.
+        /// Initializes a new instance of the <see cref="DefaultValueCannotBeAssigned"/> class.
         /// </summary>
         /// <param name="propName">Name of the property.</param>
         /// <param name="defaultValue">The default value which caused the problem.</param>
-        public YAXDefaultValueCannotBeAssigned(string propName, object defaultValue)
+        public DefaultValueCannotBeAssigned(string propName, object defaultValue)
         {
             this.PropertyName = propName;
             this.TheDefaultValue = defaultValue;
@@ -531,7 +530,7 @@ namespace Yax
     /// Raised when the XML input does not follow standard XML formatting rules.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXBadlyFormedXML : YAXException
+    public class BadlyFormedXML : YaxException
     {
         #region Fields
 
@@ -545,18 +544,18 @@ namespace Yax
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXBadlyFormedXML"/> class.
+        /// Initializes a new instance of the <see cref="BadlyFormedXML"/> class.
         /// </summary>
         /// <param name="innerException">The inner exception.</param>
-        public YAXBadlyFormedXML(Exception innerException)
+        public BadlyFormedXML(Exception innerException)
         {
             this.innerException = innerException;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXBadlyFormedXML"/> class.
+        /// Initializes a new instance of the <see cref="BadlyFormedXML"/> class.
         /// </summary>
-        public YAXBadlyFormedXML()
+        public BadlyFormedXML()
         {
         }
 
@@ -593,16 +592,16 @@ namespace Yax
     /// Raised when an object cannot be formatted with the format string provided.
     /// This exception is raised during serialization.
     /// </summary>
-    public class YAXInvalidFormatProvided : YAXException
+    public class InvalidFormatProvided : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXInvalidFormatProvided"/> class.
+        /// Initializes a new instance of the <see cref="InvalidFormatProvided"/> class.
         /// </summary>
         /// <param name="objectType">Type of the fiedl to serialize.</param>
         /// <param name="format">The format string.</param>
-        public YAXInvalidFormatProvided(Type objectType, string format)
+        public InvalidFormatProvided(Type objectType, string format)
         {
             this.ObjectType = objectType;
             this.Format = format;
@@ -649,15 +648,15 @@ namespace Yax
     /// Raised when trying to serialize self-referential types. This exception cannot be turned off.
     /// This exception is raised during deserialization.
     /// </summary>
-    public class YAXCannotSerializeSelfReferentialTypes : YAXException
+    public class CannotSerializeSelfReferentialTypes : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXCannotSerializeSelfReferentialTypes"/> class.
+        /// Initializes a new instance of the <see cref="CannotSerializeSelfReferentialTypes"/> class.
         /// </summary>
         /// <param name="type">The the self-referential type that caused the problem.</param>
-        public YAXCannotSerializeSelfReferentialTypes(Type type)
+        public CannotSerializeSelfReferentialTypes(Type type)
         {
             this.SelfReferentialType = type;
         }
@@ -693,16 +692,16 @@ namespace Yax
     /// Raised when the object provided for serialization is not of the type provided for the serializer. This exception cannot be turned off.
     /// This exception is raised during serialization.
     /// </summary>
-    public class YAXObjectTypeMismatch : YAXException
+    public class ObjectTypeMismatch : YaxException
     {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="YAXObjectTypeMismatch"/> class.
+        /// Initializes a new instance of the <see cref="ObjectTypeMismatch"/> class.
         /// </summary>
         /// <param name="expectedType">The expected type.</param>
         /// <param name="receivedType">The type of the object which did not match the expected type.</param>
-        public YAXObjectTypeMismatch(Type expectedType, Type receivedType)
+        public ObjectTypeMismatch(Type expectedType, Type receivedType)
         {
             this.ExpectedType = expectedType;
             this.ReceivedType = receivedType;

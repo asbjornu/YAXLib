@@ -132,7 +132,7 @@ namespace Yax
                 //if (attr is YAXCustomSerializerAttribute)
                 //    continue; // no need to preces, it has been proccessed earlier
 
-                if (attr is BaseAttribute)
+                if (attr is YaxAttribute)
                     ProcessYaxAttribute(attr);
             }
         }
@@ -786,11 +786,11 @@ namespace Yax
 
                 if (!isDesiredInterface)
                 {
-                    throw new YAXException("The provided custom serialization type is not derived from the proper interface");
+                    throw new YaxException("The provided custom serialization type is not derived from the proper interface");
                 }
                 else if (genTypeArg != this.MemberType)
                 {
-                    throw new YAXException("The generic argument of the class and the member type do not match");
+                    throw new YaxException("The generic argument of the class and the member type do not match");
                 }
                 else
                 {
