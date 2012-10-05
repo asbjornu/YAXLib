@@ -80,7 +80,7 @@ namespace Yax
         /// </summary>
         public YAXSerializableTypeAttribute()
         {
-            this.FieldsToSerialize = YAXSerializationFields.PublicPropertiesOnly;
+            this.FieldsToSerialize = SerializationFields.PublicPropertiesOnly;
         }
 
         #endregion
@@ -91,7 +91,7 @@ namespace Yax
         /// Gets or sets the fields which YAXLib selects for serialization
         /// </summary>
         /// <value>The fields to serialize.</value>
-        public YAXSerializationFields FieldsToSerialize { get; set; }
+        public SerializationFields FieldsToSerialize { get; set; }
 
         /// <summary>
         /// Gets or sets the serialization options.

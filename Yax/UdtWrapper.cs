@@ -69,7 +69,7 @@ namespace Yax
 
             Alias = StringUtils.RefineSingleElement(ReflectionUtils.GetTypeFriendlyName(m_udtType));
             Comment = null;
-            FieldsToSerialize = YAXSerializationFields.PublicPropertiesOnly;
+            FieldsToSerialize = SerializationFields.PublicPropertiesOnly;
             IsAttributedAsNotCollection = false;
 
             SetYAXSerializerOptions(callerSerializer);
@@ -115,7 +115,7 @@ namespace Yax
         /// Gets the fields to be serialized.
         /// </summary>
         /// <value>The fields to be serialized.</value>
-        public YAXSerializationFields FieldsToSerialize { get; private set; }
+        public SerializationFields FieldsToSerialize { get; private set; }
 
         /// <summary>
         /// Gets the serialization options.

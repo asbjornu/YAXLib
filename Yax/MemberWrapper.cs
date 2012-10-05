@@ -607,13 +607,13 @@ namespace Yax
         /// <returns>
         /// <c>true</c> if this instance of <c>MemberWrapper</c> can be serialized; otherwise, <c>false</c>.
         /// </returns>
-        public bool IsAllowedToBeSerialized(YAXSerializationFields serializationFields)
+        public bool IsAllowedToBeSerialized(SerializationFields serializationFields)
         {
-            if (serializationFields == YAXSerializationFields.AllFields)
+            if (serializationFields == SerializationFields.AllFields)
                 return !IsAttributedAsDontSerialize;
-            else if (serializationFields == YAXSerializationFields.AttributedFieldsOnly)
+            else if (serializationFields == SerializationFields.AttributedFieldsOnly)
                 return !IsAttributedAsDontSerialize && IsAttributedAsSerializable;
-            else if (serializationFields == YAXSerializationFields.PublicPropertiesOnly)
+            else if (serializationFields == SerializationFields.PublicPropertiesOnly)
                 return !IsAttributedAsDontSerialize && m_isProperty && ReflectionUtils.IsPublicProperty(m_propertyInfoInstance);
             else
                 throw new Exception("Unknown serialization field option");

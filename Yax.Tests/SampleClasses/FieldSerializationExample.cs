@@ -5,7 +5,7 @@ namespace Yax.Tests.SampleClasses
     [ShowInDemoApplication]
 
     [YAXComment("This example shows how to choose the fields to be serialized")]
-    [YAXSerializableType(FieldsToSerialize=YAXSerializationFields.AttributedFieldsOnly)]
+    [YAXSerializableType(FieldsToSerialize=SerializationFields.AttributedFieldsOnly)]
     public class FieldSerializationExample
     {
         [YAXSerializableField]

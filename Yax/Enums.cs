@@ -108,7 +108,7 @@ namespace Yax
     /// <summary>
     /// Enumerates possible options for a serializable type
     /// </summary>
-    public enum YAXSerializationFields
+    public enum SerializationFields
     {
         /// <summary>
         /// Serializes only the public properties (the default behaviour)
