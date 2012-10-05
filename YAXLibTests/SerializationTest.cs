@@ -13,7 +13,7 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
-using YAXLib;
+using Yax;
 using System.Threading;
 using System.Globalization;
 using YAXLibTests.SampleClasses;

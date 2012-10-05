@@ -16,7 +16,7 @@ using System.Globalization;
 using System.Collections;
 using System.Reflection;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// A utility class for reflection related stuff

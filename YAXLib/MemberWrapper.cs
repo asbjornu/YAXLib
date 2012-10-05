@@ -13,7 +13,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Xml.Linq;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// A wrapper class for members which only can be properties or member variables

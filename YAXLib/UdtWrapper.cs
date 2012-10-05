@@ -11,7 +11,7 @@
 using System;
 using System.Xml.Linq;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// a wrapper class around user-defined types, for quick acess to their YAXLib related attributes

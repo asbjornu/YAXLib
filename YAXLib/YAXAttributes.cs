@@ -10,7 +10,7 @@
 
 using System;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// The base class for all attributes defined in YAXLib.

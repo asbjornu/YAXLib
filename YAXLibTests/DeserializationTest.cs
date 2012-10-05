@@ -14,7 +14,7 @@ using System.Threading;
 
 using NUnit.Framework;
 
-using YAXLib;
+using Yax;
 using YAXLibTests.SampleClasses;
 
 namespace YAXLibTests

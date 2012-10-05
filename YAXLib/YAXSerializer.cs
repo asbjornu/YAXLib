@@ -19,7 +19,7 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// An XML serialization class which lets developers design the XML file structure and select the exception handling policy.

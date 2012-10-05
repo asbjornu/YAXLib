@@ -20,7 +20,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Diagnostics;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// Provides serialization and deserialization methods for some known .NET built-in types.

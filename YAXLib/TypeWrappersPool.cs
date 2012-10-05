@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// Implements a singleton pool of type-wrappers to prevent excessive creation of 

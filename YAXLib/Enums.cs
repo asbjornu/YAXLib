@@ -8,7 +8,7 @@
 // LIABILITY FOR ANY DATA DAMAGE/LOSS THAT THIS PRODUCT MAY CAUSE.
 //-----------------------------------------------------------------------
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// Enumerates different kinds of exception handling policies as used by YAX Library.

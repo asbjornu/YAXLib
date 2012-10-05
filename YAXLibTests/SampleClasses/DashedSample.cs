@@ -1,4 +1,4 @@
-﻿using YAXLib;
+﻿using Yax;
 
 namespace YAXLibTests.SampleClasses
 {

@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 using NUnit.Framework;
 
-using YAXLib;
+using Yax;
 using System;
 using YAXLibTests.SampleClasses;
 

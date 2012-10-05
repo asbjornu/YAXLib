@@ -10,7 +10,7 @@
 
 using System.Xml.Linq;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// Defines the interface to all custom serializers and deserializers used with YAXLib.

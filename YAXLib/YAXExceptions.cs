@@ -11,7 +11,7 @@
 using System;
 using System.Globalization;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// The base for all exception classes of YAXLib

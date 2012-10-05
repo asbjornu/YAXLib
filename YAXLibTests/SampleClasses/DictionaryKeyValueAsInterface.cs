@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using YAXLib;
+using Yax;
 
 // test class created to discuss:
 // http://yaxlib.codeplex.com/discussions/287166

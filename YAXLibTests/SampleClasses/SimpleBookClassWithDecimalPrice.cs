@@ -1,7 +1,7 @@
 ﻿// This class is created to test serialization of decimal fields.
 // The patch is contributed by 
 
-using YAXLib;
+using Yax;
 
 namespace YAXLibTests.SampleClasses
 {

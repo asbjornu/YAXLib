@@ -10,7 +10,7 @@
 
 using NUnit.Framework;
 
-using YAXLib;
+using Yax;
 using System.Xml.Linq;
 
 namespace YAXLibTests

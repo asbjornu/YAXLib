@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// Provides a wrapper arount enum types, in order to provide alias definition capabilities for enums

@@ -1,5 +1,5 @@
 ﻿using System;
-using YAXLib;
+using Yax;
 
 namespace YAXLibTests.SampleClasses
 {

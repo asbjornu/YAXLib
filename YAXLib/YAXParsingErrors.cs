@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace YAXLib
+namespace Yax
 {
     /// <summary>
     /// Holds list of exception occured during serialization/deserialization.
