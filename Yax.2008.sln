@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yax", "Yax\Yax.csproj", "{F1C4D174-C948-4D18-A125-F6855EF55683}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApplication", "DemoApplication\DemoApplication.csproj", "{40A6C570-2CC0-44BF-8A2A-FD41CE598C41}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F1C4D174-C948-4D18-A125-F6855EF55683} = {F1C4D174-C948-4D18-A125-F6855EF55683}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yax.Tests.2008", "Yax.Tests\Yax.Tests.2008.csproj", "{70D42BC6-4F21-4680-AB55-D7A50AC2CACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApplication.2008", "DemoApplication\DemoApplication.2008.csproj", "{40A6C570-2CC0-44BF-8A2A-FD41CE598C41}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = YAXLib.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -21,6 +17,10 @@ Global
 		{F1C4D174-C948-4D18-A125-F6855EF55683}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1C4D174-C948-4D18-A125-F6855EF55683}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1C4D174-C948-4D18-A125-F6855EF55683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70D42BC6-4F21-4680-AB55-D7A50AC2CACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70D42BC6-4F21-4680-AB55-D7A50AC2CACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70D42BC6-4F21-4680-AB55-D7A50AC2CACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70D42BC6-4F21-4680-AB55-D7A50AC2CACD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40A6C570-2CC0-44BF-8A2A-FD41CE598C41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{40A6C570-2CC0-44BF-8A2A-FD41CE598C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A6C570-2CC0-44BF-8A2A-FD41CE598C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
