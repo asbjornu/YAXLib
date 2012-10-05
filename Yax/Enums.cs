@@ -13,7 +13,7 @@ namespace Yax
     /// <summary>
     /// Enumerates different kinds of exception handling policies as used by YAX Library.
     /// </summary>
-    public enum YAXExceptionHandlingPolicies
+    public enum ExceptionHandlingPolicies
     {
         /// <summary>
         /// Throws Both Warnings And Errors

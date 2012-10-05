@@ -37,7 +37,7 @@ namespace Yax
         /// <summary>
         /// The handling policy enumeration to be used by the YAX library.
         /// </summary>
-        private YAXExceptionHandlingPolicies m_exceptionPolicy = YAXExceptionHandlingPolicies.ThrowErrorsOnly;
+        private ExceptionHandlingPolicies m_exceptionPolicy = ExceptionHandlingPolicies.ThrowErrorsOnly;
 
         /// <summary>
         /// The list of all errors that have occured.
@@ -114,7 +114,7 @@ namespace Yax
         /// </summary>
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         public YAXSerializer(Type type)
-            : this(type, YAXExceptionHandlingPolicies.ThrowWarningsAndErrors, YAXExceptionTypes.Error, YAXSerializationOptions.SerializeNullObjects)
+            : this(type, ExceptionHandlingPolicies.ThrowWarningsAndErrors, YAXExceptionTypes.Error, YAXSerializationOptions.SerializeNullObjects)
         {
         }
 
@@ -123,7 +123,7 @@ namespace Yax
         /// </summary>
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         /// <param name="exceptionPolicy">The exception handling policy.</param>
-        public YAXSerializer(Type type, YAXExceptionHandlingPolicies exceptionPolicy)
+        public YAXSerializer(Type type, ExceptionHandlingPolicies exceptionPolicy)
             : this(type, exceptionPolicy, YAXExceptionTypes.Error, YAXSerializationOptions.SerializeNullObjects)
         {
         }
@@ -134,7 +134,7 @@ namespace Yax
         /// <param name="type">The type of the object being serialized/deserialized.</param>
         /// <param name="exceptionPolicy">The exception handling policy.</param>
         /// <param name="defaultExType">The exceptions are treated as the value specified, unless otherwise specified.</param>
-        public YAXSerializer(Type type, YAXExceptionHandlingPolicies exceptionPolicy, YAXExceptionTypes defaultExType)
+        public YAXSerializer(Type type, ExceptionHandlingPolicies exceptionPolicy, YAXExceptionTypes defaultExType)
             : this(type, exceptionPolicy, defaultExType, YAXSerializationOptions.SerializeNullObjects)
         {
         }
@@ -146,7 +146,7 @@ namespace Yax
         /// <param name="exceptionPolicy">The exception handling policy.</param>
         /// <param name="defaultExType">The exceptions are treated as the value specified, unless otherwise specified.</param>
         /// <param name="option">The serialization option.</param>
-        public YAXSerializer(Type t, YAXExceptionHandlingPolicies exceptionPolicy, YAXExceptionTypes defaultExType, YAXSerializationOptions option)
+        public YAXSerializer(Type t, ExceptionHandlingPolicies exceptionPolicy, YAXExceptionTypes defaultExType, YAXSerializationOptions option)
         {
             m_type = t;
             m_exceptionPolicy = exceptionPolicy;
@@ -210,7 +210,7 @@ namespace Yax
         /// Gets the exception handling policy.
         /// </summary>
         /// <value>The exception handling policy.</value>
-        public YAXExceptionHandlingPolicies ExceptionHandlingPolicy
+        public ExceptionHandlingPolicies ExceptionHandlingPolicy
         {
             get
             {
@@ -2601,8 +2601,8 @@ namespace Yax
             }
 
             this.m_parsingErrors.AddException(ex, exceptionType);
-            if ((this.m_exceptionPolicy == YAXExceptionHandlingPolicies.ThrowWarningsAndErrors) ||
-                (this.m_exceptionPolicy == YAXExceptionHandlingPolicies.ThrowErrorsOnly && exceptionType == YAXExceptionTypes.Error))
+            if ((this.m_exceptionPolicy == ExceptionHandlingPolicies.ThrowWarningsAndErrors) ||
+                (this.m_exceptionPolicy == ExceptionHandlingPolicies.ThrowErrorsOnly && exceptionType == YAXExceptionTypes.Error))
             {
                 throw ex;
             }

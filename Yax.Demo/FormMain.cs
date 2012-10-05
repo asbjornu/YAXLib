@@ -20,12 +20,12 @@ namespace Yax.Demo
 
         private void InitComboBoxes()
         {
-            this.comboPolicy.Items.AddRange(Enum.GetNames(typeof(YAXExceptionHandlingPolicies)));
+            this.comboPolicy.Items.AddRange(Enum.GetNames(typeof(ExceptionHandlingPolicies)));
             this.comboErrorType.Items.AddRange(Enum.GetNames(typeof(YAXExceptionTypes)));
             this.comboOptions.Items.AddRange(Enum.GetNames(typeof(YAXSerializationOptions)));
 
             if (this.comboPolicy.Items.Count > 0)
-                this.comboPolicy.Text = YAXExceptionHandlingPolicies.DoNotThrow.ToString();
+                this.comboPolicy.Text = ExceptionHandlingPolicies.DoNotThrow.ToString();
             if(this.comboErrorType.Items.Count > 0)
                 this.comboErrorType.Text = YAXExceptionTypes.Error.ToString();
             if (this.comboOptions.Items.Count > 0)
@@ -37,9 +37,9 @@ namespace Yax.Demo
             return (YAXExceptionTypes)Enum.Parse(typeof(YAXExceptionTypes), this.comboErrorType.Text);
         }
 
-        private YAXExceptionHandlingPolicies GetSelectedExceptionHandlingPolicy()
+        private ExceptionHandlingPolicies GetSelectedExceptionHandlingPolicy()
         {
-            return (YAXExceptionHandlingPolicies)Enum.Parse(typeof(YAXExceptionHandlingPolicies), this.comboPolicy.Text);
+            return (ExceptionHandlingPolicies)Enum.Parse(typeof(ExceptionHandlingPolicies), this.comboPolicy.Text);
         }
 
         private YAXSerializationOptions GetSelectedSerializationOption()
@@ -126,7 +126,7 @@ namespace Yax.Demo
 
             var info = selItem as ClassInfoListItem;
             YAXExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
-            YAXExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
+            ExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
             YAXSerializationOptions serOption = GetSelectedSerializationOption();
 
             try
@@ -186,7 +186,7 @@ namespace Yax.Demo
 
             ClassInfoListItem info = selItem as ClassInfoListItem;
             YAXExceptionTypes defaultExType = GetSelectedDefaultExceptionType();
-            YAXExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
+            ExceptionHandlingPolicies exPolicy = GetSelectedExceptionHandlingPolicy();
             YAXSerializationOptions serOption = GetSelectedSerializationOption();
 
             try
