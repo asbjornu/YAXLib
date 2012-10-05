@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace DemoApplication
+namespace Yax.Demo
 {
     public class ClassInfoListItem
     {
@@ -18,7 +15,7 @@ namespace DemoApplication
 
         public override string ToString()
         {
-            return ClassType.Name;
+            return this.ClassType.Name;
         }
     }
 }

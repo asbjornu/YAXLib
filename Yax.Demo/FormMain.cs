@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
-using Yax;
-
 using System.Linq;
 
 using Yax.Tests;
 using Yax.Tests.SampleClasses;
 
-namespace DemoApplication
+namespace Yax.Demo
 {
     public partial class FormMain : Form
     {
@@ -22,31 +20,31 @@ namespace DemoApplication
 
         private void InitComboBoxes()
         {
-            comboPolicy.Items.AddRange(Enum.GetNames(typeof(YAXExceptionHandlingPolicies)));
-            comboErrorType.Items.AddRange(Enum.GetNames(typeof(YAXExceptionTypes)));
-            comboOptions.Items.AddRange(Enum.GetNames(typeof(YAXSerializationOptions)));
+            this.comboPolicy.Items.AddRange(Enum.GetNames(typeof(YAXExceptionHandlingPolicies)));
+            this.comboErrorType.Items.AddRange(Enum.GetNames(typeof(YAXExceptionTypes)));
+            this.comboOptions.Items.AddRange(Enum.GetNames(typeof(YAXSerializationOptions)));
 
-            if (comboPolicy.Items.Count > 0)
-                comboPolicy.Text = YAXExceptionHandlingPolicies.DoNotThrow.ToString();
-            if(comboErrorType.Items.Count > 0)
-                comboErrorType.Text = YAXExceptionTypes.Error.ToString();
-            if (comboOptions.Items.Count > 0)
-                comboOptions.Text = YAXSerializationOptions.SerializeNullObjects.ToString();
+            if (this.comboPolicy.Items.Count > 0)
+                this.comboPolicy.Text = YAXExceptionHandlingPolicies.DoNotThrow.ToString();
+            if(this.comboErrorType.Items.Count > 0)
+                this.comboErrorType.Text = YAXExceptionTypes.Error.ToString();
+            if (this.comboOptions.Items.Count > 0)
+                this.comboOptions.Text = YAXSerializationOptions.SerializeNullObjects.ToString();
         }
 
         private YAXExceptionTypes GetSelectedDefaultExceptionType()
         {
-            return (YAXExceptionTypes)Enum.Parse(typeof(YAXExceptionTypes), comboErrorType.Text);
+            return (YAXExceptionTypes)Enum.Parse(typeof(YAXExceptionTypes), this.comboErrorType.Text);
         }
 
         private YAXExceptionHandlingPolicies GetSelectedExceptionHandlingPolicy()
         {
-            return (YAXExceptionHandlingPolicies)Enum.Parse(typeof(YAXExceptionHandlingPolicies), comboPolicy.Text);
+            return (YAXExceptionHandlingPolicies)Enum.Parse(typeof(YAXExceptionHandlingPolicies), this.comboPolicy.Text);
         }
 
         private YAXSerializationOptions GetSelectedSerializationOption()
         {
-            return (YAXSerializationOptions)Enum.Parse(typeof(YAXSerializationOptions), comboOptions.Text);
+            return (YAXSerializationOptions)Enum.Parse(typeof(YAXSerializationOptions), this.comboOptions.Text);
         }
 
         private void InitListOfClasses()
@@ -71,7 +69,7 @@ namespace DemoApplication
                 {
                     var method = type.GetMethod("GetSampleInstance", new Type[0]);
                     var instance = method.Invoke(null, null);
-                    lstSampleClasses.Items.Add(new ClassInfoListItem(type, instance));
+                    this.lstSampleClasses.Items.Add(new ClassInfoListItem(type, instance));
                 }
                 catch
                 {
@@ -113,17 +111,17 @@ namespace DemoApplication
 
         private void OnDeserialize(bool openFromFile)
         {
-            rtbParsingErrors.Text = "";
-            object selItem = lstSampleClasses.SelectedItem;
+            this.rtbParsingErrors.Text = "";
+            object selItem = this.lstSampleClasses.SelectedItem;
             if (selItem == null || !(selItem is ClassInfoListItem))
                 return;
 
             string fileName = null;
             if (openFromFile)
             {
-                if (DialogResult.OK != openFileDialog1.ShowDialog())
+                if (DialogResult.OK != this.openFileDialog1.ShowDialog())
                     return;
-                fileName = openFileDialog1.FileName;
+                fileName = this.openFileDialog1.FileName;
             }
 
             var info = selItem as ClassInfoListItem;
@@ -139,13 +137,13 @@ namespace DemoApplication
                 if (openFromFile)
                     deserializedObject = serializer.DeserializeFromFile(fileName);
                 else
-                    deserializedObject = serializer.Deserialize(rtbXMLOutput.Text);
+                    deserializedObject = serializer.Deserialize(this.rtbXMLOutput.Text);
 
-                rtbParsingErrors.Text = serializer.ParsingErrors.ToString();
+                this.rtbParsingErrors.Text = serializer.ParsingErrors.ToString();
 
                 if (deserializedObject != null)
                 {
-                    rtbDeserializeOutput.Text = deserializedObject.ToString();
+                    this.rtbDeserializeOutput.Text = deserializedObject.ToString();
 
                     if (deserializedObject is List<string>)
                     {
@@ -158,32 +156,32 @@ namespace DemoApplication
                     }
                 }
                 else
-                    rtbDeserializeOutput.Text = "The deserialized object is null";
+                    this.rtbDeserializeOutput.Text = "The deserialized object is null";
             }
             catch (YAXException ex)
             {
-                rtbDeserializeOutput.Text = "";
+                this.rtbDeserializeOutput.Text = "";
                 MessageBox.Show("YAXException handled:\r\n\r\n" + ex.ToString());
             }
             catch (Exception ex)
             {
-                rtbDeserializeOutput.Text = "";
+                this.rtbDeserializeOutput.Text = "";
                 MessageBox.Show("Other Exception handled:\r\n\r\n" + ex.ToString());
             }
         }
 
         private void OnSerialize(bool saveToFile)
         {
-            object selItem = lstSampleClasses.SelectedItem;
+            object selItem = this.lstSampleClasses.SelectedItem;
             if (selItem == null || !(selItem is ClassInfoListItem))
                 return;
 
             string fileName = null;
             if (saveToFile)
             {
-                if (DialogResult.OK != saveFileDialog1.ShowDialog()) 
+                if (DialogResult.OK != this.saveFileDialog1.ShowDialog()) 
                     return;
-                fileName = saveFileDialog1.FileName;
+                fileName = this.saveFileDialog1.FileName;
             }
 
             ClassInfoListItem info = selItem as ClassInfoListItem;
@@ -198,8 +196,8 @@ namespace DemoApplication
                 if (saveToFile)
                     serializer.SerializeToFile(info.SampleObject, fileName);
                 else
-                    rtbXMLOutput.Text = serializer.Serialize(info.SampleObject);
-                rtbParsingErrors.Text = serializer.ParsingErrors.ToString();
+                    this.rtbXMLOutput.Text = serializer.Serialize(info.SampleObject);
+                this.rtbParsingErrors.Text = serializer.ParsingErrors.ToString();
             }
             catch (YAXException ex)
             {
