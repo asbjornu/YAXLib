@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Yax;
-
-namespace YAXLibTests.SampleClasses
+﻿namespace Yax.Tests.SampleClasses
 {
     [YAXSerializableType(Options = YAXSerializationOptions.DontSerializeNullObjects)]
     public class ClassWithOptionsSet

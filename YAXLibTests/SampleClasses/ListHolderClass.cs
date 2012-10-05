@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     public class ListHolderClass
     {
@@ -11,13 +9,13 @@ namespace YAXLibTests.SampleClasses
 
         public ListHolderClass()
         {
-            ListOfStrings = new List<string>();
+            this.ListOfStrings = new List<string>();
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (var item in ListOfStrings)
+            foreach (var item in this.ListOfStrings)
             {
                 sb.AppendLine(item.ToString());
             }

@@ -10,9 +10,7 @@
 
 using NUnit.Framework;
 
-using Yax;
-
-namespace YAXLibTests
+namespace Yax.Tests
 {
     /// <summary>
     /// Summary description for StringUtilsTest
@@ -23,25 +21,25 @@ namespace YAXLibTests
         [Test]
         public void RefineElementNameTest()
         {
-            Assert.That(StringUtils.RefineLocationString(".."), Is.EqualTo(".."));
-            Assert.That(StringUtils.RefineLocationString("."), Is.EqualTo("."));
-            Assert.That(StringUtils.RefineLocationString("      "), Is.EqualTo("."));
-            Assert.That(StringUtils.RefineLocationString(" /      \\ "), Is.EqualTo("."));
-            Assert.That(StringUtils.RefineLocationString("ans"), Is.EqualTo("ans"));
-            Assert.That(StringUtils.RefineLocationString("/ans"), Is.EqualTo("ans"));
-            Assert.That(StringUtils.RefineLocationString("/ans/"), Is.EqualTo("ans"));
-            Assert.That(StringUtils.RefineLocationString("ans/"), Is.EqualTo("ans"));
-            Assert.That(StringUtils.RefineLocationString("ans/////"), Is.EqualTo("ans"));
-            Assert.That(StringUtils.RefineLocationString("ans\\\\\\"), Is.EqualTo("ans"));
-            Assert.That(StringUtils.RefineLocationString("..."), Is.EqualTo("___"));
-            Assert.That(StringUtils.RefineLocationString("one / two / three / four "), Is.EqualTo("one/two/three/four"));
-            Assert.That(StringUtils.RefineLocationString("one / two \\ three / four "), Is.EqualTo("one/two/three/four"));
-            Assert.That(StringUtils.RefineLocationString("one / two / three and else / four "), Is.EqualTo("one/two/three_and_else/four"));
-            Assert.That(StringUtils.RefineLocationString("one / two / .. / four "), Is.EqualTo("one/two/../four"));
-            Assert.That(StringUtils.RefineLocationString("one / two / .. / four / "), Is.EqualTo("one/two/../four"));
-            Assert.That(StringUtils.RefineLocationString("one / two / . . / four / "), Is.EqualTo("one/two/___/four"));
-            Assert.That(StringUtils.RefineLocationString("one / two / two:words.are / four "), Is.EqualTo("one/two/two_words_are/four"));
-            Assert.That(StringUtils.RefineLocationString("one-two-three-four"), Is.EqualTo("one-two-three-four"));
+            Assert.That(Yax.StringUtils.RefineLocationString(".."), Is.EqualTo(".."));
+            Assert.That(Yax.StringUtils.RefineLocationString("."), Is.EqualTo("."));
+            Assert.That(Yax.StringUtils.RefineLocationString("      "), Is.EqualTo("."));
+            Assert.That(Yax.StringUtils.RefineLocationString(" /      \\ "), Is.EqualTo("."));
+            Assert.That(Yax.StringUtils.RefineLocationString("ans"), Is.EqualTo("ans"));
+            Assert.That(Yax.StringUtils.RefineLocationString("/ans"), Is.EqualTo("ans"));
+            Assert.That(Yax.StringUtils.RefineLocationString("/ans/"), Is.EqualTo("ans"));
+            Assert.That(Yax.StringUtils.RefineLocationString("ans/"), Is.EqualTo("ans"));
+            Assert.That(Yax.StringUtils.RefineLocationString("ans/////"), Is.EqualTo("ans"));
+            Assert.That(Yax.StringUtils.RefineLocationString("ans\\\\\\"), Is.EqualTo("ans"));
+            Assert.That(Yax.StringUtils.RefineLocationString("..."), Is.EqualTo("___"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one / two / three / four "), Is.EqualTo("one/two/three/four"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one / two \\ three / four "), Is.EqualTo("one/two/three/four"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one / two / three and else / four "), Is.EqualTo("one/two/three_and_else/four"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one / two / .. / four "), Is.EqualTo("one/two/../four"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one / two / .. / four / "), Is.EqualTo("one/two/../four"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one / two / . . / four / "), Is.EqualTo("one/two/___/four"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one / two / two:words.are / four "), Is.EqualTo("one/two/two_words_are/four"));
+            Assert.That(Yax.StringUtils.RefineLocationString("one-two-three-four"), Is.EqualTo("one-two-three-four"));
         }
 
         [Test]
@@ -61,7 +59,7 @@ namespace YAXLibTests
         private static void TestPathAndAlias(string locationString, string expectedPath, string expectedAlias)
         {
             string path, alias;
-            StringUtils.ExttractPathAndAliasFromLocationString(locationString, out path, out alias);
+            Yax.StringUtils.ExttractPathAndAliasFromLocationString(locationString, out path, out alias);
             Assert.That(path, Is.EqualTo(expectedPath));
             Assert.That(alias, Is.EqualTo(expectedAlias));
         }
@@ -69,19 +67,19 @@ namespace YAXLibTests
         [Test]
         public void IsLocationAllGenericTest()
         {
-            Assert.That(StringUtils.IsLocationAllGeneric(".."), Is.True);
-            Assert.That(StringUtils.IsLocationAllGeneric("."), Is.True);
-            Assert.That(StringUtils.IsLocationAllGeneric("./.."), Is.True);
-            Assert.That(StringUtils.IsLocationAllGeneric("../.."), Is.True);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric(".."), Is.True);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("."), Is.True);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("./.."), Is.True);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("../.."), Is.True);
 
-            Assert.That(StringUtils.IsLocationAllGeneric("../one/.."), Is.False);
-            Assert.That(StringUtils.IsLocationAllGeneric("../one"), Is.False);
-            Assert.That(StringUtils.IsLocationAllGeneric("one/.."), Is.False);
-            Assert.That(StringUtils.IsLocationAllGeneric("one"), Is.False);
-            Assert.That(StringUtils.IsLocationAllGeneric("one/../two"), Is.False);
-            Assert.That(StringUtils.IsLocationAllGeneric("../one/../two"), Is.False);
-            Assert.That(StringUtils.IsLocationAllGeneric("../one/../two/.."), Is.False);
-            Assert.That(StringUtils.IsLocationAllGeneric("one/../two/.."), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("../one/.."), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("../one"), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("one/.."), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("one"), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("one/../two"), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("../one/../two"), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("../one/../two/.."), Is.False);
+            Assert.That(Yax.StringUtils.IsLocationAllGeneric("one/../two/.."), Is.False);
         }
 
         [Test]
@@ -91,43 +89,43 @@ namespace YAXLibTests
             string newElement;
 
             string location = "..";
-            bool returnValue = StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
+            bool returnValue = Yax.StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
             Assert.That(newLocation, Is.EqualTo(".."));
             Assert.That(newElement, Is.Null);
             Assert.That(returnValue, Is.False);
 
             location = ".";
-            returnValue = StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
+            returnValue = Yax.StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
             Assert.That(newLocation, Is.EqualTo("."));
             Assert.That(newElement, Is.Null);
             Assert.That(returnValue, Is.False);
 
             location = "../..";
-            returnValue = StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
+            returnValue = Yax.StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
             Assert.That(newLocation, Is.EqualTo("../.."));
             Assert.That(newElement, Is.Null);
             Assert.That(returnValue, Is.False);
 
             location = "../../folder";
-            returnValue = StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
+            returnValue = Yax.StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
             Assert.That(newLocation, Is.EqualTo("../.."));
             Assert.That(newElement, Is.EqualTo("folder"));
             Assert.That(returnValue, Is.True);
 
             location = "../../folder/..";
-            returnValue = StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
+            returnValue = Yax.StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
             Assert.That(newLocation, Is.EqualTo("../../folder/.."));
             Assert.That(newElement, Is.Null);
             Assert.That(returnValue, Is.False);
 
             location = "one/two/three/four";
-            returnValue = StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
+            returnValue = Yax.StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
             Assert.That(newLocation, Is.EqualTo("one/two/three"));
             Assert.That(newElement, Is.EqualTo("four"));
             Assert.That(returnValue, Is.True);
 
             location = "one";
-            returnValue = StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
+            returnValue = Yax.StringUtils.DivideLocationOneStep(location, out newLocation, out newElement);
             Assert.That(newLocation, Is.EqualTo("."));
             Assert.That(newElement, Is.EqualTo("one"));
             Assert.That(returnValue, Is.True);
@@ -141,12 +139,12 @@ namespace YAXLibTests
 
             foreach (var falseCase in falseCases)
             {
-                Assert.That(StringUtils.LooksLikeExpandedXName(falseCase), Is.False);
+                Assert.That(Yax.StringUtils.LooksLikeExpandedXName(falseCase), Is.False);
             }
 
             foreach (var trueCase in trueCases)
             {
-                Assert.That(StringUtils.LooksLikeExpandedXName(trueCase), Is.True);
+                Assert.That(Yax.StringUtils.LooksLikeExpandedXName(trueCase), Is.True);
             }
         } 
     }

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Reflection;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     public class PropertylessClassesSample
     {

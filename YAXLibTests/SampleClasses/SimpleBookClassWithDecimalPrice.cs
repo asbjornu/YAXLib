@@ -1,9 +1,7 @@
 ﻿// This class is created to test serialization of decimal fields.
 // The patch is contributed by 
 
-using Yax;
-
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     [YAXComment("This example demonstrates serailizing a very simple class")]
     public class SimpleBookClassWithDecimalPrice

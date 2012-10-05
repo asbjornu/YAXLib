@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
-using Yax;
+﻿using System.Collections.Generic;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     public class PersonFormatted
     {

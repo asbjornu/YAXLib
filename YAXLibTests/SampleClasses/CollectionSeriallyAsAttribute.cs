@@ -1,5 +1,4 @@
-﻿using Yax;
-namespace YAXLibTests.SampleClasses
+﻿namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 

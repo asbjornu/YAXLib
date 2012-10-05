@@ -10,12 +10,10 @@
 
 using NUnit.Framework;
 
-using Yax;
+using Yax.Tests.SampleClasses;
+using Yax.Tests.SampleClasses.Namespace;
 
-using YAXLibTests.SampleClasses;
-using YAXLibTests.SampleClasses.Namespace;
-
-namespace YAXLibTests
+namespace Yax.Tests
 {
     [TestFixture]
     public class NamespaceTest

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Yax;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     [Flags]
     public enum Seasons

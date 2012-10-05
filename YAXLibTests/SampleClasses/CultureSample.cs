@@ -1,7 +1,6 @@
 ﻿using System;
-using Yax;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     [YAXComment("This class contains fields that are vulnerable to culture changes!")]
     public class CultureSample

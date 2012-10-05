@@ -1,6 +1,4 @@
-﻿using Yax;
-
-namespace YAXLibTests.SampleClasses
+﻿namespace Yax.Tests.SampleClasses
 {
     [YAXSerializeAs("dashed-sample")]
     public class DashedSample

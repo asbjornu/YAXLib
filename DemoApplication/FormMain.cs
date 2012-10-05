@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 using Yax;
-using YAXLibTests.SampleClasses;
+
 using System.Linq;
-using YAXLibTests;
+
+using Yax.Tests;
+using Yax.Tests.SampleClasses;
 
 namespace DemoApplication
 {

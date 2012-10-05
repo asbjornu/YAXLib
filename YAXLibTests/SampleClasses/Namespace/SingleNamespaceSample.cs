@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Yax;
-
-namespace YAXLibTests.SampleClasses.Namespace
+﻿namespace Yax.Tests.SampleClasses.Namespace
 {
     [YAXComment("This example shows usage of a custom default namespace")]
     [YAXNamespace("http://namespaces.org/default")]

@@ -4,10 +4,12 @@ using System.Xml.Linq;
 using NUnit.Framework;
 
 using Yax;
-using System;
-using YAXLibTests.SampleClasses;
 
-namespace YAXLibTests
+using System;
+
+using Yax.Tests.SampleClasses;
+
+namespace Yax.Tests
 {
     [TestFixture]
     public class KnownTypeTests
@@ -19,7 +21,7 @@ namespace YAXLibTests
             var t1 = colorKnownType.Type;
             IKnownType kt = new ColorKnownType();
 
-            Assert.That(kt.Type, Is.EqualTo(t1));
+            Assert.That((object)kt.Type, Is.EqualTo(t1));
         }
 
         [Test]
@@ -29,7 +31,7 @@ namespace YAXLibTests
 
             var elem = new XElement("TheColor", "Red");
             var desCl = colorKnownType.Deserialize(elem, "");
-            Assert.That(desCl.ToArgb(), Is.EqualTo(Color.Red.ToArgb()));
+            Assert.That((object)desCl.ToArgb(), Is.EqualTo(Color.Red.ToArgb()));
 
             var serElem = new XElement("TheColor");
             colorKnownType.Serialize(Color.Red, serElem, "");
@@ -41,7 +43,7 @@ namespace YAXLibTests
                 new XElement("G", 0),
                 new XElement("B", 0));
             var desCl2 = colorKnownType.Deserialize(elemRgbForRed, "");
-            Assert.That(desCl2.ToArgb(), Is.EqualTo(Color.Red.ToArgb()));
+            Assert.That((object)desCl2.ToArgb(), Is.EqualTo(Color.Red.ToArgb()));
 
             var elemRgbAndValueForRed = new XElement("TheColor",
                 "Blue",
@@ -49,7 +51,7 @@ namespace YAXLibTests
                 new XElement("G", 0),
                 new XElement("B", 0));
             var desCl3 = colorKnownType.Deserialize(elemRgbAndValueForRed, "");
-            Assert.That(desCl3.ToArgb(), Is.EqualTo(Color.Red.ToArgb()));
+            Assert.That((object)desCl3.ToArgb(), Is.EqualTo(Color.Red.ToArgb()));
         }
 
         [Test]
@@ -59,7 +61,7 @@ namespace YAXLibTests
             var serializer = new YAXSerializer(typeToTest);
             var typeWrapper = new UdtWrapper(typeToTest, serializer);
 
-            Assert.That(typeWrapper.IsKnownType, Is.True);
+            Assert.That((object)typeWrapper.IsKnownType, Is.True);
         }
 
         [Test]

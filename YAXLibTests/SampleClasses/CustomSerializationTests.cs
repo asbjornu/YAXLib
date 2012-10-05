@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using Yax;
 using System.Xml.Linq;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     [YAXCustomSerializer(typeof(CustomMessageSerializer))]
     public class Message

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Yax;
+﻿using System.Collections.Generic;
 
 // test class created to discuss:
 // http://yaxlib.codeplex.com/discussions/287166
 // reported by CodePlex User: GraywizardX
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
@@ -27,8 +23,8 @@ namespace YAXLibTests.SampleClasses
 
         public DictionaryKeyValueAsInterface()
         {
-            Attributes1 = new Dictionary<string, IParameter>();
-            Attributes2 = new Dictionary<IParameter, string>();
+            this.Attributes1 = new Dictionary<string, IParameter>();
+            this.Attributes2 = new Dictionary<IParameter, string>();
         }
 
         public override string ToString()

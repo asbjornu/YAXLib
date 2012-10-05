@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using Yax;
-
-namespace YAXLibTests.SampleClasses.Namespace
+﻿namespace Yax.Tests.SampleClasses.Namespace
 {
     public class CellPhone_YAXNamespaceOverridesImplicitNamespace
     {

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("YAXLib")]
+[assembly: AssemblyTitle("Yax")]
 [assembly: AssemblyDescription("Yet Another XML Serialization Library for the .NET Framework")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("YAXLib")]
+[assembly: AssemblyProduct("Yax")]
 [assembly: AssemblyCopyright("Copyright ©  2009-2012 - Sina Iravanian")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -35,7 +35,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("2.10.1")]
 [assembly: AssemblyFileVersion("2.10.1")]
 
-[assembly: InternalsVisibleTo("YAXLibTests, PublicKey=" + 
+[assembly: InternalsVisibleTo("Yax.Tests, PublicKey=" + 
     "0024000004800000940000000602000000240000525341310004000001000100d7f87eefee568e" +
     "19ff867da48567811d16853dbc045adcae7a9682012ad27a39dd24c9959db4e87965a589859f8a" +
     "2cfc33c2d4997bf969dc4baa159ceefe1a85f45368d76918c764df03763848f50370e660da01bb" +

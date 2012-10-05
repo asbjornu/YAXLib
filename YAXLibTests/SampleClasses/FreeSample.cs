@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace YAXLibTests.SampleClasses
+﻿namespace Yax.Tests.SampleClasses
 {
     public class FreeSample
     {

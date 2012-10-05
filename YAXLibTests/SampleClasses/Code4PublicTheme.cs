@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Xml.Linq;
-using Yax;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     //[ShowInDemoApplication]
 
@@ -125,11 +123,11 @@ namespace YAXLibTests.SampleClasses
 
         public BorderInfo(bool top, bool bottom, bool left, bool right, Color color)
         {
-            Top = top;
-            Bottom = bottom;
-            Left = left;
-            Right = right;
-            Color = color;
+            this.Top = top;
+            this.Bottom = bottom;
+            this.Left = left;
+            this.Right = right;
+            this.Color = color;
         }
 
         [YAXAttributeFor(".#top")]
@@ -159,9 +157,9 @@ namespace YAXLibTests.SampleClasses
 
         public FontInfo(Color color, bool bold, bool italic)
         {
-            Bold = bold;
-            Italic = italic;
-            Color = color;
+            this.Bold = bold;
+            this.Italic = italic;
+            this.Color = color;
         }
 
         [YAXAttributeFor(".#bold")]

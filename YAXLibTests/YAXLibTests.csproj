@@ -7,8 +7,8 @@
     <ProjectGuid>{4F012F71-C259-481B-A112-EC24D3AF24AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YAXLibTests</RootNamespace>
-    <AssemblyName>YAXLibTests</AssemblyName>
+    <RootNamespace>Yax.Tests</RootNamespace>
+    <AssemblyName>Yax.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -35,7 +35,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-      <AssemblyOriginatorKeyFile>../Key/YAXLib.DevKey.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>../Key/YAXLib.DevKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=2.6.1.12217, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">

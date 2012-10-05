@@ -1,8 +1,6 @@
-﻿using System;
-using Yax;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     public class PreserveWhitespaceOnClassSample
     {

@@ -13,12 +13,12 @@ using System.Collections.Generic;
 
 using NUnit.Framework;
 
-using Yax;
 using System.Threading;
 using System.Globalization;
-using YAXLibTests.SampleClasses;
 
-namespace YAXLibTests
+using Yax.Tests.SampleClasses;
+
+namespace Yax.Tests
 {
     [TestFixture]
     public class SerializationTest

@@ -10,13 +10,11 @@
 
 using NUnit.Framework;
 
-using Yax;
-
 using System;
 using System.Collections.Generic;
 using System.Collections;
 
-namespace YAXLibTests
+namespace Yax.Tests
 {
     [TestFixture]
     public class ReflectionUtilsTest
@@ -24,41 +22,41 @@ namespace YAXLibTests
         [Test]
         public void IsArrayTest()
         {
-            Assert.That(ReflectionUtils.IsArray(typeof(int[])), Is.True);
-            Assert.That(ReflectionUtils.IsArray(typeof(int[,])), Is.True);
-            Assert.That(ReflectionUtils.IsArray(typeof(Array)), Is.True);
-            Assert.That(ReflectionUtils.IsArray(typeof(List<int>)), Is.False);
-            Assert.That(ReflectionUtils.IsArray(typeof(List<>)), Is.False);
-            Assert.That(ReflectionUtils.IsArray(typeof(Dictionary<,>)), Is.False);
-            Assert.That(ReflectionUtils.IsArray(typeof(Dictionary<int, string>)), Is.False);
-            Assert.That(ReflectionUtils.IsArray(typeof(string)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(int[])), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(int[,])), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(Array)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(List<int>)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(List<>)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(Dictionary<,>)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(Dictionary<int, string>)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsArray(typeof(string)), Is.False);
         }
         
         [Test]
         public void IsCollectionTypeTest()
         {
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(int[])), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(Array)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(List<int>)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(List<>)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(Dictionary<,>)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(Dictionary<int,string>)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(IEnumerable)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(IEnumerable<>)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(IEnumerable<int>)), Is.True);
-            Assert.That(ReflectionUtils.IsCollectionType(typeof(string)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(int[])), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(Array)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(List<int>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(List<>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(Dictionary<,>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(Dictionary<int,string>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(IEnumerable)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(IEnumerable<>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(IEnumerable<int>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsCollectionType(typeof(string)), Is.False);
         }
 
         [Test]
         public void GetCollectionItemTypeTest()
         {
-            Assert.That(ReflectionUtils.GetCollectionItemType(typeof(IEnumerable<int>)) == typeof(int), Is.True);
-            Assert.That(ReflectionUtils.GetCollectionItemType(typeof(double[])) == typeof(double), Is.True);
-            Assert.That(ReflectionUtils.GetCollectionItemType(typeof(float[][])) == typeof(float[]), Is.True);
-            Assert.That(ReflectionUtils.GetCollectionItemType(typeof(string[,])) == typeof(string), Is.True);
-            Assert.That(ReflectionUtils.GetCollectionItemType(typeof(List<char>)) == typeof(char), Is.True);
-            Assert.That(ReflectionUtils.GetCollectionItemType(typeof(Dictionary<int,char>)) == typeof(KeyValuePair<int, char>), Is.True);
-            Assert.That(ReflectionUtils.GetCollectionItemType(typeof(Dictionary<Dictionary<int, double>, char>)) == typeof(KeyValuePair<Dictionary<int, double>, char>), Is.True);
+            Assert.That(Yax.ReflectionUtils.GetCollectionItemType(typeof(IEnumerable<int>)) == typeof(int), Is.True);
+            Assert.That(Yax.ReflectionUtils.GetCollectionItemType(typeof(double[])) == typeof(double), Is.True);
+            Assert.That(Yax.ReflectionUtils.GetCollectionItemType(typeof(float[][])) == typeof(float[]), Is.True);
+            Assert.That(Yax.ReflectionUtils.GetCollectionItemType(typeof(string[,])) == typeof(string), Is.True);
+            Assert.That(Yax.ReflectionUtils.GetCollectionItemType(typeof(List<char>)) == typeof(char), Is.True);
+            Assert.That(Yax.ReflectionUtils.GetCollectionItemType(typeof(Dictionary<int,char>)) == typeof(KeyValuePair<int, char>), Is.True);
+            Assert.That(Yax.ReflectionUtils.GetCollectionItemType(typeof(Dictionary<Dictionary<int, double>, char>)) == typeof(KeyValuePair<Dictionary<int, double>, char>), Is.True);
 
             //Assert.That(ReflectionUtils.GetCollectionItemType(typeof(IEnumerable<>)) == typeof(object), Is.True);
         }
@@ -66,25 +64,25 @@ namespace YAXLibTests
         [Test]
         public void IsTypeEqualOrInheritedFromTypeTest()
         {
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof (int), typeof (object)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(string), typeof(object)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Array), typeof(IEnumerable)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string,int>), typeof(Dictionary<,>)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(ICollection)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary<,>)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary<string, int>)), Is.True);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary<int, string>)), Is.False);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int[]>), typeof(IDictionary<int, Array>)), Is.False);
-            Assert.That(ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(ICollection), typeof(IEnumerable)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof (int), typeof (object)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(string), typeof(object)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Array), typeof(IEnumerable)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string,int>), typeof(Dictionary<,>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(ICollection)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary<,>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary<string, int>)), Is.True);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int>), typeof(IDictionary<int, string>)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(Dictionary<string, int[]>), typeof(IDictionary<int, Array>)), Is.False);
+            Assert.That(Yax.ReflectionUtils.IsTypeEqualOrInheritedFromType(typeof(ICollection), typeof(IEnumerable)), Is.True);
         }
 
         [Test]
         public void GetTypeByNameTest()
         {
-            var type1 = ReflectionUtils.GetTypeByName("System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]");
-            var type2 = ReflectionUtils.GetTypeByName("System.Collections.Generic.List`1[[System.Int32]]");
-            var type3 = ReflectionUtils.GetTypeByName("System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral]]");
+            var type1 = Yax.ReflectionUtils.GetTypeByName("System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]");
+            var type2 = Yax.ReflectionUtils.GetTypeByName("System.Collections.Generic.List`1[[System.Int32]]");
+            var type3 = Yax.ReflectionUtils.GetTypeByName("System.Collections.Generic.List`1[[System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral]]");
             Assert.That(type1, Is.Not.Null);
             Assert.That(type2, Is.Not.Null);
             Assert.That(type3, Is.Not.Null);

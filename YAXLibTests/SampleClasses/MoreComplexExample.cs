@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Yax;
 using System.Collections;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     [ShowInDemoApplication]
 
@@ -26,12 +25,12 @@ namespace YAXLibTests.SampleClasses
         {
             get
             {
-                return m_lst;
+                return this.m_lst;
             }
 
             set
             {
-                m_lst = value.ToList();
+                this.m_lst = value.ToList();
             }
         }
 
@@ -71,7 +70,7 @@ namespace YAXLibTests.SampleClasses
 
         public override string ToString()
         {
-            return String.Format("({0}, {1})", X, Y);
+            return String.Format("({0}, {1})", this.X, this.Y);
         }
     }
 
@@ -85,20 +84,20 @@ namespace YAXLibTests.SampleClasses
 
         public string GetAt(int i)
         {
-            return String.Format("{0}, {1}", Families[i], Names[i]);
+            return String.Format("{0}, {1}", this.Families[i], this.Names[i]);
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(String.Format("Count = {0}", Count));
+            sb.AppendLine(String.Format("Count = {0}", this.Count));
             sb.AppendLine(String.Format("Names: "));
-            foreach (string str in Names)
+            foreach (string str in this.Names)
                 sb.Append(str + "  ");
 
             sb.AppendLine(String.Format("Families: "));
-            foreach (string str in Families)
+            foreach (string str in this.Families)
                 sb.Append(str + "  ");
 
             return sb.ToString();
@@ -139,15 +138,15 @@ namespace YAXLibTests.SampleClasses
         int counter = -1;
         public StudentsEnumerator(Students studentsInstance)
         {
-            m_students = studentsInstance;
-            counter = -1;
+            this.m_students = studentsInstance;
+            this.counter = -1;
         }
 
         #region IEnumerator<string> Members
 
         public string Current
         {
-            get { return m_students.GetAt(counter); }
+            get { return this.m_students.GetAt(this.counter); }
         }
 
         #endregion
@@ -165,20 +164,20 @@ namespace YAXLibTests.SampleClasses
 
         object IEnumerator.Current
         {
-            get { return m_students.GetAt(counter); }
+            get { return this.m_students.GetAt(this.counter); }
         }
 
         public bool MoveNext()
         {
-            counter++;
-            if (counter >= m_students.Count)
+            this.counter++;
+            if (this.counter >= this.m_students.Count)
                 return false;
             return true;
         }
 
         public void Reset()
         {
-            counter = -1;
+            this.counter = -1;
         }
 
         #endregion

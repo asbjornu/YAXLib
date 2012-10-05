@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Linq;
 
-namespace YAXLibTests.SampleClasses
+namespace Yax.Tests.SampleClasses
 {
     public class ClassContainingXElement
     {
@@ -15,7 +12,7 @@ namespace YAXLibTests.SampleClasses
         public override string ToString()
         {
             return String.Format("TheElement: {0}\r\nTheAttribute: {1}\r\n",
-                TheElement, TheAttribute);
+                this.TheElement, this.TheAttribute);
         }
 
         public static ClassContainingXElement GetSampleInstance()

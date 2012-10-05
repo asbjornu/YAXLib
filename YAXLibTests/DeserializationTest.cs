@@ -14,10 +14,9 @@ using System.Threading;
 
 using NUnit.Framework;
 
-using Yax;
-using YAXLibTests.SampleClasses;
+using Yax.Tests.SampleClasses;
 
-namespace YAXLibTests
+namespace Yax.Tests
 {
     [TestFixture]
     public class DeserializationTest
