@@ -687,7 +687,7 @@ namespace Yax
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(MemberType) || CustomSerializerType != null || 
-                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.Serially))
+                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == CollectionSerializationTypes.Serially))
                 {
                     IsSerializedAsAttribute = true;
                     SerializationLocation = ".";
@@ -697,7 +697,7 @@ namespace Yax
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(MemberType) || CustomSerializerType != null ||
-                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.Serially))
+                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == CollectionSerializationTypes.Serially))
                 {
                     IsSerializedAsValue = true;
                     SerializationLocation = ".";
@@ -707,7 +707,7 @@ namespace Yax
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(MemberType) || CustomSerializerType != null ||
-                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.Serially))
+                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == CollectionSerializationTypes.Serially))
                 {
                     IsSerializedAsAttribute = true;
                     string path, alias;
@@ -733,7 +733,7 @@ namespace Yax
             {
                 // it is required that YAXCustomSerializerAttribute is processed earlier
                 if (ReflectionUtils.IsBasicType(this.MemberType) || CustomSerializerType != null ||
-                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.Serially))
+                    (m_collectionAttributeInstance != null && m_collectionAttributeInstance.SerializationType == CollectionSerializationTypes.Serially))
                 {
                     IsSerializedAsValue = true;
 

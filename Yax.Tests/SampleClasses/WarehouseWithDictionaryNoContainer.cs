@@ -18,11 +18,11 @@ namespace Yax.Tests.SampleClasses
         [YAXElementFor("SiteInfo")]
         public double Area { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.Serially, SeparateBy = ", ")]
+        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
         [YAXSerializeAs("StoreableItems")]
         public PossibleItems[] Items { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
         [YAXDictionary(EachPairName = "ItemInfo", KeyName = "Item", ValueName = "Count",
                        SerializeKeyAs = YAXNodeTypes.Attribute,
                        SerializeValueAs = YAXNodeTypes.Attribute)]

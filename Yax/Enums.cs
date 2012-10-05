@@ -71,7 +71,7 @@ namespace Yax
     /// <summary>
     /// Enumerates the possible ways of serializing collection classes
     /// </summary>
-    public enum YAXCollectionSerializationTypes
+    public enum CollectionSerializationTypes
     {
         /// <summary>
         /// Serializes each member of the collection, as a separate element, all enclosed in an element regarding the collection itself

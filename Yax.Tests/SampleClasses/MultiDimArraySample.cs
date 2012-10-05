@@ -12,11 +12,11 @@
         public int[][] JaggedArray { get; set; }
 
         [YAXComment("The containing element should not disappear because of the dims attribute")]
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
         public int[,] IntArrayNoContainingElems { get; set; }
 
         [YAXComment("This element should not be serialized serially because each element is not of basic type")]
-        [YAXCollection(YAXCollectionSerializationTypes.Serially)]
+        [YAXCollection(CollectionSerializationTypes.Serially)]
         public int[][] JaggedNotSerially { get; set; }
 
         public override string ToString()

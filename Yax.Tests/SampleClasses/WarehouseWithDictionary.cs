@@ -18,7 +18,7 @@ namespace Yax.Tests.SampleClasses
         [YAXElementFor("SiteInfo")]
         public double Area { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.Serially, SeparateBy = ", ")]
+        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ", ")]
         [YAXSerializeAs("StoreableItems")]
         public PossibleItems[] Items { get; set; }
 

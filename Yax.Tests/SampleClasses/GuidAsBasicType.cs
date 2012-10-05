@@ -13,7 +13,7 @@ namespace Yax.Tests.SampleClasses
 
         public Guid[] GuidArray { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.Serially)]
+        [YAXCollection(CollectionSerializationTypes.Serially)]
         public Guid[] GuidArraySerially { get; set; }
 
         public List<Guid> GuidsList { get; set; }

@@ -26,10 +26,10 @@ namespace Yax.Tests.SampleClasses
         [YAXAttributeForClass]
         public Seasons OneInstance { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
+        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
         public Seasons[] TheSeasonSerially { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.Recursive)]
+        [YAXCollection(CollectionSerializationTypes.Recursive)]
         public Seasons[] TheSeasonRecursive { get; set; }
 
         public Dictionary<Seasons, int> DicSeasonToInt { get; set; }

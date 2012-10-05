@@ -11,17 +11,17 @@ namespace Yax.Tests.SampleClasses.Namespace
         public string OS { get; set; }
 
         [YAXNamespace("app", "http://namespace.org/apps")]
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
             EachElementName = "{http://namespace.org/appName}AppName")]
         public List<string> IntalledApps { get; set; }
 
         [YAXNamespace("cls", "http://namespace.org/colorCol")]
-        [YAXCollection(YAXCollectionSerializationTypes.Recursive,
+        [YAXCollection(CollectionSerializationTypes.Recursive,
             EachElementName = "{http://namespace.org/color}TheColor")]
         public List<Color> AvailableColors { get; set; }
 
         [YAXNamespace("mdls", "http://namespace.org/modelCol")]
-        [YAXCollection(YAXCollectionSerializationTypes.Serially,
+        [YAXCollection(CollectionSerializationTypes.Serially,
             EachElementName = "{http://namespace.org/color}TheModel", // should be ignored
             IsWhiteSpaceSeparator=false, SeparateBy=",")]
         public List<String> AvailableModels { get; set; }

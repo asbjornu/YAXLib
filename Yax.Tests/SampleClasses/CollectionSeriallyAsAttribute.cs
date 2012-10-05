@@ -5,15 +5,15 @@
     public class CollectionSeriallyAsAttribute
     {
         [YAXAttributeFor("Info#names")]
-        [YAXCollection(YAXCollectionSerializationTypes.Serially, SeparateBy=",", IsWhiteSpaceSeparator = false)]
+        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy=",", IsWhiteSpaceSeparator = false)]
         public string[] Names { get; set; }
 
         [YAXValueFor("TheCities")]
-        [YAXCollection(YAXCollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
+        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
         public string[] Cities { get; set; }
 
         [YAXElementFor("Location")]
-        [YAXCollection(YAXCollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
+        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy = ",", IsWhiteSpaceSeparator = false)]
         public string[] Countries { get; set; }
 
         public static CollectionSeriallyAsAttribute GetSampleInstance()

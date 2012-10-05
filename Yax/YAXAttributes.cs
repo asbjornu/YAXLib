@@ -377,7 +377,7 @@ namespace Yax
         /// Initializes a new instance of the <see cref="YAXCollectionAttribute"/> class.
         /// </summary>
         /// <param name="serType">type of the serialization of the collection.</param>
-        public YAXCollectionAttribute(YAXCollectionSerializationTypes serType)
+        public YAXCollectionAttribute(CollectionSerializationTypes serType)
         {
             this.SerializationType = serType;
             this.SeparateBy = " ";
@@ -393,7 +393,7 @@ namespace Yax
         /// Gets or sets the type of the serialization of the collection.
         /// </summary>
         /// <value>The type of the serialization of the collection.</value>
-        public YAXCollectionSerializationTypes SerializationType { get; set; }
+        public CollectionSerializationTypes SerializationType { get; set; }
 
         /// <summary>
         /// Gets or sets the string to separate collection items, if the Serialization type is set to <c>Serially</c>.

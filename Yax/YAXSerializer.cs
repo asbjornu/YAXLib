@@ -631,7 +631,7 @@ namespace Yax
 
                     bool hasCustomSerializer = member.HasCustomSerializer || member.MemberTypeWrapper.HasCustomSerializer;
                     bool isCollectionSerially = member.CollectionAttributeInstance != null &&
-                                                member.CollectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.Serially;
+                                                member.CollectionAttributeInstance.SerializationType == CollectionSerializationTypes.Serially;
                     bool isKnownType = member.IsKnownType;
 
                     var serializationLocation = member.SerializationLocation;
@@ -961,7 +961,7 @@ namespace Yax
             {
                 elemToAdd = MakeDictionaryElement(insertionLocation, member.Alias.OverrideNsIfEmpty(TypeNamespace), elementValue, member.DictionaryAttributeInstance, member.CollectionAttributeInstance);
                 if (member.CollectionAttributeInstance != null &&
-                    member.CollectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.RecursiveWithNoContainingElement &&
+                    member.CollectionAttributeInstance.SerializationType == CollectionSerializationTypes.RecursiveWithNoContainingElement &&
                     !elemToAdd.HasAttributes)
                     moveDescOnly = true;
             }
@@ -970,7 +970,7 @@ namespace Yax
                 elemToAdd = MakeCollectionElement(insertionLocation, member.Alias.OverrideNsIfEmpty(TypeNamespace), elementValue, member.CollectionAttributeInstance, member.Format);
 
                 if (member.CollectionAttributeInstance != null &&
-                    member.CollectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.RecursiveWithNoContainingElement &&
+                    member.CollectionAttributeInstance.SerializationType == CollectionSerializationTypes.RecursiveWithNoContainingElement &&
                     !elemToAdd.HasAttributes)
                     moveDescOnly = true;
             }
@@ -1220,7 +1220,7 @@ namespace Yax
             }
 
             var collectionInst = elementValue as IEnumerable;
-            YAXCollectionSerializationTypes serType = YAXCollectionSerializationTypes.Recursive;
+            CollectionSerializationTypes serType = CollectionSerializationTypes.Recursive;
             string seperator = string.Empty;
             XName eachElementName = null;
 
@@ -1239,13 +1239,13 @@ namespace Yax
 
             Type colItemType = ReflectionUtils.GetCollectionItemType(elementValue.GetType());
 
-            if (serType == YAXCollectionSerializationTypes.Serially && !ReflectionUtils.IsBasicType(colItemType))
-                serType = YAXCollectionSerializationTypes.Recursive;
+            if (serType == CollectionSerializationTypes.Serially && !ReflectionUtils.IsBasicType(colItemType))
+                serType = CollectionSerializationTypes.Recursive;
 
             UdtWrapper colItemsUdt = TypeWrappersPool.Pool.GetTypeWrapper(colItemType, this);
 
             XElement elemToAdd = null; // will hold the resulting element
-            if (serType == YAXCollectionSerializationTypes.Serially)
+            if (serType == CollectionSerializationTypes.Serially)
             {
                 var sb = new StringBuilder();
 
@@ -1506,7 +1506,7 @@ namespace Yax
                     if (elem == null) // such element is not found
                     {
                         if ((member.IsTreatedAsCollection || member.IsTreatedAsDictionary) && member.CollectionAttributeInstance != null &&
-                            member.CollectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.RecursiveWithNoContainingElement)
+                            member.CollectionAttributeInstance.SerializationType == CollectionSerializationTypes.RecursiveWithNoContainingElement)
                         {
                             if (AtLeastOneOfCollectionMembersExists(baseElement, member))
                             {
@@ -1658,7 +1658,7 @@ namespace Yax
         private bool AtLeastOneOfCollectionMembersExists(XElement elem, MemberWrapper member)
         {
             if (!((member.IsTreatedAsCollection || member.IsTreatedAsDictionary) && member.CollectionAttributeInstance != null &&
-                member.CollectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.RecursiveWithNoContainingElement))
+                member.CollectionAttributeInstance.SerializationType == CollectionSerializationTypes.RecursiveWithNoContainingElement))
                 throw new ArgumentException("member should be a collection serialized without containing element");
 
             XName eachElementName = null;
@@ -1902,7 +1902,7 @@ namespace Yax
             var lst = new List<object>(); // this will hold the actual data items
             Type itemType = ReflectionUtils.GetCollectionItemType(colType);
 
-            if (ReflectionUtils.IsBasicType(itemType) && colAttrInstance != null && colAttrInstance.SerializationType == YAXCollectionSerializationTypes.Serially)
+            if (ReflectionUtils.IsBasicType(itemType) && colAttrInstance != null && colAttrInstance.SerializationType == CollectionSerializationTypes.Serially)
             {
                 // What if the collection was serialized serially
                 char[] seps = colAttrInstance.SeparateBy.ToCharArray();
@@ -2184,7 +2184,7 @@ namespace Yax
         {
             object colObject;
 
-            if (member.CollectionAttributeInstance != null && member.CollectionAttributeInstance.SerializationType == YAXCollectionSerializationTypes.Serially &&
+            if (member.CollectionAttributeInstance != null && member.CollectionAttributeInstance.SerializationType == CollectionSerializationTypes.Serially &&
                 (member.IsSerializedAsAttribute || member.IsSerializedAsValue))
             {
                 colObject = DeserializeCollectionValue(colType, new XElement("temp", elemValue), "temp", member.CollectionAttributeInstance);

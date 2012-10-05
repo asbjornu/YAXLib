@@ -37,15 +37,15 @@ namespace Yax.Tests.SampleClasses
         [YAXAttributeForClass]
         public string DefaultTargets { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
             EachElementName = "PropertyGroup")]
         public List<PropertyGroup> PropertyGroups { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
            EachElementName = "ItemGroup")]
         public List<ItemGroup> ItemGroups { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement,
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement,
            EachElementName = "Import")]
         public List<ImportItem> ImportItems { get; set; }
     }
@@ -89,7 +89,7 @@ namespace Yax.Tests.SampleClasses
 
     public class ItemGroup
     {
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement, 
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement, 
             EachElementName = "Reference")]
         public List<ReferenceItem> ReferenceItems { get; set; }
     }

@@ -12,7 +12,7 @@ namespace Yax.Tests.SampleClasses
         [YAXAttributeForClass]
         public int? SomeNumber { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.Serially)]
+        [YAXCollection(CollectionSerializationTypes.Serially)]
         public List<int?> ListOfSamples { get; set; }
 
         [YAXDictionary(SerializeKeyAs = YAXNodeTypes.Attribute, SerializeValueAs= YAXNodeTypes.Attribute)]

@@ -9,7 +9,7 @@ namespace Yax.Tests.SampleClasses.Namespace
         public string OS { get; set; }
 
         [YAXNamespace("app", "http://namespace.org/apps")]
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
         public List<string> IntalledApps { get; set; }
 
         public override string ToString()

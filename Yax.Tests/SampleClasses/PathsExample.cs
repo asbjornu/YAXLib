@@ -9,7 +9,7 @@ namespace Yax.Tests.SampleClasses
       collection classes serially")]
     public class PathsExample
     {
-        [YAXCollection(YAXCollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
+        [YAXCollection(CollectionSerializationTypes.Serially, SeparateBy=";", IsWhiteSpaceSeparator=false)]
         public List<string> Paths { get; set; }
 
         public override string ToString()

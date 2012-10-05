@@ -23,7 +23,7 @@ namespace Yax.Tests.SampleClasses
 
         public string Author { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement)]
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement)]
         public List<SomeCollectionItem> TheCollection { get; set; }
 
         public override string ToString()

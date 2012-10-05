@@ -24,7 +24,7 @@
         public int PublishYear { get; set; }
         public double Price { get; set; }
 
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="Editor")]
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="Editor")]
         public string[] Editors { get; set; }
 
         public override string ToString()

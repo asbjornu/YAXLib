@@ -6,7 +6,7 @@ namespace Yax.Tests.SampleClasses
     [YAXSerializeAs("issues")]
     public class IssuesSample
     {
-        [YAXCollection(YAXCollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="issue")]
+        [YAXCollection(CollectionSerializationTypes.RecursiveWithNoContainingElement, EachElementName="issue")]
         public List<Issue> Issues { get; set; }
 
         [YAXSerializeAs("type")]
@@ -93,7 +93,7 @@ namespace Yax.Tests.SampleClasses
 
         // and so on
 
-        [YAXCollection(YAXCollectionSerializationTypes.Recursive, EachElementName="custom_field")]
+        [YAXCollection(CollectionSerializationTypes.Recursive, EachElementName="custom_field")]
         [YAXSerializeAs("custom_fields")]
         public List<CustomField> CustomFields { get; set; }
 
